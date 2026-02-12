@@ -1,0 +1,42 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Colecciones from './pages/Colecciones';
+import Contacto from './pages/Contacto';
+import AdminDashboard from './pages/AdminDashboard';
+import LentesDeSol from './pages/LentesDeSol';
+import LentesDeCristal from './pages/LentesDeCristal';
+import Carteras from './pages/Carteras';
+import RopaDeportiva from './pages/RopaDeportiva';
+import SeedDatabase from './components/SeedDatabase';
+import ScrollToTop from './components/ScrollToTop';
+import WhatsAppButton from './components/WhatsAppButton';
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen bg-premium-cream text-premium-dark selection:bg-premium-gold selection:text-white">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/colecciones" element={<Colecciones />} />
+            <Route path="/lentes-sol" element={<LentesDeSol />} />
+            <Route path="/lentes-cristal" element={<LentesDeCristal />} />
+            <Route path="/carteras" element={<Carteras />} />
+            <Route path="/ropa-deportiva" element={<RopaDeportiva />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/seed" element={<SeedDatabase />} />
+          </Routes>
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

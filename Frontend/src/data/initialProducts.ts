@@ -1,0 +1,77 @@
+export const initialProducts = {
+    carteras: {
+        premium: [
+            { id: 1, title: "Bolso Tote de Cuero Italiano", price: "$450", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=800", description: "Elegancia atemporal confeccionada a mano.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 2, title: "Clutch de Noche Gold", price: "$320", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&q=80&w=800", description: "El complemento perfecto para eventos exclusivos.", stockStatus: 'low_stock', stockQuantity: 3 },
+            { id: 7, title: "Maletín Ejecutivo Noir", price: "$550", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800", description: "Diseñado para el profesional moderno con acabados de lujo.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 8, title: "Crossbody Matelassé", price: "$390", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=800", description: "Textura acolchada icónica con cadena dorada.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 9, title: "Bolsa de Viaje Heritage", price: "$680", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800", description: "Capacidad y estilo para tus escapadas de fin de semana.", stockStatus: 'out_of_stock', stockQuantity: 0 },
+            { id: 10, title: "Mini Bag Estructurada", price: "$290", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800", description: "Pequeña en tamaño, grande en sofisticación.", stockStatus: 'in_stock', stockQuantity: 10 },
+        ],
+        plus: [
+            { id: 3, title: "Bolso Satchel Estructurado", price: "$380", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=800", description: "Diseño minimalista para la mujer moderna.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 4, title: "Mochila Urbana Chic", price: "$180", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800", description: "Estilo y funcionalidad para el día a día.", stockStatus: 'in_stock', stockQuantity: 10 },
+        ],
+        standard: [
+            { id: 5, title: "Bolso Crossbody Texturizado", price: "$150", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=800", description: "Versatilidad en cada detalle.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 6, title: "Cartera de Hombro Soft", price: "$165", image: "https://images.unsplash.com/photo-1601924994987-69e2c70cb322?auto=format&fit=crop&q=80&w=800", description: "Suavidad y confort en un diseño único.", stockStatus: 'in_stock', stockQuantity: 10 }
+        ]
+    },
+    lentesSol: {
+        premium: [
+            { id: 101, title: "Aviador Gold Elite", price: "$280", image: "https://images.unsplash.com/photo-1572635196184-84e35138cf62?auto=format&fit=crop&q=80&w=800", description: "Iconos de estilo con baño de oro y lentes polarizados.", stockStatus: 'low_stock', stockQuantity: 3 },
+            { id: 102, title: "Midnight Cat-Eye", price: "$240", image: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=800", description: "Diseño audaz y misterioso para una presencia inolvidable.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 105, title: "Royal Square Velvet", price: "$310", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "Montura cuadrada oversized para un look de realeza moderna.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 106, title: "Golden Hour Pilot", price: "$290", image: "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&q=80&w=800", description: "El clásico piloto reimaginado con acabados en oro rosa.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 107, title: "Shadow Geometric", price: "$275", image: "https://images.unsplash.com/photo-1548866164-323a65492419?auto=format&fit=crop&q=80&w=800", description: "Líneas geométricas definidas para una arquitectura facial perfecta.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 108, title: "Vintage Tortoise", price: "$250", image: "https://images.unsplash.com/photo-1604786358483-1e649fcde75b?auto=format&fit=crop&q=80&w=800", description: "Acetato italiano con patrón carey para un estilo retro chic.", stockStatus: 'in_stock', stockQuantity: 10 },
+        ],
+        plus: [
+            { id: 103, title: "Hexagonal Lux", price: "$260", image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop&q=80&w=800", description: "Geometría moderna con acabados de lujo.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 104, title: "Wayfarer Modern", price: "$190", image: "https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&q=80&w=800", description: "Un clásico reinventado para hoy.", stockStatus: 'in_stock', stockQuantity: 10 },
+        ],
+        standard: [
+            { id: 201, title: "Velocity X", price: "$180", image: "https://images.unsplash.com/photo-1622445272461-901b0b57e45b?auto=format&fit=crop&q=80&w=800", description: "Aerodinámicos y ligeros.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 202, title: "Urban Shade", price: "$65", image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=800", description: "Protección UV total con estilo urbano.", stockStatus: 'in_stock', stockQuantity: 10 },
+        ]
+    },
+    lentesCristal: {
+        premium: [
+            { id: 301, title: "Titanium Frame Pro", price: "$340", image: "https://images.unsplash.com/photo-1570222094114-28a9d88a2b64?auto=format&fit=crop&q=80&w=800", description: "Ultraligeros y extremadamente resistentes.", stockStatus: 'in_stock' },
+            { id: 304, title: "Invisible Rimless", price: "$310", image: "https://images.unsplash.com/photo-1621248032483-2077e6fa0f12?auto=format&fit=crop&q=80&w=800", description: "Tecnología sin montura para una visión sin límites.", stockStatus: 'in_stock' },
+            { id: 305, title: "Oxford Academic", price: "$295", image: "https://images.unsplash.com/photo-1582142407894-ec85f1260a46?auto=format&fit=crop&q=80&w=800", description: "Estilo intelectual con frontal de acetato y patillas de metal.", stockStatus: 'low_stock' },
+            { id: 306, title: "Blue Light Shield", price: "$260", image: "https://images.unsplash.com/photo-1560867499-257a02c34d40?auto=format&fit=crop&q=80&w=800", description: "Protección premium contra luz azul para el profesional digital.", stockStatus: 'in_stock' },
+            { id: 307, title: "Architect Bold", price: "$330", image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&q=80&w=800", description: "Montura gruesa de diseño para una declaración de estilo fuerte.", stockStatus: 'in_stock' },
+            { id: 308, title: "Rose Gold Round", price: "$285", image: "https://images.unsplash.com/photo-1582142327595-62d184eb430c?auto=format&fit=crop&q=80&w=800", description: "Delicadeza y feminidad en metal rosa dorado.", stockStatus: 'in_stock' },
+        ],
+        plus: [
+            { id: 302, title: "Round Metal Clear", price: "$155", image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=800", description: "Intelectual y sofisticado.", stockStatus: 'in_stock' },
+            { id: 303, title: "Clubmaster Vision", price: "$160", image: "https://images.unsplash.com/photo-1533725796841-f5bc7308728d?auto=format&fit=crop&q=80&w=800", description: "Estilo retro-intelectual.", stockStatus: 'in_stock' },
+        ],
+        standard: [
+            { id: 401, title: "Crystal Clear", price: "$130", image: "https://images.unsplash.com/photo-1483412909000-050affddbd23?auto=format&fit=crop&q=80&w=800", description: "Transparencia total, look minimalista.", stockStatus: 'in_stock' },
+            { id: 402, title: "Daily Reader", price: "$90", image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=800", description: "Comodidad para lectura diaria.", stockStatus: 'in_stock' },
+        ]
+    },
+    ropaDeportiva: {
+        hombre: [
+            { id: 501, title: "Tech Runner Jacket", price: "$120", image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&q=80&w=800", description: "Tejido transpirable y resistente al agua.", stockStatus: 'in_stock' },
+            { id: 502, title: "Pro Compression Tight", price: "$85", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&q=80&w=800", description: "Soporte muscular avanzado.", stockStatus: 'in_stock' },
+            { id: 503, title: "Elite Training Tee", price: "$55", image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&q=80&w=800", description: "Tecnología de absorción de sudor.", stockStatus: 'in_stock' },
+            { id: 504, title: "Marathon Shorts", price: "$60", image: "https://images.unsplash.com/photo-1518617638479-725840dc188c?auto=format&fit=crop&q=80&w=800", description: "Libertad de movimiento para largas distancias.", stockStatus: 'in_stock' },
+            { id: 505, title: "Thermal Hoodie", price: "$110", image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&q=80&w=800", description: "Calidez ligera para entrenamientos invernales.", stockStatus: 'low_stock' },
+            { id: 506, title: "Impact Vest", price: "$95", image: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?auto=format&fit=crop&q=80&w=800", description: "Protección corporal para deportes de alto impacto.", stockStatus: 'in_stock' },
+        ],
+        mujer: [
+            { id: 601, title: "Yoga Flex Top", price: "$65", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800", description: "Libertad de movimiento total.", stockStatus: 'in_stock' },
+            { id: 602, title: "Aero Leggings", price: "$90", image: "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?auto=format&fit=crop&q=80&w=800", description: "Cintura alta y tejido de secado rápido.", stockStatus: 'in_stock' },
+            { id: 603, title: "Impact Sports Bra", price: "$55", image: "https://images.unsplash.com/photo-1574680096141-fac95585f672?auto=format&fit=crop&q=80&w=800", description: "Soporte máximo para entrenamientos intensos.", stockStatus: 'in_stock' },
+            { id: 604, title: "Seamless Crop Top", price: "$45", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800", description: "Comodidad sin costuras para todo el día.", stockStatus: 'in_stock' },
+            { id: 605, title: "Runner Windbreaker", price: "$130", image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&q=80&w=800", description: "Protección contra el viento con estilo.", stockStatus: 'low_stock' },
+            { id: 606, title: "Pilates Studio Set", price: "$140", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800", description: "Conjunto coordinado para cuerpo y mente.", stockStatus: 'in_stock' },
+        ],
+        accesorios: [
+            { id: 701, title: "Sport Cap Elite", price: "$35", image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&q=80&w=800", description: "Protección solar y ventilación.", stockStatus: 'in_stock' }
+        ]
+    }
+} as const;
