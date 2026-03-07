@@ -10,21 +10,15 @@ import { getProducts, Product, ProductData } from '../data/products';
 const categories = [
     {
         id: 'carteras',
-        label: 'Carteras de Lujo',
+        label: 'Carteras y Billeteras',
         image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
         description: "Descubre nuestra colección exclusiva de bolsos y carteras."
     },
     {
         id: 'lentesSol',
-        label: 'Lentes de Sol',
+        label: 'Lentes',
         image: "https://images.unsplash.com/photo-1572635196184-84e35138cf62?q=80&w=800&auto=format&fit=crop",
         description: "Protección y estilo para tus días más soleados."
-    },
-    {
-        id: 'lentesCristal',
-        label: 'Lentes de Cristal',
-        image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=800&auto=format&fit=crop",
-        description: "Claridad visual con monturas de diseño premium."
     },
     {
         id: 'ropaDeportiva',
@@ -47,10 +41,11 @@ import AuthModal from './AuthModal';
 
 // ... (existing imports, but removed repeating imports if any)
 
+// ... (imports)
+
 const Catalog = () => {
-    const location = useLocation();
-    const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [productsData, setProductsData] = useState<ProductData | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
@@ -216,7 +211,7 @@ const Catalog = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5 }}
-                            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                            className="grid grid-cols-1 md:grid-cols-3 gap-6"
                         >
                             {categories.map((cat, index) => (
                                 <motion.div
@@ -226,25 +221,28 @@ const Catalog = () => {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.15, duration: 0.8, ease: "easeOut" }}
                                     onClick={() => handleCategoryClick(cat.id)}
-                                    className="group relative h-[500px] overflow-hidden cursor-pointer shadow-2xl bg-black"
+                                    className="group relative h-[380px] overflow-hidden cursor-pointer shadow-xl bg-neutral-900 rounded-xl border border-white/5 hover:border-premium-gold/30 transition-all duration-500"
                                 >
                                     <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 opacity-70 group-hover:opacity-100"
                                         style={{ backgroundImage: `url(${cat.image})` }}
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
-                                    <div className="absolute inset-4 border border-white/0 group-hover:border-white/30 transition-colors duration-700 scale-95 group-hover:scale-100 ease-out" />
-                                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                                        <span className="text-premium-gold text-xs tracking-[0.3em] uppercase mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                            COLECCIÓN EXCLUSIVA
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
+
+                                    {/* Glass border effect */}
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-premium-gold/10 to-transparent pointer-events-none" />
+
+                                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700">
+                                        <span className="text-premium-gold text-[10px] tracking-[0.4em] uppercase mb-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                                            EXPLORAR
                                         </span>
-                                        <h3 className="font-serif text-5xl text-white mb-4 drop-shadow-2xl tracking-tighter">
+                                        <h3 className="font-serif text-3xl text-white mb-2 drop-shadow-2xl tracking-tight">
                                             {cat.label}
                                         </h3>
-                                        <p className="text-gray-200 text-sm max-w-xs font-light leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0 px-4">
+                                        <p className="text-gray-300 text-[11px] max-w-[200px] font-light leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 px-4">
                                             {cat.description}
                                         </p>
-                                        <div className="mt-8 h-[1px] w-12 bg-premium-gold/0 group-hover:bg-premium-gold transition-colors duration-500 delay-300" />
+                                        <div className="mt-6 h-[1px] w-8 bg-premium-gold/0 group-hover:bg-premium-gold transition-colors duration-500 delay-300" />
                                     </div>
                                 </motion.div>
                             ))}
@@ -309,7 +307,7 @@ const Catalog = () => {
                                             <div className="w-24 h-1 bg-premium-gold mx-auto" />
                                         </motion.div>
 
-                                        <div className="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-auto">
+                                        <div className="grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-auto">
                                             {(items as Product[]).map((item) => (
                                                 <ProductCard
                                                     key={item.id}

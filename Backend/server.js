@@ -21,9 +21,7 @@ mongoose.connect(MONGO_URI)
     .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
 // Routes
-app.get('/', (req, res) => {
-    res.send('API is running...');
-});
+
 
 // POST endpoint to register a user (Lead Capture)
 app.post('/api/register', async (req, res) => {
@@ -78,6 +76,20 @@ app.post('/api/contact', async (req, res) => {
         console.error('Error saving contact:', error);
         res.status(500).json({ success: false, message: 'Server error, please try again later.' });
     }
+});
+
+const path = require('path');
+
+app.get('/api/health', (req, res) => {
+    res.send('API is running...');
+});
+
+// Serve Frontend Static Files
+app.use(express.static(path.join(__dirname, '../Frontend/dist')));
+
+// Fallback to React app for all other routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/dist/index.html'));
 });
 
 app.listen(PORT, () => {

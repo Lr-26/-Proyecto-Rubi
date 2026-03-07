@@ -29,66 +29,62 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, descript
     return (
         <motion.div
             layout
-            // ... (existing props)
             onClick={onClick}
-            className={`group relative overflow-hidden cursor-pointer ${isPremium ? 'rounded-none' : 'rounded-xl shadow-lg'} h-full flex flex-col ${stockStatus === 'out_of_stock' ? 'opacity-75 grayscale-[0.5]' : ''}`}
+            className={`group relative overflow-hidden cursor-pointer ${isPremium ? 'rounded-lg border border-white/5 bg-neutral-900/50 backdrop-blur-sm' : 'rounded-2xl shadow-premium bg-white'} h-full flex flex-col transition-all duration-500 hover:-translate-y-1`}
         >
-            <div className={`relative overflow-hidden ${isPremium ? 'aspect-[4/5]' : 'h-96'} bg-gray-200`}>
+            <div className={`relative overflow-hidden ${isPremium ? 'aspect-square' : 'h-64'} bg-neutral-100`}>
                 <img
                     src={image}
                     alt={title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out"
+                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-1000 ease-out"
                 />
 
                 {/* Stock Badge */}
                 {stockStatus !== 'in_stock' && (
                     <div className="absolute top-4 right-4 z-10">
-                        {stockStatus === 'out_of_stock' && (
-                            <span className="bg-black/80 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest backdrop-blur-sm">
-                                Agotado
-                            </span>
-                        )}
-                        {stockStatus === 'low_stock' && (
-                            <span className="bg-premium-gold/90 text-black text-[10px] font-bold px-3 py-1 uppercase tracking-widest backdrop-blur-sm">
-                                ⚠️ Stock Limitado
-                            </span>
-                        )}
+                        <span className={`text-[10px] font-bold px-3 py-1.5 uppercase tracking-widest backdrop-blur-md rounded-full ${stockStatus === 'out_of_stock' ? 'bg-black/80 text-white' : 'bg-premium-gold/90 text-premium-dark'
+                            }`}>
+                            {stockStatus === 'out_of_stock' ? 'Agotado' : '⚡ Stock Limitado'}
+                        </span>
                     </div>
                 )}
 
-                <div className={`absolute inset-0 transition-colors duration-300 ${isPremium ? 'bg-black/20 group-hover:bg-black/40' : 'bg-black/0 group-hover:bg-black/20'}`} />
+                <div className={`absolute inset-0 transition-opacity duration-700 ${isPremium ? 'bg-black/10 group-hover:bg-black/30' : 'bg-black/0 group-hover:bg-black/10'}`} />
 
-                {/* Overlay Button */}
-                <div className="absolute inset-x-0 bottom-8 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                {/* Quick Action Overlay */}
+                <div className="absolute inset-x-0 bottom-0 p-4 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                     <button
                         onClick={handleConsult}
-                        className={`px-6 py-2 font-medium tracking-widest text-xs shadow-xl transition-colors duration-300 ${isPremium
-                            ? 'bg-premium-gold text-black hover:bg-white'
-                            : 'bg-premium-dark text-white hover:bg-premium-gold hover:text-black'
+                        className={`w-full py-2.5 font-medium tracking-[0.15em] text-[9px] uppercase shadow-2xl transition-all duration-300 rounded-full ${isPremium
+                            ? 'bg-white text-black hover:bg-premium-gold'
+                            : 'bg-premium-dark text-white hover:bg-premium-gold'
                             }`}
                     >
-                        CONSULTAR
+                        Consultar
                     </button>
                 </div>
             </div>
 
-            <div className={`p-5 text-center flex-grow flex flex-col justify-between ${isPremium ? 'bg-neutral-900 border-x border-b border-premium-gold/20' : 'bg-white'}`}>
+            <div className={`p-4 text-center flex-grow flex flex-col justify-between ${isPremium ? '' : ''}`}>
                 <div>
-                    <span className={`text-[10px] font-bold uppercase tracking-[0.2em] block mb-2 ${isPremium ? 'text-premium-gold' : 'text-premium-gold'}`}>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] block mb-2 text-premium-gold/80">
                         {category}
                     </span>
-                    <h3 className={`font-serif text-lg mb-2 transition-colors duration-300 line-clamp-1 ${isPremium ? 'text-white group-hover:text-premium-gold' : 'text-premium-dark group-hover:text-premium-gold'}`}>
+                    <h3 className={`font-serif text-lg mb-1 transition-colors duration-300 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
                         {title}
                     </h3>
-                    <p className={`text-xs mb-4 line-clamp-2 font-light leading-relaxed ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <p className={`text-[11px] mb-4 line-clamp-2 font-light leading-snug px-1 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
                         {description}
                     </p>
                 </div>
-                <span className={`text-lg font-serif italic border-b pb-1 inline-block mx-auto ${isPremium ? 'text-premium-gold border-premium-gold/50' : 'text-premium-dark border-premium-gold/50'}`}>
-                    {price}
-                </span>
+                <div className="flex flex-col items-center gap-1.5">
+                    <span className={`text-xl font-serif italic ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
+                        {price}
+                    </span>
+                    <div className={`w-6 h-[0.5px] ${isPremium ? 'bg-premium-gold/20' : 'bg-premium-dark/10'}`} />
+                </div>
             </div>
         </motion.div>
     );

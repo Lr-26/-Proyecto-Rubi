@@ -6,7 +6,6 @@ import Colecciones from './pages/Colecciones';
 import Contacto from './pages/Contacto';
 import AdminDashboard from './pages/AdminDashboard';
 import LentesDeSol from './pages/LentesDeSol';
-import LentesDeCristal from './pages/LentesDeCristal';
 import Carteras from './pages/Carteras';
 import RopaDeportiva from './pages/RopaDeportiva';
 import SeedDatabase from './components/SeedDatabase';
@@ -24,7 +23,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/colecciones" element={<Colecciones />} />
             <Route path="/lentes-sol" element={<LentesDeSol />} />
-            <Route path="/lentes-cristal" element={<LentesDeCristal />} />
             <Route path="/carteras" element={<Carteras />} />
             <Route path="/ropa-deportiva" element={<RopaDeportiva />} />
             <Route path="/contacto" element={<Contacto />} />

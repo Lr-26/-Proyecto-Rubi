@@ -52,97 +52,16 @@ let lastFetchTime = 0;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 export const getProducts = async (forceRefresh = false): Promise<ProductData> => {
-    const now = Date.now();
+    // Para cargar instantáneamente sin retrasos, devolvemos la data local
+    // (A futuro si Firebase está bien configurado, esto se puede revertir)
+    console.log("Loading products instantly from local data");
 
-    // Return cached data if available and fresh
-    if (!forceRefresh && cachedData && (now - lastFetchTime < CACHE_DURATION)) {
-        console.log("Returning cached product data");
-        // Apply overrides to cached data to ensure latest stock status is used
-        return applyLocalOverrides(cachedData) as unknown as ProductData;
-    }
+    // Apply local overrides to the fetched data (stock status etc)
+    const overriddenData = applyLocalOverrides(initialProducts);
 
-    try {
-        console.log("Fetching products from Firestore...");
-        const productsCol = collection(db, 'products');
-        const productSnapshot = await getDocs(productsCol);
-
-        if (productSnapshot.empty) {
-            console.warn("Firestore is empty, seeding database...");
-
-            // Auto-seed logic directly from the client
-            try {
-                const batch = writeBatch(db);
-                const allCategories = Object.entries(initialProducts);
-                let count = 0;
-
-                for (const [mainCategory, subCategories] of allCategories) {
-                    for (const [subCategory, items] of Object.entries(subCategories)) {
-                        // @ts-ignore
-                        items.forEach((item: any) => {
-                            // Use the ID from the item as the document ID
-                            const ref = doc(db, "products", String(item.id));
-                            batch.set(ref, {
-                                ...item,
-                                mainCategory,
-                                subCategory,
-                                priceNumerical: parseInt(item.price.replace('$', '')),
-                                createdAt: new Date()
-                            });
-                            count++;
-                        });
-                    }
-                }
-
-                await batch.commit();
-                console.log(`Successfully seeded ${count} products.`);
-
-                // Fetch again after seeding
-                // const newSnapshot = await getDocs(productsCol);
-                // const productList = newSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as Product));
-
-                // For simplified flow after seeding, just return initial structure
-                cachedData = initialProducts as unknown as ProductData;
-                lastFetchTime = Date.now();
-                return initialProducts as unknown as ProductData;
-
-            } catch (seedError) {
-                console.error("Error auto-seeding:", seedError);
-                return initialProducts as unknown as ProductData;
-            }
-        }
-
-        const productList = productSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as Product));
-
-        // Reconstruct the nested object structure the app expects
-        const structuredData: ProductData = {
-            carteras: { premium: [], plus: [], standard: [] },
-            lentesSol: { premium: [], plus: [], standard: [] },
-            lentesCristal: { premium: [], plus: [], standard: [] },
-            ropaDeportiva: { hombre: [], mujer: [], accesorios: [] }
-        };
-
-        productList.forEach(product => {
-            if (product.mainCategory && product.subCategory) {
-                // Type guard/assertion could be improved here with a proper schema validation
-                // for now we trust the mainCategory/subCategory strings match keys
-                if (structuredData[product.mainCategory] && (structuredData[product.mainCategory] as any)[product.subCategory]) {
-                    (structuredData[product.mainCategory] as any)[product.subCategory].push(product);
-                }
-            }
-        });
-
-        // Store in cache
-        cachedData = structuredData;
-        lastFetchTime = Date.now();
-
-        // Apply local overrides to the fetched data
-        const overriddenData = applyLocalOverrides(structuredData);
-
-        return overriddenData as unknown as ProductData;
-    } catch (error) {
-        console.error("Error connecting to Firestore, falling back to initial data:", error);
-        return applyLocalOverrides(initialProducts) as unknown as ProductData;
-    }
+    // Simular un pequeño retardo de red para la animación, o sacarlo si se quiere instantáneo.
+    // Lo eliminamos para máxima velocidad.
+    return overriddenData as unknown as ProductData;
 };
 
 // Helper to apply local overrides

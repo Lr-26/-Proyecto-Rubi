@@ -19,9 +19,8 @@ const Footer = () => {
                     <div className="flex flex-col items-center">
                         <h4 className="font-serif text-lg mb-4">Enlaces</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
-                            <li><Link to="/carteras" className="hover:text-premium-ruby transition-colors">Carteras</Link></li>
-                            <li><Link to="/lentes-sol" className="hover:text-premium-ruby transition-colors">Lentes de Sol</Link></li>
-                            <li><Link to="/lentes-cristal" className="hover:text-premium-ruby transition-colors">Lentes de Cristal</Link></li>
+                            <li><Link to="/carteras" className="hover:text-premium-ruby transition-colors">Carteras y Billeteras</Link></li>
+                            <li><Link to="/lentes-sol" className="hover:text-premium-ruby transition-colors">Lentes</Link></li>
                             <li><Link to="/contacto" className="hover:text-premium-ruby transition-colors">Contacto</Link></li>
                         </ul>
                     </div>

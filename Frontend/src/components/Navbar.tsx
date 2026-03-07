@@ -11,8 +11,9 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <Link to="/" className="flex-shrink-0 font-serif text-2xl tracking-widest text-premium-ruby hover:text-premium-gold transition-colors flex items-center gap-2">
-                        RUBI <span className="text-premium-gold text-sm tracking-normal">DETAILS</span>
+                    <Link to="/" className="flex-shrink-0 font-serif text-2xl tracking-[0.2em] text-white hover:text-premium-gold transition-all duration-500 group flex items-center gap-3">
+                        <span className="text-premium-ruby group-hover:text-premium-gold transition-colors">RUBI</span>
+                        <span className="text-gray-400 text-[10px] tracking-[0.4em] font-sans font-light group-hover:text-white transition-colors">DETAILS</span>
                     </Link>
 
                     {/* Desktop Menu */}

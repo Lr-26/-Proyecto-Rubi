@@ -48,10 +48,7 @@ const Hero = () => {
             />
 
             {/* Cinematic Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/70" />
-
-            {/* Grain Texture Overlay (Optional subtle texture) */}
-            <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80" />
 
             {/* Content */}
             <motion.div
@@ -63,21 +60,24 @@ const Hero = () => {
             >
                 <motion.span
                     variants={titleVariants}
-                    className="text-premium-gold font-medium tracking-[0.3em] uppercase text-sm md:text-base mb-6 border-b border-premium-gold/50 pb-2"
+                    className="text-premium-gold font-medium tracking-[0.4em] uppercase text-xs md:text-sm mb-6 pb-2 border-b border-premium-gold/30"
                 >
                     Estilo Atemporal & Lujo Moderno
                 </motion.span>
 
-                <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl text-white mb-8 tracking-tight drop-shadow-2xl">
+                <h1 className="font-serif text-6xl md:text-8xl lg:text-[10rem] text-white mb-8 tracking-tighter leading-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <motion.span className="block" variants={titleVariants}>RUBI</motion.span>
-                    <motion.span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 italic font-light" variants={titleVariants}>
+                    <motion.span
+                        className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/40 italic font-light text-glow"
+                        variants={titleVariants}
+                    >
                         DETAILS
                     </motion.span>
                 </h1>
 
                 <motion.p
                     variants={titleVariants}
-                    className="max-w-2xl mx-auto text-gray-200 text-lg md:text-xl font-light mb-12 leading-relaxed tracking-wide mix-blend-screen"
+                    className="max-w-2xl mx-auto text-white/70 text-base md:text-lg font-light mb-14 leading-relaxed tracking-wide"
                 >
                     Eleva tu esencia con nuestra colección exclusiva de accesorios.
                     <br className="hidden md:block" />
@@ -86,24 +86,27 @@ const Hero = () => {
 
                 <motion.div
                     variants={titleVariants}
-                    className="mt-12"
+                    className="mt-4"
                 >
                     <button
                         onClick={() => document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="text-white/80 hover:text-white text-xs tracking-[0.3em] uppercase border-b border-transparent hover:border-premium-gold transition-all duration-500 pb-1"
+                        className="group relative px-10 py-4 overflow-hidden rounded-full transition-all duration-500 hover:shadow-gold"
                     >
-                        Explorar Colección
+                        <div className="absolute inset-0 glass-dark group-hover:bg-premium-gold transition-colors duration-500" />
+                        <span className="relative text-white group-hover:text-premium-dark text-xs tracking-[0.3em] uppercase font-medium transition-colors duration-500">
+                            Explorar Colección
+                        </span>
                     </button>
                 </motion.div>
             </motion.div>
 
             {/* Animated Scroll Indicator */}
             <motion.div
-                className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white/50"
-                animate={{ y: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-premium-gold/40"
+                animate={{ y: [0, 8, 0], opacity: [0.3, 0.7, 0.3] }}
+                transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             >
-                <ChevronDown size={32} strokeWidth={1} />
+                <ChevronDown size={28} strokeWidth={1} />
             </motion.div>
         </div >
     );
