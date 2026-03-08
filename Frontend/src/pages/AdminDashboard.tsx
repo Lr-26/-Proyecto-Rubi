@@ -243,6 +243,40 @@ const AdminDashboard = () => {
         );
     }
 
+    const handleSeedDatabase = async () => {
+        if (window.confirm("¿Estás seguro de que deseas restaurar la base de datos? Esto sobrescribirá todos los productos actuales con los datos iniciales.")) {
+            setLoading(true);
+            try {
+                // Since this is a client-side component, we use a batch operation similar to the seed script
+                const batch = writeBatch(db);
+                // @ts-ignore
+                Object.entries(initialProducts).forEach(([mainCategory, subCategories]) => {
+                    // @ts-ignore
+                    Object.entries(subCategories).forEach(([subCategory, items]) => {
+                        // @ts-ignore
+                        items.forEach((item: any) => {
+                            const ref = doc(db, "products", String(item.id));
+                            batch.set(ref, {
+                                ...item,
+                                mainCategory,
+                                subCategory,
+                                updatedAt: new Date()
+                            });
+                        });
+                    });
+                });
+                await batch.commit();
+                alert("Base de datos restaurada con éxito.");
+                await fetchData();
+            } catch (err) {
+                console.error("Seed error:", err);
+                alert("Error al restaurar la base de datos.");
+            } finally {
+                setLoading(false);
+            }
+        }
+    };
+
     if (loading && isAuthenticated && !isAddModalOpen) {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -534,7 +568,7 @@ const AdminDashboard = () => {
                                     <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-premium-gold outline-none bg-white"
                                         value={newProduct.mainCategory} onChange={e => setNewProduct({ ...newProduct, mainCategory: e.target.value })}>
                                         <option value="carteras">👜 Carteras</option>
-                                        <option value="lentesSol">🕶️ Lentes de Sol</option>
+                                        <option value="lentesSol">🕶️ Lentes</option>
                                         <option value="lentesCristal">👓 Lentes de Cristal</option>
                                         <option value="ropaDeportiva">🏃‍♀️ Ropa Deportiva</option>
                                     </select>

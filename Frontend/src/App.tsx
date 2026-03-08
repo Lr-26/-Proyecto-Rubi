@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Colecciones from './pages/Colecciones';
 import Contacto from './pages/Contacto';
 import AdminDashboard from './pages/AdminDashboard';
-import LentesDeSol from './pages/LentesDeSol';
+import Lentes from './pages/Lentes';
 import Carteras from './pages/Carteras';
 import RopaDeportiva from './pages/RopaDeportiva';
 import SeedDatabase from './components/SeedDatabase';
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/colecciones" element={<Colecciones />} />
-            <Route path="/lentes-sol" element={<LentesDeSol />} />
+            <Route path="/lentes" element={<Lentes />} />
             <Route path="/carteras" element={<Carteras />} />
             <Route path="/ropa-deportiva" element={<RopaDeportiva />} />
             <Route path="/contacto" element={<Contacto />} />

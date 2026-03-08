@@ -69,7 +69,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
                     >
                         {/* Header Image/Design */}
                         <div className="bg-premium-dark text-premium-cream p-8 text-center relative overflow-hidden">
-                            <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80')] bg-cover bg-center" />
+                            <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&v=3')] bg-cover bg-center" />
                             <div className="relative z-10">
                                 <h2 className="font-serif text-3xl mb-2">Bienvenido a Rubi</h2>
                                 <p className="text-white/80 text-sm">Regístrate para acceder a nuestra colección exclusiva.</p>

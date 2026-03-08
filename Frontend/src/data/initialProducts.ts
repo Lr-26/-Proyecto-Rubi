@@ -19,7 +19,7 @@ export const initialProducts = {
     },
     lentesSol: {
         premium: [
-            { id: 101, title: "Aviador Gold Elite", price: "$280", image: "https://images.unsplash.com/photo-1572635196184-84e35138cf62?auto=format&fit=crop&q=80&w=800", description: "Iconos de estilo con baño de oro y lentes polarizados.", stockStatus: 'low_stock', stockQuantity: 3 },
+            { id: 101, title: "Aviador Gold Elite", price: "$280", image: "https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=800&v=3", description: "Iconos de estilo con baño de oro y lentes polarizados.", stockStatus: 'low_stock', stockQuantity: 3 },
             { id: 102, title: "Midnight Cat-Eye", price: "$240", image: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=800", description: "Diseño audaz y misterioso para una presencia inolvidable.", stockStatus: 'in_stock', stockQuantity: 10 },
             { id: 105, title: "Royal Square Velvet", price: "$310", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "Montura cuadrada oversized para un look de realeza moderna.", stockStatus: 'in_stock', stockQuantity: 10 },
             { id: 106, title: "Golden Hour Pilot", price: "$290", image: "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&q=80&w=800", description: "El clásico piloto reimaginado con acabados en oro rosa.", stockStatus: 'in_stock', stockQuantity: 10 },

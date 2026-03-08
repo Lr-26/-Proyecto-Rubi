@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import ProductCard from './ProductCard';
 import ProductModal from './ProductModal';
@@ -17,7 +16,7 @@ const categories = [
     {
         id: 'lentesSol',
         label: 'Lentes',
-        image: "https://images.unsplash.com/photo-1572635196184-84e35138cf62?q=80&w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop",
         description: "Protección y estilo para tus días más soleados."
     },
     {
@@ -274,6 +273,7 @@ const Catalog = () => {
                                 {categories.find(c => c.id === activeCategory)?.label}
                             </h2>
 
+
                             {activeContent && Object.entries(activeContent).map(([subKey, items]) => {
                                 const overlineMap: Record<string, string> = {
                                     premium: "SIGNATURE SERIES",
@@ -285,29 +285,38 @@ const Catalog = () => {
                                 };
                                 const overline = overlineMap[subKey] || "RUBI COLLECTION";
 
+                                // Dynamic colors and icons based on subcategory
+                                const configMap: Record<string, { color: string; bg: string }> = {
+                                    premium: { color: '#D4AF37', bg: 'bg-white' },
+                                    plus: { color: '#8B0000', bg: 'bg-premium-cream/40' },
+                                    standard: { color: '#1A1A1A', bg: 'bg-white' },
+                                };
+                                const config = configMap[subKey] || { color: '#1A1A1A', bg: 'bg-white' };
+
                                 return (
-                                    <div key={subKey} className="relative py-20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-20 bg-neutral-900 last:mb-0">
-                                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-premium-gold/50 to-transparent" />
-                                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-premium-gold/50 to-transparent" />
+                                    <div key={subKey} className={`relative py-24 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-4 last:mb-0 ${config.bg} border-b border-gray-100 overflow-hidden`}>
+                                        {/* Background Glow */}
+                                        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+                                            <div className="absolute top-0 left-0 w-64 h-64 bg-current rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" style={{ color: config.color }} />
+                                            <div className="absolute bottom-0 right-0 w-64 h-64 bg-current rounded-full blur-3xl translate-x-1/2 translate-y-1/2" style={{ color: config.color }} />
                                         </div>
 
                                         <motion.div
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
-                                            className="text-center mb-12"
+                                            className="text-center mb-16 relative z-10"
                                         >
-                                            <span className="text-premium-gold text-sm tracking-[0.4em] uppercase mb-4 block">
+                                            <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: config.color }}>
                                                 {overline}
                                             </span>
-                                            <h3 className="font-serif text-4xl md:text-5xl text-white mb-6">
+                                            <h3 className="font-serif text-4xl md:text-5xl text-premium-dark mb-6 uppercase tracking-tight">
                                                 {subSections[subKey] || subKey}
                                             </h3>
-                                            <div className="w-24 h-1 bg-premium-gold mx-auto" />
+                                            <div className="w-16 h-1 mx-auto rounded-full" style={{ backgroundColor: config.color }} />
                                         </motion.div>
 
-                                        <div className="grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-auto">
+                                        <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
                                             {(items as Product[]).map((item) => (
                                                 <ProductCard
                                                     key={item.id}

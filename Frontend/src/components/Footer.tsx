@@ -20,7 +20,7 @@ const Footer = () => {
                         <h4 className="font-serif text-lg mb-4">Enlaces</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                             <li><Link to="/carteras" className="hover:text-premium-ruby transition-colors">Carteras y Billeteras</Link></li>
-                            <li><Link to="/lentes-sol" className="hover:text-premium-ruby transition-colors">Lentes</Link></li>
+                            <li><Link to="/lentes" className="hover:text-premium-ruby transition-colors">Lentes</Link></li>
                             <li><Link to="/contacto" className="hover:text-premium-ruby transition-colors">Contacto</Link></li>
                         </ul>
                     </div>
@@ -29,7 +29,7 @@ const Footer = () => {
                     <div className="flex flex-col items-center md:items-end">
                         <h4 className="font-serif text-lg mb-4">Síguenos</h4>
                         <div className="flex space-x-4">
-                            <a href="https://www.instagram.com/rubi_lentesde_sol?igsh=MXRtejhuZG85dnZh" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-premium-ruby transition-colors"><Instagram size={20} /></a>
+                            <a href="https://www.instagram.com/rubi_lentes?igsh=MXRtejhuZG85dnZh" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-premium-ruby transition-colors"><Instagram size={20} /></a>
                             <a href="#" className="text-gray-400 hover:text-premium-ruby transition-colors"><Facebook size={20} /></a>
                             <a href="mailto:contacto@rubidetails.com" className="text-gray-400 hover:text-premium-ruby transition-colors"><Mail size={20} /></a>
                         </div>
