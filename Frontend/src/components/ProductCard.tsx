@@ -10,11 +10,12 @@ interface ProductCardProps {
     description: string;
     category?: string;
     variant?: 'default' | 'premium';
+    brand?: string;
     stockStatus?: Product['stockStatus'];
     onClick?: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, description, category, variant = 'default', stockStatus = 'in_stock', onClick }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, description, category, brand, variant = 'default', stockStatus = 'in_stock', onClick }) => {
     const isPremium = variant === 'premium';
 
     const handleConsult = (e: React.MouseEvent) => {
@@ -87,10 +88,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, descript
                 {isPremium && <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />}
 
                 <div className="text-center">
-                    <span className={`text-[9px] font-bold uppercase tracking-[0.2em] block mb-2 transition-colors duration-300 ${isPremium ? 'text-premium-gold group-hover:text-yellow-400' : 'text-gray-500 group-hover:text-premium-dark'
-                        }`}>
-                        {category}
-                    </span>
+                    <div className="flex flex-col items-center mb-2">
+                        {brand && (
+                            <span className={`text-[10px] font-bold tracking-[0.3em] uppercase mb-1 ${isPremium ? 'text-white/40' : 'text-gray-400'}`}>
+                                {brand}
+                            </span>
+                        )}
+                        <span className={`text-[8px] font-medium uppercase tracking-[0.2em] px-2 py-0.5 rounded-full border ${isPremium ? 'text-premium-gold border-premium-gold/30 bg-premium-gold/5' : 'text-gray-500 border-gray-200'
+                            }`}>
+                            {category}
+                        </span>
+                    </div>
                     <h3 className={`font-serif text-lg md:text-xl mb-1.5 transition-colors duration-300 line-clamp-1 ${isPremium ? 'text-white group-hover:text-premium-gold' : 'text-premium-dark'
                         }`}>
                         {title}

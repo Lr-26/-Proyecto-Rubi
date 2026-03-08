@@ -18,6 +18,13 @@ export interface Product {
     priceNumerical?: number;
     stockQuantity?: number; // New field for numeric stock
     isUnlimitedStock?: boolean; // New field for unlimited stock
+    specs?: {
+        material?: string;
+        shape?: string;
+        style?: string;
+        uv?: string;
+        [key: string]: string | undefined;
+    };
 }
 
 export interface ProductData {

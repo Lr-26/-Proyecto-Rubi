@@ -89,7 +89,21 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
 
                                 <div className="prose prose-sm text-gray-600 mb-8">
                                     <p className="text-lg leading-relaxed">{product.description}</p>
-                                    <p>Diseño exclusivo de la colección Signature Series. Fabricado con materiales de primera calidad para garantizar durabilidad y estilo.</p>
+
+                                    {product.specs && (
+                                        <div className="mt-6 grid grid-cols-2 gap-4 border-y border-gray-100 py-6">
+                                            {Object.entries(product.specs).map(([key, value]) => (
+                                                <div key={key}>
+                                                    <span className="text-[10px] uppercase tracking-widest text-gray-400 block mb-1">{key}</span>
+                                                    <span className="text-sm font-medium text-premium-dark">{value}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    <p className="mt-6 text-sm italic text-gray-500">
+                                        Diseño exclusivo de nuestra selección curada. Fabricado bajo los más altos estándares de calidad internacional.
+                                    </p>
                                 </div>
 
                                 {/* Actions */}

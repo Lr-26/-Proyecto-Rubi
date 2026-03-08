@@ -21,6 +21,7 @@ export const initialProducts = {
         premium: [
             // Miu Miu (Ópticos)
             { id: 101, title: "Miu Miu Óptico Geometric", price: "$320", image: "https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=800&v=3", description: "Marco óptico con el diseño distintivo y vanguardista de Miu Miu.", stockStatus: 'low_stock', stockQuantity: 3, brand: 'Miu Miu' },
+            { id: 100, title: "Miu Miu Tortoise Luxe", price: "$350", image: "/assets/products/miu_miu_tortoise.png", description: "Elegancia atemporal con montura de acetato tipo carey. Un diseño que combina sofisticación retro con el espíritu audaz de Miu Miu.", stockStatus: 'in_stock', stockQuantity: 5, brand: 'Miu Miu', specs: { material: "Acetato Italiano", shape: "Ovalada", style: "Vintage Chic", uv: "Protección 100%" } },
             { id: 102, title: "Miu Miu Optical Cat-Eye", price: "$290", image: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=800", description: "Elegancia óptica sutil y moderna para uso diario.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Miu Miu' },
             // Prada
             { id: 105, title: "Prada Symbole", price: "$380", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "El icónico diseño geométrico de Prada en su máxima expresión.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },

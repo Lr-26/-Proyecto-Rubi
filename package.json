@@ -1,0 +1,16 @@
+{
+  "name": "proyecto-rumi-root",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "install-backend": "cd Backend && npm install",
+    "install-frontend": "cd Frontend && npm install",
+    "postinstall": "npm run install-backend && npm run install-frontend",
+    "build-frontend": "cd Frontend && npm run build",
+    "start": "cd Backend && npm start",
+    "heroku-postbuild": "npm run build-frontend"
+  }
+}

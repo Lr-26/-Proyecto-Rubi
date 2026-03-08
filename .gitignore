@@ -1,8 +1,10 @@
 # Node.js
-node_modules
-dist
-build
-coverage
+**/node_modules
+**/dist
+**/build
+**/coverage
+.npm
+.eslintcache
 
 # Environment variables
 .env
