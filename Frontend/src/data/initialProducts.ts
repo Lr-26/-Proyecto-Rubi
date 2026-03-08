@@ -19,12 +19,15 @@ export const initialProducts = {
     },
     lentesSol: {
         premium: [
-            { id: 101, title: "Aviador Gold Elite", price: "$280", image: "https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=800&v=3", description: "Iconos de estilo con baño de oro y lentes polarizados.", stockStatus: 'low_stock', stockQuantity: 3 },
-            { id: 102, title: "Midnight Cat-Eye", price: "$240", image: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=800", description: "Diseño audaz y misterioso para una presencia inolvidable.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 105, title: "Royal Square Velvet", price: "$310", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "Montura cuadrada oversized para un look de realeza moderna.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 106, title: "Golden Hour Pilot", price: "$290", image: "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&q=80&w=800", description: "El clásico piloto reimaginado con acabados en oro rosa.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 107, title: "Shadow Geometric", price: "$275", image: "https://images.unsplash.com/photo-1548866164-323a65492419?auto=format&fit=crop&q=80&w=800", description: "Líneas geométricas definidas para una arquitectura facial perfecta.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 108, title: "Vintage Tortoise", price: "$250", image: "https://images.unsplash.com/photo-1604786358483-1e649fcde75b?auto=format&fit=crop&q=80&w=800", description: "Acetato italiano con patrón carey para un estilo retro chic.", stockStatus: 'in_stock', stockQuantity: 10 },
+            // Miu Miu (Ópticos)
+            { id: 101, title: "Miu Miu Óptico Geometric", price: "$320", image: "https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=800&v=3", description: "Marco óptico con el diseño distintivo y vanguardista de Miu Miu.", stockStatus: 'low_stock', stockQuantity: 3, brand: 'Miu Miu' },
+            { id: 102, title: "Miu Miu Optical Cat-Eye", price: "$290", image: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&q=80&w=800", description: "Elegancia óptica sutil y moderna para uso diario.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Miu Miu' },
+            // Prada
+            { id: 105, title: "Prada Symbole", price: "$380", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "El icónico diseño geométrico de Prada en su máxima expresión.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },
+            { id: 106, title: "Prada Linea Rossa", price: "$340", image: "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&q=80&w=800", description: "Vanguardia y máxima protección con el inconfundible sello Prada.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },
+            // Chanel
+            { id: 107, title: "Chanel Pearl Signature", price: "$450", image: "https://images.unsplash.com/photo-1548866164-323a65492419?auto=format&fit=crop&q=80&w=800", description: "Detalles sutiles y el clásico logo CC entrelazado en una montura perfecta.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Chanel' },
+            { id: 108, title: "Chanel Classic Square", price: "$420", image: "https://images.unsplash.com/photo-1604786358483-1e649fcde75b?auto=format&fit=crop&q=80&w=800", description: "Acetato de alta calidad con la elegancia atemporal y exclusiva de Chanel.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Chanel' },
         ],
         plus: [
             { id: 103, title: "Hexagonal Lux", price: "$260", image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop&q=80&w=800", description: "Geometría moderna con acabados de lujo.", stockStatus: 'in_stock', stockQuantity: 10 },

@@ -293,6 +293,64 @@ const Catalog = () => {
                                 };
                                 const config = configMap[subKey] || { color: '#1A1A1A', bg: 'bg-white' };
 
+                                // CUSTOM LAYOUT FOR LENTES SOL PREMIUM (BRAND DIVISION)
+                                if (subKey === 'premium' && activeCategory === 'lentesSol') {
+                                    const miuMiu = (items as Product[]).filter(p => p.brand === 'Miu Miu');
+                                    const prada = (items as Product[]).filter(p => p.brand === 'Prada');
+                                    const chanel = (items as Product[]).filter(p => p.brand === 'Chanel');
+
+                                    return (
+                                        <div key={subKey} className="flex flex-col w-full mb-4">
+                                            {/* Header Premium */}
+                                            <div className="py-16 text-center bg-gradient-to-b from-premium-dark to-neutral-900 border-b border-premium-gold/20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+                                                <span className="text-premium-gold tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Exclusividad Absoluta</span>
+                                                <h3 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
+                                                    Colección Premium
+                                                </h3>
+                                                <p className="text-white/80 text-lg max-w-2xl mx-auto font-light italic">
+                                                    El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo.
+                                                </p>
+                                            </div>
+
+                                            {/* Miu Miu Section */}
+                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100 overflow-hidden">
+                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
+                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#E8B4B8' }}>MIU MIU</span>
+                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Vanguardia Femenina</h4>
+                                                    <div className="w-16 h-1 mx-auto rounded-full bg-[#E8B4B8]" />
+                                                </motion.div>
+                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
+                                                    {miuMiu.map(item => <ProductCard key={item.id} {...item} category="Miu Miu" variant="premium" onClick={() => handleProductClick(item)} />)}
+                                                </div>
+                                            </div>
+
+                                            {/* Prada Section */}
+                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-neutral-100 border-b border-gray-100 overflow-hidden">
+                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
+                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#000000' }}>PRADA</span>
+                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Lujo Geométrico</h4>
+                                                    <div className="w-16 h-1 mx-auto rounded-full bg-black" />
+                                                </motion.div>
+                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
+                                                    {prada.map(item => <ProductCard key={item.id} {...item} category="Prada" variant="premium" onClick={() => handleProductClick(item)} />)}
+                                                </div>
+                                            </div>
+
+                                            {/* Chanel Section */}
+                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100 overflow-hidden">
+                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
+                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#D4AF37' }}>CHANEL</span>
+                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Elegancia Atemporal</h4>
+                                                    <div className="w-16 h-1 mx-auto rounded-full bg-premium-gold" />
+                                                </motion.div>
+                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
+                                                    {chanel.map(item => <ProductCard key={item.id} {...item} category="Chanel" variant="premium" onClick={() => handleProductClick(item)} />)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+
                                 return (
                                     <div key={subKey} className={`relative py-24 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-4 last:mb-0 ${config.bg} border-b border-gray-100 overflow-hidden`}>
                                         {/* Background Glow */}

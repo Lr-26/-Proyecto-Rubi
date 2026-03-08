@@ -14,6 +14,7 @@ export interface Product {
     category?: string;
     mainCategory?: string;
     subCategory?: string;
+    brand?: string; // Brand for premium divisions
     priceNumerical?: number;
     stockQuantity?: number; // New field for numeric stock
     isUnlimitedStock?: boolean; // New field for unlimited stock

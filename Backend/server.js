@@ -168,3 +168,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
+// Force restart 7: Rebuilt ProductCard.tsx to make cards smaller

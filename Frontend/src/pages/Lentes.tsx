@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Loader2, Star, ShieldCheck, Zap } from 'lucide-react';
+import { Loader2, ShieldCheck, Zap, Crown, Sparkles, Diamond } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import AuthModal from '../components/AuthModal';
 import { getProducts, Product, ProductData } from '../data/products';
@@ -159,13 +159,53 @@ const Lentes = () => {
                 </div>
             </div>
 
-            {/* Lineas de Producto */}
+            {/* --- HEADER LÍNEA PREMIUM --- */}
+            <div className="py-20 bg-gradient-to-b from-premium-dark to-neutral-50 border-b border-premium-gold/20">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <span className="text-premium-gold tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Exclusividad Absoluta</span>
+                    <h2 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
+                        Línea Premium
+                    </h2>
+                    <p className="text-white/80 text-lg max-w-2xl mx-auto font-light italic">
+                        El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo.
+                    </p>
+                    <div className="mt-8 flex justify-center">
+                        <Crown className="text-premium-gold opacity-50" size={24} />
+                    </div>
+                </div>
+            </div>
+
+            {/* --- SECCIONES PREMIUM DIVIDIDAS POR MARCAS --- */}
+
+            {/* Miu Miu */}
             <Section
-                title="Línea Premium"
-                subtitle="El pináculo de la exclusividad. Materiales nobles y diseños de vanguardia."
-                items={products?.premium || []}
+                title="Miu Miu"
+                subtitle="Diseños ópticos y de sol con un estilo vanguardista y decididamente femenino."
+                items={(products?.premium || []).filter(p => p.brand === 'Miu Miu')}
+                accentColor="#E8B4B8" // Premium dusty pink
+                icon={<Sparkles size={32} />}
+                bgClass="bg-white"
+                onProductClick={handleProductClick}
+            />
+
+            {/* Prada */}
+            <Section
+                title="Prada"
+                subtitle="Lujo geométrico, deportividad y minimalismo moderno en su máxima expresión."
+                items={(products?.premium || []).filter(p => p.brand === 'Prada')}
+                accentColor="#000000" // Premium Black
+                icon={<Diamond size={32} />}
+                bgClass="bg-neutral-100"
+                onProductClick={handleProductClick}
+            />
+
+            {/* Chanel */}
+            <Section
+                title="Chanel"
+                subtitle="La elegancia atemporal, siluetas clásicas y detalles verdaderamente exclusivos."
+                items={(products?.premium || []).filter(p => p.brand === 'Chanel')}
                 accentColor="#D4AF37" // Premium Gold
-                icon={<Star size={32} />}
+                icon={<Crown size={32} />}
                 bgClass="bg-white"
                 onProductClick={handleProductClick}
             />
