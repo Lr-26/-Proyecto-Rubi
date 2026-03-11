@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../data/products';
 
 interface ProductCardProps {
@@ -196,17 +196,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                     </div>    
                     </div>
 
-                    <div className="flex flex-col items-center mt-auto pt-3 border-t border-gray-500/10">
+                    <div className="flex flex-col items-center mt-auto pt-6 border-t border-gray-500/10">
                         <button
                             onClick={openWhatsApp}
-                            className={`text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase transition-all duration-300 group-hover:scale-105 flex items-center gap-2 ${isPremium
-                                ? 'text-transparent bg-clip-text bg-gradient-to-r from-premium-gold via-yellow-200 to-premium-gold hover:from-yellow-200 hover:to-white'
-                                : 'text-premium-dark hover:text-premium-gold'
-                                }`}
+                            className={`w-full py-3.5 rounded-xl text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-3 shadow-lg group/btn overflow-hidden relative ${
+                                isPremium
+                                    ? 'bg-gradient-to-r from-premium-gold to-[#b38b45] text-white hover:shadow-gold hover:-translate-y-1'
+                                    : 'bg-premium-dark text-white hover:bg-premium-gold hover:shadow-xl hover:-translate-y-1'
+                            }`}
                             title="Consultar por WhatsApp"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className={isPremium ? "text-premium-gold" : "text-premium-dark"} stroke="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.06-1.829-.891-3.138-1.921-4.225-3.805-.174-.303.175-.296.757-1.464.098-.198.048-.368-.027-.518-.075-.15-.674-1.62-.924-2.216-.241-.579-.485-.501-.674-.51-.173-.008-.372-.008-.57-.008-.198 0-.52.074-.793.375C6.182 6.892 5 8.01 5 10.233c0 2.223 1.5 4.376 1.7 4.646.202.27 3.1 4.7 7.5 6.6 1.05.45 1.86.72 2.5.92.1.03.2.06.31.09 1.06.34 2.03.29 2.79.18 1.11-.16 2.53-1.03 2.88-2.03.35-1 .35-1.86.25-2.04-.11-.18-.3-.29-.6-.44l-.04-.02Z"/><path d="M12.04 22a9.97 9.97 0 0 1-5.1-1.39l-.36-.21-3.79 1 .99-3.71-.24-.36A10.03 10.03 0 0 1 12.04 2c5.52 0 10 4.49 10 10 0 5.51-4.48 10-10 10Z"/><path d="M12.04 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Z"/></svg>
-                            CONSULTAR
+                            {/* Shine effect on hover */}
+                            <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-[-25deg] -translate-x-full group-hover/btn:animate-[shimmer_0.7s_infinite] transition-transform pointer-events-none" />
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="transition-transform group-hover/btn:scale-110" stroke="none"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.06-1.829-.891-3.138-1.921-4.225-3.805-.174-.303.175-.296.757-1.464.098-.198.048-.368-.027-.518-.075-.15-.674-1.62-.924-2.216-.241-.579-.485-.501-.674-.51-.173-.008-.372-.008-.57-.008-.198 0-.52.074-.793.375C6.182 6.892 5 8.01 5 10.233c0 2.223 1.5 4.376 1.7 4.646.202.27 3.1 4.7 7.5 6.6 1.05.45 1.86.72 2.5.92.1.03.2.06.31.09 1.06.34 2.03.29 2.79.18 1.11-.16 2.53-1.03 2.88-2.03.35-1 .35-1.86.25-2.04-.11-.18-.3-.29-.6-.44l-.04-.02Z"/><path d="M12.04 22a9.97 9.97 0 0 1-5.1-1.39l-.36-.21-3.79 1 .99-3.71-.24-.36A10.03 10.03 0 0 1 12.04 2c5.52 0 10 4.49 10 10 0 5.51-4.48 10-10 10Z"/><path d="M12.04 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Z"/></svg>
+                            <span className="relative z-10">CONSULTAR</span>
                         </button>
                     </div>
                 </div>

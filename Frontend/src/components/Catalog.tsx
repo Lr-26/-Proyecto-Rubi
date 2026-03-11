@@ -378,22 +378,23 @@ const Catalog = () => {
                                                         whileInView={{ opacity: 1, y: 0 }}
                                                         viewport={{ once: true }}
                                                         transition={{ delay: idx * 0.1 }}
-                                                        className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col h-full"
+                                                        className="bg-neutral-900/60 backdrop-blur-2xl rounded-3xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 flex flex-col h-full group/card hover:border-premium-gold/20 transition-colors duration-500"
                                                     >
-                                                        <div className="p-8 text-center bg-neutral-50/50 border-b border-gray-50 relative overflow-hidden">
+                                                        <div className="p-8 text-center bg-transparent border-b border-white/5 relative overflow-hidden">
+                                                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50" />
                                                             {/* Brand Background Text */}
-                                                            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl font-serif text-black/[0.03] pointer-events-none select-none uppercase tracking-[0.2em] whitespace-nowrap">
+                                                            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl font-serif text-white/[0.02] pointer-events-none select-none uppercase tracking-[0.2em] whitespace-nowrap">
                                                                 {brand.name}
                                                             </span>
                                                             
                                                             <div className="relative z-10">
                                                                 <span className="text-[10px] tracking-[0.5em] uppercase mb-3 block font-bold" style={{ color: brand.color }}>{brand.name}</span>
-                                                                <h4 className="font-serif text-2xl text-premium-dark mb-4 uppercase tracking-tighter">{brand.title}</h4>
+                                                                <h4 className="font-serif text-2xl text-white mb-4 uppercase tracking-tighter">{brand.title}</h4>
                                                                 <div className="w-16 h-1 mx-auto rounded-full" style={{ backgroundColor: brand.color }} />
                                                             </div>
                                                         </div>
                                                         
-                                                        <div className="p-6 bg-white flex-grow">
+                                                        <div className="p-6 bg-transparent flex-grow">
                                                             <div className="grid grid-cols-2 gap-6">
                                                                 {brand.products.length > 0 ? (
                                                                     brand.products.map(item => (
@@ -401,7 +402,7 @@ const Catalog = () => {
                                                                             key={item.id}
                                                                             {...item}
                                                                             category={brand.name}
-                                                                            variant="default" // Using default to keep it clean inside the card
+                                                                            variant="premium" // Using premium to have dark cards as requested
                                                                             onClick={() => handleProductClick(item)}
                                                                         />
                                                                     ))

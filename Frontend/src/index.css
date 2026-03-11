@@ -56,6 +56,11 @@
   }
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(-25deg); }
+  100% { transform: translateX(150%) skewX(-25deg); }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
