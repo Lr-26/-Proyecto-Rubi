@@ -11,6 +11,7 @@
     "postinstall": "npm run install-backend && npm run install-frontend",
     "build-frontend": "cd Frontend && npm run build",
     "start": "cd Backend && npm start",
-    "heroku-postbuild": "npm run build-frontend"
+    "heroku-postbuild": "npm run build-frontend",
+    "serve": "npm run build-frontend && npm start"
   }
 }
