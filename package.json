@@ -6,6 +6,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "dev": "npx concurrently \"npm run dev --prefix Backend\" \"npm run dev --prefix Frontend\"",
     "install-backend": "cd Backend && npm install",
     "install-frontend": "cd Frontend && npm install",
     "postinstall": "npm run install-backend && npm run install-frontend",

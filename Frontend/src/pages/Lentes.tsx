@@ -210,6 +210,17 @@ const Lentes = () => {
                 onProductClick={handleProductClick}
             />
 
+            {/* Dior */}
+            <Section
+                title="Dior"
+                subtitle="Diseño atrevido y elegante, con detalles distintivos y sofisticados."
+                items={(products?.premium || []).filter(p => p.brand === 'Dior')}
+                accentColor="#111111" // Dark Grey/Black for Dior
+                icon={<Sparkles size={32} />}
+                bgClass="bg-neutral-50"
+                onProductClick={handleProductClick}
+            />
+
             <Section
                 title="Línea Plus"
                 subtitle="Equilibrio perfecto entre sofisticación moderna y versatilidad diaria."

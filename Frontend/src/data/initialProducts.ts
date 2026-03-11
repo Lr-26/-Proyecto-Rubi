@@ -39,11 +39,70 @@ export const initialProducts = {
                 specs: { material: "Metal Plateado", shape: "Ovalada", style: "Verde Musgo", extra: "Protección UV 400" } 
             },
             // Prada
-            { id: 105, title: "Prada Symbole", price: "$380", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "El icónico diseño geométrico de Prada en su máxima expresión.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },
-            { id: 106, title: "Prada Linea Rossa", price: "$340", image: "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&q=80&w=800", description: "Vanguardia y máxima protección con el inconfundible sello Prada.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },
+            { 
+                id: 105, 
+                title: "Lente Prada", 
+                price: "$380", 
+                image: "/assets/products/prada/prada_001.jfif", 
+                images: [
+                    "/assets/products/prada/prada_001.jfif",
+                    "/assets/products/prada/prada_002.jfif"
+                ],
+                description: "Lente Prada\n\nModelo clásico, tono marrón oscuro. Marco grueso con logo grabado. UV 400\nIncluye:\n* bolsa y caja de la marca \n* estuche rígido \n* paño de limpieza", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10, 
+                brand: 'Prada',
+                specs: { material: "Acetato", shape: "Clásica", style: "Marrón Oscuro", extra: "UV 400" }
+            },
+            {
+                id: 106,
+                title: "Lentes Prada (Mod. 002)",
+                price: "$380",
+                image: "/assets/products/Lentes-prada/prada2-002.jfif",
+                images: [
+                    "/assets/products/Lentes-prada/prada2-002.jfif",
+                    "/assets/products/Lentes-prada/pradaaa002.jfif",
+                    "/assets/products/Lentes-prada/pradaaaa002.jfif"
+                ],
+                description: "Lentes Prada\n\nDiseño rombo sin marco, en tono degrade rosado.\nPatillas metálicas con el logo grabado. UV 400\nIncluye:\n* Caja y bolsa de la marca\n* Estuche rígido\n* Paño de limpieza",
+                stockStatus: 'in_stock',
+                stockQuantity: 5,
+                brand: 'Prada',
+                specs: { material: "Metal", shape: "Rombo sin marco", style: "Degradé Rosado", extra: "UV 400" }
+            },
             // Chanel
-            { id: 107, title: "Chanel Pearl Signature", price: "$450", image: "https://images.unsplash.com/photo-1548866164-323a65492419?auto=format&fit=crop&q=80&w=800", description: "Detalles sutiles y el clásico logo CC entrelazado en una montura perfecta.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Chanel' },
-            { id: 108, title: "Chanel Classic Square", price: "$420", image: "https://images.unsplash.com/photo-1604786358483-1e649fcde75b?auto=format&fit=crop&q=80&w=800", description: "Acetato de alta calidad con la elegancia atemporal y exclusiva de Chanel.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Chanel' },
+            {
+                id: 107,
+                title: "Lente Chanel",
+                price: "$450",
+                image: "/assets/products/Lentes-Channel/chanell001.jfif",
+                images: [
+                    "/assets/products/Lentes-Channel/chanel001.jfif",
+                    "/assets/products/Lentes-Channel/chanell001.jfif"
+                ],
+                description: "Lente Chanel\n\nDiseño carey, con detalles dorados en las patillas. UV 400\nIncluye:\n* Bolsa y caja de la marca \n* estuche rígido\n* paño de limpieza\n* tarjeta",
+                stockStatus: 'in_stock',
+                stockQuantity: 5,
+                brand: 'Chanel',
+                specs: { material: "Acetato", shape: "Clásica", style: "Carey", extra: "UV 400" }
+            },
+            // Dior
+            {
+                id: 109,
+                title: "Lentes de Sol Dior",
+                price: "$480",
+                image: "/assets/products/Lentes-Dior/dior001.jfif",
+                images: [
+                    "/assets/products/Lentes-Dior/diooor001.jfif",
+                    "/assets/products/Lentes-Dior/dioor001.jfif",
+                    "/assets/products/Lentes-Dior/dior001.jfif"
+                ],
+                description: "Lentes de Sol Dior\n\nMontura rectangular en color blanco con logo dorado en las patillas y herrajes metálicos en negro. Lente negro con protección UV 400\nIncluye:\n* Caja y Estuche Dior\n* Paño de limpieza\n* Funda de tela",
+                stockStatus: 'in_stock',
+                stockQuantity: 5,
+                brand: 'Dior',
+                specs: { material: "Acetato/Metal", shape: "Rectangular", style: "Blanco y Dorado", extra: "UV 400" }
+            },
         ],
         plus: [
             { id: 103, title: "Hexagonal Lux", price: "$260", image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop&q=80&w=800", description: "Geometría moderna con acabados de lujo.", stockStatus: 'in_stock', stockQuantity: 10 },

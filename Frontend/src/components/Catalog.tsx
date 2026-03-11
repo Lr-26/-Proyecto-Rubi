@@ -298,6 +298,7 @@ const Catalog = () => {
                                     const miuMiu = (items as Product[]).filter(p => p.brand === 'Miu Miu');
                                     const prada = (items as Product[]).filter(p => p.brand === 'Prada');
                                     const chanel = (items as Product[]).filter(p => p.brand === 'Chanel');
+                                    const dior = (items as Product[]).filter(p => p.brand === 'Dior');
 
                                     return (
                                         <div key={subKey} className="flex flex-col w-full mb-4">
@@ -345,6 +346,18 @@ const Catalog = () => {
                                                 </motion.div>
                                                 <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
                                                     {chanel.map(item => <ProductCard key={item.id} {...item} category="Chanel" variant="premium" onClick={() => handleProductClick(item)} />)}
+                                                </div>
+                                            </div>
+
+                                            {/* Dior Section */}
+                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-neutral-100 border-b border-gray-100 overflow-hidden">
+                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
+                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#111111' }}>DIOR</span>
+                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Atrevimiento y Sofisticación</h4>
+                                                    <div className="w-16 h-1 mx-auto rounded-full bg-[#111111]" />
+                                                </motion.div>
+                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
+                                                    {dior.map(item => <ProductCard key={item.id} {...item} category="Dior" variant="premium" onClick={() => handleProductClick(item)} />)}
                                                 </div>
                                             </div>
                                         </div>
