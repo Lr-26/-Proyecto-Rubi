@@ -286,106 +286,162 @@ const Catalog = () => {
                                 const overline = overlineMap[subKey] || "RUBI COLLECTION";
 
                                 // Dynamic colors and icons based on subcategory
-                                const configMap: Record<string, { color: string; bg: string }> = {
-                                    premium: { color: '#D4AF37', bg: 'bg-white' },
-                                    plus: { color: '#8B0000', bg: 'bg-premium-cream/40' },
-                                    standard: { color: '#1A1A1A', bg: 'bg-white' },
-                                };
-                                const config = configMap[subKey] || { color: '#1A1A1A', bg: 'bg-white' };
+                const configMap: Record<string, { color: string; bg: string; isDark: boolean; overline: string; title: string; description: string }> = {
+                    premium: { 
+                        color: '#D4AF37', 
+                        bg: 'bg-premium-dark', 
+                        isDark: true,
+                        overline: "Exclusividad Absoluta",
+                        title: "Colección Premium",
+                        description: "El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo."
+                    },
+                    plus: { 
+                        color: '#8B0000', 
+                        bg: 'bg-[#1a1a1a]', 
+                        isDark: true,
+                        overline: "Estilo & Distinción",
+                        title: "Línea Plus",
+                        description: "Nuestra selección intermedia. El equilibrio perfecto entre diseño vanguardista y accesibilidad, sin comprometer la calidad."
+                    },
+                    standard: { 
+                        color: '#4a4a4a', 
+                        bg: 'bg-[#111111]', 
+                        isDark: true,
+                        overline: "Esenciales Atemporales",
+                        title: "Línea Estándar",
+                        description: "Diseños clásicos y versátiles para el día a día. Calidad Rubi Details en cada detalle para complementar cualquier look."
+                    },
+                };
+                const config = configMap[subKey] || { 
+                    color: '#1A1A1A', 
+                    bg: 'bg-white', 
+                    isDark: false,
+                    overline: overline,
+                    title: subSections[subKey] || subKey,
+                    description: ""
+                };
 
                                 // CUSTOM LAYOUT FOR LENTES SOL PREMIUM (BRAND DIVISION)
                                 if (subKey === 'premium' && activeCategory === 'lentesSol') {
-                                    const miuMiu = (items as Product[]).filter(p => p.brand === 'Miu Miu');
-                                    const prada = (items as Product[]).filter(p => p.brand === 'Prada');
-                                    const chanel = (items as Product[]).filter(p => p.brand === 'Chanel');
-                                    const dior = (items as Product[]).filter(p => p.brand === 'Dior');
+                                    const brands = [
+                                        { 
+                                            name: 'Miu Miu', 
+                                            title: 'Vanguardia Femenina', 
+                                            color: '#E8B4B8',
+                                            products: (items as Product[]).filter(p => p.brand === 'Miu Miu')
+                                        },
+                                        { 
+                                            name: 'Dior', 
+                                            title: 'Atrevimiento y Sofisticación', 
+                                            color: '#111111',
+                                            products: (items as Product[]).filter(p => p.brand === 'Dior')
+                                        },
+                                        { 
+                                            name: 'Chanel', 
+                                            title: 'Elegancia Atemporal', 
+                                            color: '#D4AF37',
+                                            products: (items as Product[]).filter(p => p.brand === 'Chanel')
+                                        },
+                                        { 
+                                            name: 'Prada', 
+                                            title: 'Lujo Geométrico', 
+                                            color: '#000000',
+                                            products: (items as Product[]).filter(p => p.brand === 'Prada')
+                                        }
+                                    ];
 
                                     return (
-                                        <div key={subKey} className="flex flex-col w-full mb-4">
+                                        <div key={subKey} className="flex flex-col w-full mb-12">
                                             {/* Header Premium */}
                                             <div className="py-16 text-center bg-gradient-to-b from-premium-dark to-neutral-900 border-b border-premium-gold/20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-                                                <span className="text-premium-gold tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Exclusividad Absoluta</span>
-                                                <h3 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
-                                                    Colección Premium
-                                                </h3>
-                                                <p className="text-white/80 text-lg max-w-2xl mx-auto font-light italic">
-                                                    El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo.
-                                                </p>
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                >
+                                                    <span className="text-premium-gold tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Exclusividad Absoluta</span>
+                                                    <h3 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
+                                                        Colección Premium
+                                                    </h3>
+                                                    <p className="text-white/80 text-lg max-w-2xl mx-auto font-light italic">
+                                                        El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo.
+                                                    </p>
+                                                </motion.div>
                                             </div>
 
-                                            {/* Miu Miu Section */}
-                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100 overflow-hidden">
-                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
-                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#E8B4B8' }}>MIU MIU</span>
-                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Vanguardia Femenina</h4>
-                                                    <div className="w-16 h-1 mx-auto rounded-full bg-[#E8B4B8]" />
-                                                </motion.div>
-                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
-                                                    {miuMiu.map(item => <ProductCard key={item.id} {...item} category="Miu Miu" variant="premium" onClick={() => handleProductClick(item)} />)}
-                                                </div>
-                                            </div>
-
-                                            {/* Prada Section */}
-                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-neutral-100 border-b border-gray-100 overflow-hidden">
-                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
-                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#000000' }}>PRADA</span>
-                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Lujo Geométrico</h4>
-                                                    <div className="w-16 h-1 mx-auto rounded-full bg-black" />
-                                                </motion.div>
-                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
-                                                    {prada.map(item => <ProductCard key={item.id} {...item} category="Prada" variant="premium" onClick={() => handleProductClick(item)} />)}
-                                                </div>
-                                            </div>
-
-                                            {/* Chanel Section */}
-                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100 overflow-hidden">
-                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
-                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#D4AF37' }}>CHANEL</span>
-                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Elegancia Atemporal</h4>
-                                                    <div className="w-16 h-1 mx-auto rounded-full bg-premium-gold" />
-                                                </motion.div>
-                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
-                                                    {chanel.map(item => <ProductCard key={item.id} {...item} category="Chanel" variant="premium" onClick={() => handleProductClick(item)} />)}
-                                                </div>
-                                            </div>
-
-                                            {/* Dior Section */}
-                                            <div className="relative py-16 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 bg-neutral-100 border-b border-gray-100 overflow-hidden">
-                                                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 relative z-10">
-                                                    <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: '#111111' }}>DIOR</span>
-                                                    <h4 className="font-serif text-3xl text-premium-dark mb-4 uppercase tracking-tight">Atrevimiento y Sofisticación</h4>
-                                                    <div className="w-16 h-1 mx-auto rounded-full bg-[#111111]" />
-                                                </motion.div>
-                                                <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
-                                                    {dior.map(item => <ProductCard key={item.id} {...item} category="Dior" variant="premium" onClick={() => handleProductClick(item)} />)}
-                                                </div>
+                                            {/* 4 Brand Cards Grid */}
+                                            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 w-full">
+                                                {brands.map((brand, idx) => (
+                                                    <motion.div
+                                                        key={brand.name}
+                                                        initial={{ opacity: 0, y: 30 }}
+                                                        whileInView={{ opacity: 1, y: 0 }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ delay: idx * 0.1 }}
+                                                        className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col h-full"
+                                                    >
+                                                        <div className="p-8 text-center bg-neutral-50/50 border-b border-gray-50 relative overflow-hidden">
+                                                            {/* Brand Background Text */}
+                                                            <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl font-serif text-black/[0.03] pointer-events-none select-none uppercase tracking-[0.2em] whitespace-nowrap">
+                                                                {brand.name}
+                                                            </span>
+                                                            
+                                                            <div className="relative z-10">
+                                                                <span className="text-[10px] tracking-[0.5em] uppercase mb-3 block font-bold" style={{ color: brand.color }}>{brand.name}</span>
+                                                                <h4 className="font-serif text-2xl text-premium-dark mb-4 uppercase tracking-tighter">{brand.title}</h4>
+                                                                <div className="w-16 h-1 mx-auto rounded-full" style={{ backgroundColor: brand.color }} />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div className="p-6 bg-white flex-grow">
+                                                            <div className="grid grid-cols-2 gap-6">
+                                                                {brand.products.length > 0 ? (
+                                                                    brand.products.map(item => (
+                                                                        <ProductCard
+                                                                            key={item.id}
+                                                                            {...item}
+                                                                            category={brand.name}
+                                                                            variant="default" // Using default to keep it clean inside the card
+                                                                            onClick={() => handleProductClick(item)}
+                                                                        />
+                                                                    ))
+                                                                ) : (
+                                                                    <div className="col-span-2 py-10 text-center text-gray-400 italic font-light">
+                                                                        Próximamente...
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </motion.div>
+                                                ))}
                                             </div>
                                         </div>
                                     );
                                 }
 
                                 return (
-                                    <div key={subKey} className={`relative py-24 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-4 last:mb-0 ${config.bg} border-b border-gray-100 overflow-hidden`}>
-                                        {/* Background Glow */}
-                                        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-                                            <div className="absolute top-0 left-0 w-64 h-64 bg-current rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" style={{ color: config.color }} />
-                                            <div className="absolute bottom-0 right-0 w-64 h-64 bg-current rounded-full blur-3xl translate-x-1/2 translate-y-1/2" style={{ color: config.color }} />
+                                    <div key={subKey} className={`relative py-12 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-4 last:mb-0 ${config.bg} border-b border-premium-gold/10 overflow-hidden`}>
+                                        {/* Dynamic Black Banner Header */}
+                                        <div className="py-16 text-center mb-12 border-b border-white/5 relative z-10">
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                            >
+                                                <span className="tracking-[0.4em] text-sm uppercase mb-4 block font-medium" style={{ color: config.color }}>
+                                                    {config.overline}
+                                                </span>
+                                                <h3 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
+                                                    {config.title}
+                                                </h3>
+                                                {config.description && (
+                                                    <p className="text-white/60 text-lg max-w-2xl mx-auto font-light italic">
+                                                        {config.description}
+                                                    </p>
+                                                )}
+                                                <div className="w-16 h-1 mx-auto rounded-full mt-8" style={{ backgroundColor: config.color }} />
+                                            </motion.div>
                                         </div>
-
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            className="text-center mb-16 relative z-10"
-                                        >
-                                            <span className="text-sm tracking-[0.5em] uppercase mb-4 block font-medium" style={{ color: config.color }}>
-                                                {overline}
-                                            </span>
-                                            <h3 className="font-serif text-4xl md:text-5xl text-premium-dark mb-6 uppercase tracking-tight">
-                                                {subSections[subKey] || subKey}
-                                            </h3>
-                                            <div className="w-16 h-1 mx-auto rounded-full" style={{ backgroundColor: config.color }} />
-                                        </motion.div>
 
                                         <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
                                             {(items as Product[]).map((item) => (
@@ -393,7 +449,7 @@ const Catalog = () => {
                                                     key={item.id}
                                                     {...item}
                                                     category={subSections[subKey] || subKey}
-                                                    variant="premium"
+                                                    variant={config.isDark ? "premium" : "default"}
                                                     onClick={() => handleProductClick(item)}
                                                 />
                                             ))}
