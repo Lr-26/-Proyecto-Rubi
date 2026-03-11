@@ -9,6 +9,7 @@ export interface Product {
     title: string;
     price: string;
     image: string;
+    images?: string[]; // Array opcional para soportar carruseles/galerías
     description: string;
     stockStatus: ProductHeight;
     category?: string;

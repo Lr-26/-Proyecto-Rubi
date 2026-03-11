@@ -20,7 +20,24 @@ export const initialProducts = {
     lentesSol: {
         premium: [
             // Miu Miu (Ópticos)
-            { id: 100, title: "Miu Miu Tortoise Luxe (Mod. 001)", price: "$350 (o tu precio X)", image: "/assets/products/miu_miu_new.jpg", description: "Lentes ópticos Miu Miu\nDiseño redondo en tono carey. El set incluye:\n• Estuche rígido aterciopelado\n• Funda protectora aterciopelada\n• Paño de limpieza\n• Caja y bolsa con logo MM\nLentes fotocromáticos (se oscurecen al sol) con filtro azul, apto para colocar lentes con graduación.", stockStatus: 'in_stock', stockQuantity: 5, brand: 'Miu Miu', specs: { material: "Acetato Italiano", shape: "Redonda", style: "Carey", extra: "Fotocromáticos + Filtro Azul" } },
+            { id: 100, title: "Miu Miu Tortoise Luxe (Mod. 001)", price: "$350", image: "/assets/products/miu_miu_new.jpg", description: "Lentes ópticos Miu Miu\nDiseño redondo en tono carey. El set incluye:\n• Estuche rígido aterciopelado\n• Funda protectora aterciopelada\n• Paño de limpieza\n• Caja y bolsa con logo MM\nLentes fotocromáticos (se oscurecen al sol) con filtro azul, apto para colocar lentes con graduación.", stockStatus: 'in_stock', stockQuantity: 5, brand: 'Miu Miu', specs: { material: "Acetato Italiano", shape: "Redonda", style: "Carey", extra: "Fotocromáticos + Filtro Azul" } },
+            { 
+                id: 101, 
+                title: "Lente de sol Miu Miu (Mod. 002)", 
+                price: "$350", 
+                image: "/assets/products/miu_miu_002_1.jfif", 
+                images: [
+                    "/assets/products/miu_miu_002_1.jfif",
+                    "/assets/products/miu_miu_002_2.jfif",
+                    "/assets/products/miu_miu_002_3.jfif",
+                    "/assets/products/miu_miu_002_4.jfif"
+                ],
+                description: "Lente de sol Miu Miu\n\nDiseño ovalado con marco plateado y lentes y patillas color verde musgo. UV 400.\nIncluye:\n* Bolsa y caja de la marca\n* estuche rígido aterciopelado \n* funda de tela aterciopelada \n* paño de limpieza.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 5, 
+                brand: 'Miu Miu', 
+                specs: { material: "Metal Plateado", shape: "Ovalada", style: "Verde Musgo", extra: "Protección UV 400" } 
+            },
             // Prada
             { id: 105, title: "Prada Symbole", price: "$380", image: "https://images.unsplash.com/photo-1563909249712-4fcb52264c23?auto=format&fit=crop&q=80&w=800", description: "El icónico diseño geométrico de Prada en su máxima expresión.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },
             { id: 106, title: "Prada Linea Rossa", price: "$340", image: "https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?auto=format&fit=crop&q=80&w=800", description: "Vanguardia y máxima protección con el inconfundible sello Prada.", stockStatus: 'in_stock', stockQuantity: 10, brand: 'Prada' },

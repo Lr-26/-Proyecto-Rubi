@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../data/products';
 
 interface ProductCardProps {
@@ -8,6 +8,7 @@ interface ProductCardProps {
     title: string;
     price: string;
     image: string;
+    images?: string[];
     description: string;
     category?: string;
     variant?: 'default' | 'premium';
@@ -16,10 +17,14 @@ interface ProductCardProps {
     onClick?: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, description, category, brand, variant = 'default', stockStatus = 'in_stock', onClick }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, description, category, brand, variant = 'default', stockStatus = 'in_stock', onClick }) => {
     const isPremium = variant === 'premium';
     const [isImageOpen, setIsImageOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const galleryImages = images && images.length > 0 ? images : [image];
+    const hasMultipleImages = galleryImages.length > 1;
 
     // Determines if description is long enough to need a "read more" button.
     // A simple heuristic based on character length.
@@ -48,6 +53,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, descript
         setIsExpanded(!isExpanded);
     };
 
+    const nextImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImageIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    };
+
+    const prevImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImageIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    };
+
     return (
         <>
             <motion.div
@@ -64,14 +79,41 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, descript
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/[0.05] to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 transform -translate-x-full group-hover:translate-x-full z-20 pointer-events-none" style={{ transition: 'transform 1.5s ease-in-out, opacity 0.5s' }} />
                 )}
 
-                <div className={`relative overflow-hidden ${isPremium ? 'aspect-[4/3] sm:aspect-[3/2]' : 'h-48 sm:h-56'} w-full bg-neutral-100`}>
+                <div className={`relative overflow-hidden ${isPremium ? 'aspect-[4/3] sm:aspect-[3/2]' : 'h-48 sm:h-56'} w-full bg-neutral-100 shrink-0 group/image`}>
                     <img
-                        src={image}
-                        alt={title}
+                        src={galleryImages[currentImageIndex]}
+                        alt={`${title} - view ${currentImageIndex + 1}`}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000 ease-out"
                     />
+
+                    {/* Image Navigation Arrows */}
+                    {hasMultipleImages && (
+                        <>
+                            <button
+                                onClick={prevImage}
+                                className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-1.5 rounded-full bg-black/30 text-white opacity-0 group-hover/image:opacity-100 backdrop-blur-md hover:bg-black/60 transition-all duration-300"
+                            >
+                                <ChevronLeft size={16} />
+                            </button>
+                            <button
+                                onClick={nextImage}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-1.5 rounded-full bg-black/30 text-white opacity-0 group-hover/image:opacity-100 backdrop-blur-md hover:bg-black/60 transition-all duration-300"
+                            >
+                                <ChevronRight size={16} />
+                            </button>
+                            {/* Paginators indicators */}
+                            <div className="absolute bottom-16 left-0 right-0 z-30 flex justify-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                {galleryImages.map((_, i) => (
+                                    <div 
+                                        key={i} 
+                                        className={`h-1 rounded-full transition-all duration-300 ${i === currentImageIndex ? (isPremium ? 'w-4 bg-premium-gold' : 'w-4 bg-white') : 'w-1.5 bg-white/50'}`}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
 
                     {/* Gradient Overlay for Image */}
                     <div className={`absolute inset-0 transition-opacity duration-700 ${isPremium
@@ -198,10 +240,37 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, descript
                             className="relative w-full max-w-4xl max-h-[85vh] rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 group focus:outline-none"
                         >
                             <img
-                                src={image}
-                                alt={title}
+                                src={galleryImages[currentImageIndex]}
+                                alt={`${title} - view ${currentImageIndex + 1}`}
                                 className="w-full h-full object-contain max-h-[85vh] select-none"
                             />
+
+                            {/* Modal Image Navigation Arrows */}
+                            {hasMultipleImages && (
+                                <>
+                                    <button
+                                        onClick={prevImage}
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 text-white hover:bg-black/80 hover:text-premium-gold transition-all duration-300"
+                                    >
+                                        <ChevronLeft size={32} />
+                                    </button>
+                                    <button
+                                        onClick={nextImage}
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 text-white hover:bg-black/80 hover:text-premium-gold transition-all duration-300"
+                                    >
+                                        <ChevronRight size={32} />
+                                    </button>
+                                    
+                                    <div className="absolute top-4 left-0 right-0 z-30 flex justify-center gap-2 pointer-events-none">
+                                        {galleryImages.map((_, i) => (
+                                            <div 
+                                                key={i} 
+                                                className={`h-1.5 rounded-full shadow-lg transition-all duration-300 ${i === currentImageIndex ? 'w-6 bg-premium-gold' : 'w-2 bg-white/50'}`}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
 
                             {/* Detalle sutil en el borde inferior */}
                             <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center">
