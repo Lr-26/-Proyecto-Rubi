@@ -226,7 +226,7 @@ export const initialProducts = {
                 specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
             },
             { 
-                id: 118, 
+                id: 120, 
                 title: "Lente de Sol Pluss 011", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss011.jfif", 
@@ -242,7 +242,7 @@ export const initialProducts = {
                 specs: { material: "Premium", shape: "Modern", style: "Sunglasses", extra: "Filtro UV 400 + Estuche" }
             },
             { 
-                id: 119, 
+                id: 121, 
                 title: "Lente de Sol Pluss 012", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss012.jfif", 
@@ -257,25 +257,9 @@ export const initialProducts = {
                 specs: { material: "Premium", shape: "Modern", style: "Sunglasses", extra: "Filtro UV 400 + Estuche" }
             },
         ],
-        standard: [
-            { id: 201, title: "Velocity X", price: "$180", image: "https://images.unsplash.com/photo-1622445272461-901b0b57e45b?auto=format&fit=crop&q=80&w=400", description: "Aerodinámicos y ligeros.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 202, title: "Urban Shade", price: "$65", image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=400", description: "Protección UV total con estilo urbano.", stockStatus: 'in_stock', stockQuantity: 10 },
-        ]
-    },
-    lentesCristal: {
-        premium: [
-            { id: 301, title: "Titanium Frame Pro", price: "$340", image: "https://images.unsplash.com/photo-1570222094114-28a9d88a2b64?auto=format&fit=crop&q=80&w=400", description: "Ultraligeros y extremadamente resistentes.", stockStatus: 'in_stock' },
-            { id: 304, title: "Invisible Rimless", price: "$310", image: "https://images.unsplash.com/photo-1621248032483-2077e6fa0f12?auto=format&fit=crop&q=80&w=400", description: "Tecnología sin montura para una visión sin límites.", stockStatus: 'in_stock' },
-            { id: 305, title: "Oxford Academic", price: "$295", image: "https://images.unsplash.com/photo-1582142407894-ec85f1260a46?auto=format&fit=crop&q=80&w=400", description: "Estilo intelectual con frontal de acetato y patillas de metal.", stockStatus: 'low_stock' },
-            { id: 306, title: "Blue Light Shield", price: "$260", image: "https://images.unsplash.com/photo-1560867499-257a02c34d40?auto=format&fit=crop&q=80&w=400", description: "Protección premium contra luz azul para el profesional digital.", stockStatus: 'in_stock' },
-            { id: 307, title: "Architect Bold", price: "$330", image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&q=80&w=400", description: "Montura gruesa de diseño para una declaración de estilo fuerte.", stockStatus: 'in_stock' },
-            { id: 308, title: "Rose Gold Round", price: "$285", image: "https://images.unsplash.com/photo-1582142327595-62d184eb430c?auto=format&fit=crop&q=80&w=400", description: "Delicadeza y feminidad en metal rosa dorado.", stockStatus: 'in_stock' },
-        ],
-        plus: [
-            { id: 302, title: "Round Metal Clear", price: "$155", image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=400", description: "Intelectual y sofisticado.", stockStatus: 'in_stock' },
-            { id: 303, title: "Clubmaster Vision", price: "$160", image: "https://images.unsplash.com/photo-1533725796841-f5bc7308728d?auto=format&fit=crop&q=80&w=400", description: "Estilo retro-intelectual.", stockStatus: 'in_stock' },
+        plusDescanso: [
             { 
-                id: 310, 
+                id: 118, 
                 title: "Lente de Descanso Pluss 009", 
                 price: "$180", 
                 image: "/assets/products/Lentes-Plus/pluss009.jfif", 
@@ -289,7 +273,7 @@ export const initialProducts = {
                 specs: { material: "Acetato/Metal", shape: "Descanso", style: "Filtro Azul", extra: "Aptos para graduación" }
             },
             { 
-                id: 311, 
+                id: 119, 
                 title: "Lente de Descanso Pluss 010", 
                 price: "$180", 
                 image: "/assets/products/Lentes-Plus/pluss010.jfif", 
@@ -304,8 +288,8 @@ export const initialProducts = {
             },
         ],
         standard: [
-            { id: 401, title: "Crystal Clear", price: "$130", image: "https://images.unsplash.com/photo-1483412909000-050affddbd23?auto=format&fit=crop&q=80&w=400", description: "Transparencia total, look minimalista.", stockStatus: 'in_stock' },
-            { id: 402, title: "Daily Reader", price: "$90", image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=400", description: "Comodidad para lectura diaria.", stockStatus: 'in_stock' },
+            { id: 201, title: "Velocity X", price: "$180", image: "https://images.unsplash.com/photo-1622445272461-901b0b57e45b?auto=format&fit=crop&q=80&w=400", description: "Aerodinámicos y ligeros.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { id: 202, title: "Urban Shade", price: "$65", image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=400", description: "Protección UV total con estilo urbano.", stockStatus: 'in_stock', stockQuantity: 10 },
         ]
     },
     ropaDeportiva: {

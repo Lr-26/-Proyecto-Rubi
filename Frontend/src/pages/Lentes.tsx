@@ -232,6 +232,16 @@ const Lentes = () => {
             />
 
             <Section
+                title="Línea Plus - Descanso"
+                subtitle="Protección y salud visual con tecnología de filtro azul para el mundo digital."
+                items={(products as any)?.plusDescanso || []}
+                accentColor="#4682B4" // Steel Blue
+                icon={<ShieldCheck size={32} />}
+                bgClass="bg-white"
+                onProductClick={handleProductClick}
+            />
+
+            <Section
                 title="Línea Estándar"
                 subtitle="Esenciales atemporales. La base fundamental del estilo contemporáneo."
                 items={products?.standard || []}

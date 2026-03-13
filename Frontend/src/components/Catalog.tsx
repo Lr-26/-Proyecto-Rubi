@@ -20,12 +20,6 @@ const categories = [
         description: "Protección y estilo para tus días más soleados."
     },
     {
-        id: 'lentesCristal',
-        label: 'Lentes de Descanso',
-        image: "https://images.unsplash.com/photo-1582142407894-ec85f1260a46?q=80&w=800&auto=format&fit=crop",
-        description: "Protección interna y salud visual con filtro azul."
-    },
-    {
         id: 'ropaDeportiva',
         label: 'Ropa Deportiva',
         image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
@@ -36,6 +30,7 @@ const categories = [
 const subSections: Record<string, string> = {
     premium: "Colección Premium",
     plus: "Línea Plus",
+    plusDescanso: "Línea Plus - Descanso",
     standard: "Estándar",
     hombre: "Hombre",
     mujer: "Mujer",
@@ -308,6 +303,14 @@ const Catalog = () => {
                         overline: "Estilo & Distinción",
                         title: "Línea Plus",
                         description: "Nuestra selección intermedia. El equilibrio perfecto entre diseño vanguardista y accesibilidad, sin comprometer la calidad."
+                    },
+                    plusDescanso: { 
+                        color: '#4682B4', 
+                        bg: 'bg-[#121212]', 
+                        isDark: true,
+                        overline: "Salud Visual & Filtro Azul",
+                        title: "Línea Plus - Descanso",
+                        description: "Protección contra la luz azul para tus pantallas. Elegancia que cuida tu mirada en el mundo digital."
                     },
                     standard: { 
                         color: '#4a4a4a', 
