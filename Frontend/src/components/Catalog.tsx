@@ -20,6 +20,12 @@ const categories = [
         description: "Protección y estilo para tus días más soleados."
     },
     {
+        id: 'lentesCristal',
+        label: 'Lentes de Descanso',
+        image: "https://images.unsplash.com/photo-1582142407894-ec85f1260a46?q=80&w=800&auto=format&fit=crop",
+        description: "Protección interna y salud visual con filtro azul."
+    },
+    {
         id: 'ropaDeportiva',
         label: 'Ropa Deportiva',
         image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
