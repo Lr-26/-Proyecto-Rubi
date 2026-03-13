@@ -41,7 +41,7 @@ const Hero = () => {
             <motion.div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2080&auto=format&fit=crop")',
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=60&w=1600&auto=format&fit=crop")',
                     y: backgroundY,
                     scale: 1.1 // Slight scale to prevent whitespace during parallax
                 }}
