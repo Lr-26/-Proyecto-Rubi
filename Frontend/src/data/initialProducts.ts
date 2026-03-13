@@ -110,6 +110,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 001", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss001.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss001.jfif",
+                    "/assets/products/Lentes-Plus/plus-001.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -121,6 +125,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 002", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss002.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss002.jfif",
+                    "/assets/products/Lentes-Plus/plus002.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -132,6 +140,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 003", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss003.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss003.jfif",
+                    "/assets/products/Lentes-Plus/plus003.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -143,6 +155,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 004", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss004.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss004.jfif",
+                    "/assets/products/Lentes-Plus/plus004.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -154,6 +170,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 005", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss005.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss005.jfif",
+                    "/assets/products/Lentes-Plus/plus005.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -165,6 +185,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 006", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss006.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss006.jfif",
+                    "/assets/products/Lentes-Plus/plus006.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -176,6 +200,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 007", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss007.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss007.jfif",
+                    "/assets/products/Lentes-Plus/plus007.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -187,6 +215,10 @@ export const initialProducts = {
                 title: "Lente de Sol Pluss 008", 
                 price: "$220", 
                 image: "/assets/products/Lentes-Plus/pluss008.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss008.jfif",
+                    "/assets/products/Lentes-Plus/plus008.jfif"
+                ],
                 description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
