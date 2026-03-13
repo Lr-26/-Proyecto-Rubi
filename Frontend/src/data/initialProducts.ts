@@ -243,6 +243,34 @@ export const initialProducts = {
         plus: [
             { id: 302, title: "Round Metal Clear", price: "$155", image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&q=80&w=400", description: "Intelectual y sofisticado.", stockStatus: 'in_stock' },
             { id: 303, title: "Clubmaster Vision", price: "$160", image: "https://images.unsplash.com/photo-1533725796841-f5bc7308728d?auto=format&fit=crop&q=80&w=400", description: "Estilo retro-intelectual.", stockStatus: 'in_stock' },
+            { 
+                id: 310, 
+                title: "Lente de Descanso Pluss 009", 
+                price: "$180", 
+                image: "/assets/products/Lentes-Plus/pluss009.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss009.jfif",
+                    "/assets/products/Lentes-Plus/plus009.jfif"
+                ],
+                description: "- Lentes de descanso\n•filtro azul\n•Aptos para cambiar por lentes con graduación\nIncluye estuche", 
+                stockStatus: 'in_stock',
+                brand: 'Línea Plus',
+                specs: { material: "Acetato/Metal", shape: "Descanso", style: "Filtro Azul", extra: "Aptos para graduación" }
+            },
+            { 
+                id: 311, 
+                title: "Lente de Descanso Pluss 010", 
+                price: "$180", 
+                image: "/assets/products/Lentes-Plus/pluss010.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss010.jfif",
+                    "/assets/products/Lentes-Plus/plus010.jfif"
+                ],
+                description: "- Lentes de descanso\n•filtro azul\n•Aptos para cambiar por lentes con graduación\nIncluye estuche", 
+                stockStatus: 'in_stock',
+                brand: 'Línea Plus',
+                specs: { material: "Acetato/Metal", shape: "Descanso", style: "Filtro Azul", extra: "Aptos para graduación" }
+            },
         ],
         standard: [
             { id: 401, title: "Crystal Clear", price: "$130", image: "https://images.unsplash.com/photo-1483412909000-050affddbd23?auto=format&fit=crop&q=80&w=400", description: "Transparencia total, look minimalista.", stockStatus: 'in_stock' },
