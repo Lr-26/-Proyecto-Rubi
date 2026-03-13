@@ -225,6 +225,37 @@ export const initialProducts = {
                 brand: 'Línea Plus',
                 specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
             },
+            { 
+                id: 118, 
+                title: "Lente de Sol Pluss 011", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss011.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss011.jfif",
+                    "/assets/products/Lentes-Plus/plus011.jfif",
+                    "/assets/products/Lentes-Plus/plusss011.jfif"
+                ],
+                description: "- Lente de sol\nFiltro UV 400\nIncluye estuche", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Sunglasses", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 119, 
+                title: "Lente de Sol Pluss 012", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss012.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss012.jfif",
+                    "/assets/products/Lentes-Plus/plus012.jfif"
+                ],
+                description: "- Lente de sol\nFiltro UV 400\nIncluye estuche", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Sunglasses", extra: "Filtro UV 400 + Estuche" }
+            },
         ],
         standard: [
             { id: 201, title: "Velocity X", price: "$180", image: "https://images.unsplash.com/photo-1622445272461-901b0b57e45b?auto=format&fit=crop&q=80&w=400", description: "Aerodinámicos y ligeros.", stockStatus: 'in_stock', stockQuantity: 10 },
