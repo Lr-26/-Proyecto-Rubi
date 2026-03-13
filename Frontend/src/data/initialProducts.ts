@@ -105,8 +105,94 @@ export const initialProducts = {
             },
         ],
         plus: [
-            { id: 103, title: "Hexagonal Lux", price: "$260", image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop&q=80&w=400", description: "Geometría moderna con acabados de lujo.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 104, title: "Wayfarer Modern", price: "$190", image: "https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&q=80&w=400", description: "Un clásico reinventado para hoy.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { 
+                id: 110, 
+                title: "Lente de Sol Pluss 001", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss001.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 111, 
+                title: "Lente de Sol Pluss 002", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss002.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 112, 
+                title: "Lente de Sol Pluss 003", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss003.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 113, 
+                title: "Lente de Sol Pluss 004", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss004.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 114, 
+                title: "Lente de Sol Pluss 005", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss005.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 115, 
+                title: "Lente de Sol Pluss 006", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss006.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 116, 
+                title: "Lente de Sol Pluss 007", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss007.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 117, 
+                title: "Lente de Sol Pluss 008", 
+                price: "$220", 
+                image: "/assets/products/Lentes-Plus/pluss008.jfif", 
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
         ],
         standard: [
             { id: 201, title: "Velocity X", price: "$180", image: "https://images.unsplash.com/photo-1622445272461-901b0b57e45b?auto=format&fit=crop&q=80&w=400", description: "Aerodinámicos y ligeros.", stockStatus: 'in_stock', stockQuantity: 10 },
