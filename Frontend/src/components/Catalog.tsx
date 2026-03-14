@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Loader2 } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import ProductModal from './ProductModal';
 import { getProducts, Product, ProductData } from '../data/products';
@@ -37,7 +38,7 @@ const subSections: Record<string, string> = {
     accesorios: "Accesorios"
 };
 
-import AuthModal from './AuthModal';
+// AuthModal import removed, replaced by global guard in ProductCard
 
 // ... (existing imports, but removed repeating imports if any)
 
@@ -50,14 +51,7 @@ const Catalog = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
 
-    // Auth State
-    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const [pendingProduct, setPendingProduct] = useState<Product | null>(null);
-
-    // Check if user is already logged in
-    const isUserLoggedIn = () => {
-        return !!localStorage.getItem('rubi_user');
-    };
+    // Auth check removed here, handled in ProductCard component
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -101,34 +95,36 @@ const Catalog = () => {
         )
         : [];
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const handleCategoryClick = (categoryId: string) => {
-        setActiveCategory(categoryId);
-        setTimeout(() => {
-            document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        if (categoryId === 'lentesSol') {
+            navigate('/lentes');
+        } else if (categoryId === 'carteras') {
+            navigate('/carteras');
+        } else if (categoryId === 'ropaDeportiva') {
+            navigate('/ropa-deportiva');
+        } else {
+            setActiveCategory(categoryId);
+            setTimeout(() => {
+                document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     };
 
     const handleBackClick = () => {
-        setActiveCategory(null);
+        if (location.pathname !== '/' && location.pathname !== '/colecciones') {
+            navigate('/colecciones');
+        } else {
+            setActiveCategory(null);
+        }
     };
 
     const activeContent = (activeCategory && productsData) ? productsData[activeCategory] : null;
 
     const handleProductClick = (product: Product) => {
-        if (isUserLoggedIn()) {
-            setSelectedProduct(product);
-        } else {
-            setPendingProduct(product);
-            setIsAuthModalOpen(true);
-        }
-    };
-
-    const handleAuthSuccess = () => {
-        // User just registered
-        if (pendingProduct) {
-            setSelectedProduct(pendingProduct);
-            setPendingProduct(null);
-        }
+        setSelectedProduct(product);
     };
 
     // ... (rest of component logic)
@@ -223,6 +219,7 @@ const Catalog = () => {
                                     onClick={() => handleCategoryClick(cat.id)}
                                     className="group relative h-[380px] overflow-hidden cursor-pointer shadow-xl bg-neutral-900 rounded-xl border border-white/5 hover:border-premium-gold/30 transition-all duration-500"
                                 >
+                    <Link to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'ropaDeportiva' ? '/ropa-deportiva' : '#'))} className="absolute inset-0 z-20" />
                                     <div
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 opacity-70 group-hover:opacity-100"
                                         style={{ backgroundImage: `url(${cat.image})` }}
@@ -232,7 +229,7 @@ const Catalog = () => {
                                     {/* Glass border effect */}
                                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-premium-gold/10 to-transparent pointer-events-none" />
 
-                                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700">
+                                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 z-10">
                                         <span className="text-premium-gold text-[10px] tracking-[0.4em] uppercase mb-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                                             EXPLORAR
                                         </span>
@@ -479,12 +476,7 @@ const Catalog = () => {
                 onClose={() => setSelectedProduct(null)}
             />
 
-            {/* Auth Modal (Lead Capture) */}
-            <AuthModal
-                isOpen={isAuthModalOpen}
-                onClose={() => setIsAuthModalOpen(false)}
-                onSuccess={handleAuthSuccess}
-            />
+            {/* Auth Modal removed, now handled globally */}
         </section>
     );
 };

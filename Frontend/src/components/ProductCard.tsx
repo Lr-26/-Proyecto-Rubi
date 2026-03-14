@@ -29,6 +29,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
 
     const openWhatsApp = (e: React.MouseEvent) => {
         e.stopPropagation();
+        
+        // Check if user is registered
+        const user = localStorage.getItem('rubi_user');
+        if (!user) {
+            window.dispatchEvent(new CustomEvent('openAuth'));
+            return;
+        }
+
         const phoneNumber = "549381449040";
         const message = `Hola! Me interesa el producto "${title}" (${price}) de la categoría ${category}. ¿Tienen stock?`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -52,7 +60,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
 
     return (
         <motion.div
-            onClick={onClick}
+            onClick={(e) => {
+                const user = localStorage.getItem('rubi_user');
+                if (!user) {
+                    window.dispatchEvent(new CustomEvent('openAuth'));
+                } else if (onClick) {
+                    onClick();
+                }
+            }}
             whileHover={{ y: -5, scale: 1.01 }}
             className={`group relative overflow-hidden cursor-pointer h-full flex flex-col transition-all duration-300 rounded-2xl ${isPremium
                 ? 'bg-gradient-to-br from-neutral-900 via-[#1a1a1a] to-black border border-white/10 shadow-xl'
@@ -119,11 +134,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                 </div>
 
                 <div className="flex flex-col items-center mt-auto pt-3 border-t border-gray-500/5">
+                    <div className={`text-sm md:text-base font-serif font-medium mb-3 ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
+                        {price}
+                    </div>
                     <button
                         onClick={openWhatsApp}
                         className={`w-full py-2.5 rounded-lg text-[9px] font-bold tracking-[0.1em] uppercase transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden ${
                             isPremium
-                                ? 'bg-gradient-to-r from-premium-gold to-[#b38b45] text-white'
+                                ? 'bg-gradient-to-r from-premium-gold to-[#b38b45] text-white hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]'
                                 : 'bg-premium-dark text-white hover:bg-premium-gold'
                         }`}
                     >

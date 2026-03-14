@@ -1,3 +1,4 @@
+// Backend server entry point
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -19,8 +20,16 @@ if (!supabaseUrl || !supabaseKey || supabaseUrl.includes('PON_TU_URL')) {
     // Mock supabase to prevent crashes
     supabase = {
         from: (table) => ({
-            select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }) }) }),
-            insert: () => ({ select: () => ({ single: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }) }) })
+            select: () => ({ 
+                eq: () => ({ 
+                    single: () => Promise.resolve({ data: null, error: null }) 
+                }) 
+            }),
+            insert: () => ({ 
+                select: () => ({ 
+                    single: () => Promise.resolve({ data: { id: 'mock-id', name: 'Usuario Invitado' }, error: null }) 
+                }) 
+            })
         })
     };
 } else {
@@ -165,8 +174,10 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+}
 
-// Force restart 7: Rebuilt ProductCard.tsx to make cards smaller
+module.exports = app;

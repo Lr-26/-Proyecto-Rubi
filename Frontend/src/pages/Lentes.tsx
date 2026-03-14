@@ -1,9 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Loader2, ShieldCheck, Zap, Crown, Sparkles, Diamond } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
-import AuthModal from '../components/AuthModal';
 import { getProducts, Product, ProductData } from '../data/products';
 import ProductModal from '../components/ProductModal';
 
@@ -153,26 +152,39 @@ const Lentes = () => {
     const [products, setProducts] = useState<ProductData['lentesSol'] | null>(null);
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const [isOverHero, setIsOverHero] = useState(false);
 
-    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const [pendingProduct, setPendingProduct] = useState<Product | null>(null);
+    // Parallax mouse tracking
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
-    const isUserLoggedIn = () => !!localStorage.getItem('rubi_user');
+    // Smooth movement with springs
+    const springConfig = { damping: 25, stiffness: 150 };
+    const springX = useSpring(mouseX, springConfig);
+    const springY = useSpring(mouseY, springConfig);
 
-    const handleProductClick = (product: Product) => {
-        if (isUserLoggedIn()) {
-            setSelectedProduct(product);
-        } else {
-            setPendingProduct(product);
-            setIsAuthModalOpen(true);
-        }
+    // Transform values for different layers (different intensities for depth)
+    // Map from client coordinates to a displacement from center
+    const bgX = useTransform(springX, [0, 2000], [-30, 30]);
+    const bgY = useTransform(springY, [0, 1000], [-30, 30]);
+    
+    const imageX = useTransform(springX, [0, 2000], [-60, 60]);
+    const imageY = useTransform(springY, [0, 1000], [-60, 60]);
+    
+    const glowX = useTransform(springX, [0, 2000], [70, -70]);
+    const glowY = useTransform(springY, [0, 1000], [70, -70]);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        const { clientX, clientY } = e;
+        mouseX.set(clientX);
+        mouseY.set(clientY);
     };
 
-    const handleAuthSuccess = () => {
-        if (pendingProduct) {
-            setSelectedProduct(pendingProduct);
-            setPendingProduct(null);
-        }
+    const cursorX = useSpring(mouseX, { damping: 20, stiffness: 250 });
+    const cursorY = useSpring(mouseY, { damping: 20, stiffness: 250 });
+
+    const handleProductClick = (product: Product) => {
+        setSelectedProduct(product);
     };
 
     useEffect(() => {
@@ -201,65 +213,143 @@ const Lentes = () => {
     }
 
     return (
-        <div className="pt-20 min-h-screen bg-neutral-50 selection:bg-premium-gold selection:text-white">
+        <div 
+            className="pt-20 min-h-screen bg-neutral-50 selection:bg-premium-gold selection:text-white"
+            onMouseMove={handleMouseMove}
+        >
+            {/* Custom Cursor Light */}
+            <motion.div 
+                animate={{ opacity: isOverHero ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] mix-blend-screen"
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: '-50%',
+                    translateY: '-50%',
+                    left: 0,
+                    top: 0,
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(197, 160, 89, 0.5) 40%, rgba(197, 160, 89, 0) 70%)',
+                    boxShadow: '0 0 40px 10px rgba(197, 160, 89, 0.4)'
+                }}
+            />
+            {/* Central Glow Bulb */}
+            <motion.div 
+                animate={{ opacity: isOverHero ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10000] shadow-[0_0_15px_rgba(255,255,255,1)]"
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: '-50%',
+                    translateY: '-50%',
+                    left: 0,
+                    top: 0,
+                }}
+            />
+            <motion.div 
+                animate={{ opacity: isOverHero ? 0.2 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="fixed top-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none z-[9998]"
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: '-50%',
+                    translateY: '-50%',
+                    left: 0,
+                    top: 0,
+                    background: 'radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%)'
+                }}
+            />
+
+            {/* 2. SubNavbar FIRST (above image, below main nav) */}
             <SubNavbar />
-            {/* Ultra Premium Hero Section */}
-            <div className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-premium-dark">
+            {/* 1. Ultra Premium Hero Section */}
+            <div 
+                className={`relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] ${isOverHero ? 'cursor-none' : 'cursor-default'}`}
+                onMouseEnter={() => setIsOverHero(true)}
+                onMouseLeave={() => setIsOverHero(false)}
+            >
+                {/* Parallax Background Layer */}
                 <motion.div
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.4 }}
-                    transition={{ duration: 2 }}
-                    className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=1920&v=3')] bg-cover bg-center"
+                    style={{ x: bgX, y: bgY, scale: 1.1 }}
+                    className="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center grayscale"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-premium-dark/70 via-transparent to-neutral-50" />
+                
+                {/* Atmospheric Glows (Ruby & Gold) */}
+                <motion.div 
+                    style={{ x: glowX, y: glowY }}
+                    className="absolute top-1/4 -left-20 w-96 h-96 bg-[#8b0000]/15 rounded-full blur-[120px] z-0" 
+                />
+                <motion.div 
+                    style={{ x: glowY, y: glowX }}
+                    className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#c5a059]/15 rounded-full blur-[120px] z-0" 
+                />
 
-                <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 flex flex-col items-center justify-center w-full">
+                    {/* The Circular Portal Container */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
+                        style={{ x: bgX, y: bgY }}
+                        className="relative w-[320px] h-[320px] md:w-[550px] md:h-[550px] rounded-full border border-premium-gold/30 flex items-center justify-center overflow-hidden bg-black/40 backdrop-blur-md shadow-[0_0_100px_rgba(197,160,89,0.1)] z-20"
                     >
-                        <span className="text-premium-gold tracking-[0.6em] text-sm uppercase mb-6 block font-medium">Luxe Visionary</span>
-                        <h1 className="font-serif text-6xl md:text-8xl text-white mb-8 tracking-tighter uppercase">
-                            Lentes
-                        </h1>
-                        <p className="text-white/80 text-lg md:text-2xl font-light leading-relaxed max-w-2xl mx-auto italic mb-12">
-                            Una mirada exclusiva a través de diseños que definen personalidades.
-                        </p>
-
-                        <div className="flex flex-wrap justify-center gap-4">
-                            {[
-                                { id: 'premium-header', label: 'Premium', icon: <Crown size={20} /> },
-                                { id: 'plus-section', label: 'Línea Plus', icon: <Zap size={20} /> },
-                                { id: 'standard-section', label: 'Estandar', icon: <ShieldCheck size={20} /> }
-                            ].map((btn) => (
-                                <button
-                                    key={btn.id}
-                                    onClick={() => {
-                                        const element = document.getElementById(btn.id);
-                                        if (element) {
-                                            const offset = 140;
-                                            const bodyRect = document.body.getBoundingClientRect().top;
-                                            const elementRect = element.getBoundingClientRect().top;
-                                            const elementPosition = elementRect - bodyRect;
-                                            const offsetPosition = elementPosition - offset;
-                                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                                        }
-                                    }}
-                                    className="group flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-premium-gold/20 backdrop-blur-md border border-white/20 hover:border-premium-gold/50 rounded-full transition-all duration-500 hover:scale-105"
-                                >
-                                    <span className="text-premium-gold group-hover:animate-pulse">{btn.icon}</span>
-                                    <span className="text-white font-serif uppercase tracking-[0.2em] text-sm">{btn.label}</span>
-                                </button>
-                            ))}
-                        </div>
+                        {/* Internal Atmospheric Glows inside the circle */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#8b0000]/15 via-transparent to-[#c5a059]/10 pointer-events-none" />
+                        
+                        {/* The Sunglasses restricted to this circle with Additive Blending to remove all artifacts */}
+                        <motion.img
+                            src="/assets/premium_sunglasses_hero.png"
+                            alt="Premium Sunglasses"
+                            style={{ 
+                                x: imageX, 
+                                y: imageY,
+                                filter: 'contrast(1.1) brightness(1.05)',
+                                maskImage: 'radial-gradient(circle, black 65%, transparent 100%)',
+                                WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 100%)'
+                            }}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1.15 }}
+                            transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
+                            className="w-[88%] h-[88%] object-contain z-30 pointer-events-none mix-blend-screen drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+                        />
+                        
+                        {/* Shimmer effect inside circle */}
+                        <motion.div 
+                            animate={{ x: [-500, 500] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 pointer-events-none"
+                        />
                     </motion.div>
+
+                    {/* Floating Hero Text */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                            className="font-serif text-7xl md:text-[13rem] text-white uppercase tracking-tighter mix-blend-difference opacity-90"
+                        >
+                            Lentes
+                        </motion.h1>
+                    </div>
+                    
+                    {/* Caption */}
+                    <motion.p 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.8 }}
+                        className="mt-8 text-premium-gold/60 text-[10px] tracking-[0.5em] uppercase font-bold z-20"
+                    >
+                        Lux Visionary Collection
+                    </motion.p>
                 </div>
 
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-                    <div className="w-px h-16 bg-gradient-to-b from-transparent to-premium-gold" />
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20 opacity-30">
+                    <div className="w-px h-12 bg-gradient-to-b from-transparent via-white to-transparent" />
                 </div>
             </div>
+
+            {/* 2. SubNavbar SECOND */}
+            <SubNavbar />
 
             {/* --- HEADER LÍNEA PREMIUM --- */}
             <div id="premium-header" className="py-20 bg-gradient-to-b from-premium-dark to-neutral-50 border-b border-premium-gold/20">
@@ -323,14 +413,29 @@ const Lentes = () => {
                 onProductClick={handleProductClick}
             />
 
+            {/* --- HEADER LÍNEA PLUS --- */}
+            <div id="plus-section" className="py-20 bg-gradient-to-b from-neutral-900 to-neutral-50 border-b border-premium-ruby/20">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <span className="text-premium-ruby tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Elegancia Distinguida</span>
+                    <h2 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
+                        Línea Plus
+                    </h2>
+                    <p className="text-white/80 text-lg max-w-2xl mx-auto font-light italic">
+                        El equilibrio perfecto entre diseño contemporáneo y distinción. Una selección diseñada para quienes buscan piezas únicas con un carácter sofisticado y moderno.
+                    </p>
+                    <div className="mt-8 flex justify-center">
+                        <Zap className="text-premium-ruby opacity-50" size={24} />
+                    </div>
+                </div>
+            </div>
+
             <Section
-                id="plus-section"
                 title="Línea Plus"
                 subtitle="Equilibrio perfecto entre sofisticación moderna y versatilidad diaria."
                 items={products?.plus || []}
                 accentColor="#8B0000" // Premium Ruby/Dark Red
                 icon={<Zap size={32} />}
-                bgClass="bg-premium-cream/40"
+                bgClass="bg-white"
                 onProductClick={handleProductClick}
             />
 
@@ -344,8 +449,23 @@ const Lentes = () => {
                 onProductClick={handleProductClick}
             />
 
+            {/* --- HEADER LÍNEA ESTÁNDAR --- */}
+            <div id="standard-section" className="py-20 bg-gradient-to-b from-neutral-800 to-neutral-50 border-b border-gray-400/20">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <span className="text-gray-400 tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Estilo Atemporal</span>
+                    <h2 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
+                        Línea Estándar
+                    </h2>
+                    <p className="text-white/80 text-lg max-w-2xl mx-auto font-light italic">
+                        La esencia de lo clásico con calidad impecable. Diseños versátiles que definen tu imagen diaria con una sofisticación natural y elegancia funcional.
+                    </p>
+                    <div className="mt-8 flex justify-center">
+                        <ShieldCheck className="text-gray-400 opacity-50" size={24} />
+                    </div>
+                </div>
+            </div>
+
             <Section
-                id="standard-section"
                 title="Línea Estándar"
                 subtitle="Esenciales atemporales. La base fundamental del estilo contemporáneo."
                 items={products?.standard || []}
@@ -359,12 +479,6 @@ const Lentes = () => {
                 product={selectedProduct}
                 isOpen={!!selectedProduct}
                 onClose={() => setSelectedProduct(null)}
-            />
-
-            <AuthModal
-                isOpen={isAuthModalOpen}
-                onClose={() => setIsAuthModalOpen(false)}
-                onSuccess={handleAuthSuccess}
             />
         </div>
     );

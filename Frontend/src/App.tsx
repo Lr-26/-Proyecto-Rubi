@@ -11,8 +11,35 @@ import RopaDeportiva from './pages/RopaDeportiva';
 import SeedDatabase from './components/SeedDatabase';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
+import AuthModal from './components/AuthModal';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [user, setUser] = useState<any>(null);
+  const [showAuth, setShowAuth] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const savedUser = localStorage.getItem('rubi_user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    } else {
+      // No auto-show anymore, user wants it to be triggered by actions
+      // setShowAuth(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleOpenAuth = () => setShowAuth(true);
+    window.addEventListener('openAuth', handleOpenAuth);
+    return () => window.removeEventListener('openAuth', handleOpenAuth);
+  }, []);
+
+  const handleAuthSuccess = (userData: any) => {
+    setUser(userData);
+    setShowAuth(false);
+  };
+
   return (
     <Router>
       <ScrollToTop />
@@ -32,6 +59,15 @@ function App() {
         </main>
         <Footer />
         <WhatsAppButton />
+        
+        {/* Global Auth Gate */}
+        <AuthModal 
+          isOpen={showAuth} 
+          onClose={() => setShowAuth(false)}
+          onSuccess={handleAuthSuccess}
+        />
+
+        {/* Removed fixed overlay to allow navigation */}
       </div>
     </Router>
   );

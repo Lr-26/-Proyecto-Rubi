@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
-import AuthModal from '../components/AuthModal';
 import { getProducts, Product, ProductData } from '../data/products';
 
 // ... (SectionProps and Section component remain same)
@@ -62,26 +61,8 @@ const RopaDeportiva = () => {
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-    // Auth State
-    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const [pendingProduct, setPendingProduct] = useState<Product | null>(null);
-
-    const isUserLoggedIn = () => !!localStorage.getItem('rubi_user');
-
     const handleProductClick = (product: Product) => {
-        if (isUserLoggedIn()) {
-            setSelectedProduct(product);
-        } else {
-            setPendingProduct(product);
-            setIsAuthModalOpen(true);
-        }
-    };
-
-    const handleAuthSuccess = () => {
-        if (pendingProduct) {
-            setSelectedProduct(pendingProduct);
-            setPendingProduct(null);
-        }
+        setSelectedProduct(product);
     };
 
     useEffect(() => {
@@ -152,12 +133,6 @@ const RopaDeportiva = () => {
                 product={selectedProduct}
                 isOpen={!!selectedProduct}
                 onClose={() => setSelectedProduct(null)}
-            />
-
-            <AuthModal
-                isOpen={isAuthModalOpen}
-                onClose={() => setIsAuthModalOpen(false)}
-                onSuccess={handleAuthSuccess}
             />
         </div>
     );
