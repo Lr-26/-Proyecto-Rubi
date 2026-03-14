@@ -394,8 +394,6 @@ const Lentes = () => {
                 </div>
             </div>
 
-            {/* 2. SubNavbar SECOND */}
-            <SubNavbar />
 
             {/* --- HEADER LÍNEA PREMIUM --- */}
             <div id="premium-header" className="py-20 bg-gradient-to-b from-premium-dark to-neutral-50 border-b border-premium-gold/20">
