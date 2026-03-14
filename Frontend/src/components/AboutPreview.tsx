@@ -15,10 +15,10 @@ const AboutPreview = () => {
                         <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-premium-ruby/10 rounded-full z-0 blur-3xl"></div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="relative z-10"
                         >
                             <img
@@ -34,10 +34,10 @@ const AboutPreview = () => {
 
                     {/* Text Side */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         className="lg:pl-10"
                     >
                         <h2 className="font-serif text-4xl md:text-5xl text-premium-dark mb-6 leading-tight">

@@ -36,6 +36,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
             if (response.ok) {
                 // Save to localStorage
                 localStorage.setItem('rubi_user', JSON.stringify(data.user));
+                window.dispatchEvent(new CustomEvent('authChange'));
                 onSuccess(data.user);
                 onClose();
             } else {

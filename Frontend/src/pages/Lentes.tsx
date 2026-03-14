@@ -93,7 +93,7 @@ const SubNavbar = () => {
                     }
                 });
             },
-            { 
+            {
                 // Detect when section enters the top 30% of the viewport
                 rootMargin: '-30% 0px -69% 0px',
                 threshold: 0
@@ -132,12 +132,11 @@ const SubNavbar = () => {
                     <button
                         key={item.id}
                         onClick={() => scrollTo(item.id === 'premium' ? 'premium-header' : `${item.id}-section`)}
-                        className={`flex items-center gap-2 px-6 py-2.5 rounded-full transition-all duration-300 ${
-                            (activeSection === 'premium-header' && item.id === 'premium') || 
-                            (activeSection === `${item.id}-section`)
-                            ? 'bg-premium-gold text-premium-dark shadow-[0_0_20px_rgba(212,175,55,0.3)] scale-105 font-bold'
-                            : 'text-white/60 hover:text-white hover:bg-white/10'
-                        }`}
+                        className={`flex items-center gap-2 px-6 py-2.5 rounded-full transition-all duration-300 ${(activeSection === 'premium-header' && item.id === 'premium') ||
+                                (activeSection === `${item.id}-section`)
+                                ? 'bg-premium-gold text-premium-dark shadow-[0_0_20px_rgba(212,175,55,0.3)] scale-105 font-bold'
+                                : 'text-white/60 hover:text-white hover:bg-white/10'
+                            }`}
                     >
                         {item.icon}
                         <span className="text-sm font-serif uppercase tracking-wider">{item.label}</span>
@@ -167,10 +166,10 @@ const Lentes = () => {
     // Map from client coordinates to a displacement from center
     const bgX = useTransform(springX, [0, 2000], [-30, 30]);
     const bgY = useTransform(springY, [0, 1000], [-30, 30]);
-    
+
     const imageX = useTransform(springX, [0, 2000], [-60, 60]);
     const imageY = useTransform(springY, [0, 1000], [-60, 60]);
-    
+
     const glowX = useTransform(springX, [0, 2000], [70, -70]);
     const glowY = useTransform(springY, [0, 1000], [70, -70]);
 
@@ -213,12 +212,12 @@ const Lentes = () => {
     }
 
     return (
-        <div 
+        <div
             className="pt-20 min-h-screen bg-neutral-50 selection:bg-premium-gold selection:text-white"
             onMouseMove={handleMouseMove}
         >
             {/* Custom Cursor Light */}
-            <motion.div 
+            <motion.div
                 animate={{ opacity: isOverHero ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
                 className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] mix-blend-screen"
@@ -234,7 +233,7 @@ const Lentes = () => {
                 }}
             />
             {/* Central Glow Bulb */}
-            <motion.div 
+            <motion.div
                 animate={{ opacity: isOverHero ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
                 className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10000] shadow-[0_0_15px_rgba(255,255,255,1)]"
@@ -247,7 +246,7 @@ const Lentes = () => {
                     top: 0,
                 }}
             />
-            <motion.div 
+            <motion.div
                 animate={{ opacity: isOverHero ? 0.2 : 0 }}
                 transition={{ duration: 0.5 }}
                 className="fixed top-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none z-[9998]"
@@ -265,7 +264,7 @@ const Lentes = () => {
             {/* 2. SubNavbar FIRST (above image, below main nav) */}
             <SubNavbar />
             {/* 1. Ultra Premium Hero Section */}
-            <div 
+            <div
                 className={`relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] ${isOverHero ? 'cursor-none' : 'cursor-default'}`}
                 onMouseEnter={() => setIsOverHero(true)}
                 onMouseLeave={() => setIsOverHero(false)}
@@ -275,15 +274,62 @@ const Lentes = () => {
                     style={{ x: bgX, y: bgY, scale: 1.1 }}
                     className="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1595166453712-4017686d63d0?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center grayscale"
                 />
-                
-                {/* Atmospheric Glows (Ruby & Gold) */}
-                <motion.div 
+
+                {/* --- MOVING LIGHT SYSTEM (Professional Background Effects) --- */}
+                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                    {/* Floating Soft Gold Light Orb */}
+                    <motion.div
+                        animate={{
+                            x: [-100, 100, -50, 0],
+                            y: [-50, 50, 100, 0],
+                            opacity: [0.1, 0.2, 0.15, 0.1]
+                        }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#c5a059] rounded-full blur-[150px]"
+                    />
+
+                    {/* Drifting Ruby Light Orb */}
+                    <motion.div
+                        animate={{
+                            x: [100, -100, 50, 0],
+                            y: [50, -100, -50, 0],
+                            opacity: [0.05, 0.15, 0.1, 0.05]
+                        }}
+                        transition={{
+                            duration: 25,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-[#8b0000] rounded-full blur-[150px]"
+                    />
+
+                    {/* Sweeping Spotlight (High-End Effect) */}
+                    <motion.div
+                        animate={{
+                            rotate: [0, 360],
+                            opacity: [0.3, 0.6, 0.3]
+                        }}
+                        transition={{
+                            rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+                            opacity: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                        }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[200px] bg-gradient-to-r from-transparent via-white/5 to-transparent z-0"
+                        style={{ transformOrigin: 'center center' }}
+                    />
+                </div>
+
+                {/* Atmospheric Glows (Ruby & Gold) - Tracked by Mouse */}
+                <motion.div
                     style={{ x: glowX, y: glowY }}
-                    className="absolute top-1/4 -left-20 w-96 h-96 bg-[#8b0000]/15 rounded-full blur-[120px] z-0" 
+                    className="absolute top-1/4 -left-20 w-96 h-96 bg-[#8b0000]/20 rounded-full blur-[120px] z-10"
                 />
-                <motion.div 
+                <motion.div
                     style={{ x: glowY, y: glowX }}
-                    className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#c5a059]/15 rounded-full blur-[120px] z-0" 
+                    className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#c5a059]/20 rounded-full blur-[120px] z-10"
                 />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 flex flex-col items-center justify-center w-full">
@@ -294,13 +340,13 @@ const Lentes = () => {
                     >
                         {/* Internal Atmospheric Glows inside the circle */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-[#8b0000]/15 via-transparent to-[#c5a059]/10 pointer-events-none" />
-                        
+
                         {/* The Sunglasses restricted to this circle with Additive Blending to remove all artifacts */}
                         <motion.img
                             src="/assets/premium_sunglasses_hero.png"
                             alt="Premium Sunglasses"
-                            style={{ 
-                                x: imageX, 
+                            style={{
+                                x: imageX,
                                 y: imageY,
                                 filter: 'contrast(1.1) brightness(1.05)',
                                 maskImage: 'radial-gradient(circle, black 65%, transparent 100%)',
@@ -311,9 +357,9 @@ const Lentes = () => {
                             transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
                             className="w-[88%] h-[88%] object-contain z-30 pointer-events-none mix-blend-screen drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]"
                         />
-                        
+
                         {/* Shimmer effect inside circle */}
-                        <motion.div 
+                        <motion.div
                             animate={{ x: [-500, 500] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 pointer-events-none"
@@ -322,7 +368,7 @@ const Lentes = () => {
 
                     {/* Floating Hero Text */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none">
-                        <motion.h1 
+                        <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.5 }}
@@ -331,9 +377,9 @@ const Lentes = () => {
                             Lentes
                         </motion.h1>
                     </div>
-                    
+
                     {/* Caption */}
-                    <motion.p 
+                    <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 0.8 }}

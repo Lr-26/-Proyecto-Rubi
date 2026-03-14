@@ -1,7 +1,7 @@
 import Hero from '../components/Hero';
 import Catalog from '../components/Catalog';
 import AboutPreview from '../components/AboutPreview';
-import Testimonials from '../components/Testimonials';
+import BrandExperience from '../components/BrandExperience';
 
 const Home = () => {
     return (
@@ -9,7 +9,7 @@ const Home = () => {
             <Hero />
             <AboutPreview />
             <Catalog />
-            <Testimonials />
+            <BrandExperience />
         </div>
     );
 };

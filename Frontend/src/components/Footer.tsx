@@ -1,47 +1,64 @@
-
 import { Instagram, Facebook, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
     return (
-        <footer className="bg-premium-dark text-premium-cream border-t border-premium-gold/20 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <footer className="relative bg-black text-premium-cream overflow-hidden">
+            {/* Luxury Background Effect */}
+            <div className="absolute inset-0 z-0">
+                <img 
+                    src="/assets/newsletter_bg.png" 
+                    alt="Footer Background" 
+                    className="w-full h-full object-cover opacity-60"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+            </div>
+
+            <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16"
+            >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-16">
                     {/* Brand */}
                     <div className="flex flex-col items-center md:items-start">
-                        <h3 className="font-serif text-xl text-premium-ruby mb-4">RUBI DETAILS</h3>
-                        <p className="text-sm text-gray-400 text-center md:text-left">
-                            Elevando tu estilo con accesorios premium que conectan con tu esencia.
+                        <h3 className="font-serif text-2xl tracking-[0.2em] text-premium-ruby mb-6">RUBI DETAILS</h3>
+                        <p className="text-sm text-gray-400 text-center md:text-left leading-relaxed max-w-xs font-light">
+                            Elevando la sofisticación personal a través de accesorios minuciosamente seleccionados. Tu distinción es nuestro compromiso.
                         </p>
                     </div>
 
                     {/* Links */}
                     <div className="flex flex-col items-center">
-                        <h4 className="font-serif text-lg mb-4">Enlaces</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <li><Link to="/carteras" className="hover:text-premium-ruby transition-colors">Carteras y Billeteras</Link></li>
-                            <li><Link to="/lentes" className="hover:text-premium-ruby transition-colors">Lentes</Link></li>
-                            <li><Link to="/contacto" className="hover:text-premium-ruby transition-colors">Contacto</Link></li>
+                        <h4 className="font-serif text-lg mb-6 tracking-widest uppercase text-premium-gold/80">Explorar</h4>
+                        <ul className="space-y-4 text-sm text-gray-400 font-light text-center">
+                            <li><Link to="/carteras" className="hover:text-white transition-colors">Carteras & Billeteras</Link></li>
+                            <li><Link to="/lentes" className="hover:text-white transition-colors">Gafas de Sol</Link></li>
+                            <li><Link to="/contacto" className="hover:text-white transition-colors">Servicio al Cliente</Link></li>
                         </ul>
                     </div>
 
                     {/* Social */}
                     <div className="flex flex-col items-center md:items-end">
-                        <h4 className="font-serif text-lg mb-4">Síguenos</h4>
-                        <div className="flex space-x-4">
-                            <a href="https://www.instagram.com/rubi_lentes?igsh=MXRtejhuZG85dnZh" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-premium-ruby transition-colors"><Instagram size={20} /></a>
-                            <a href="#" className="text-gray-400 hover:text-premium-ruby transition-colors"><Facebook size={20} /></a>
-                            <a href="mailto:contacto@rubidetails.com" className="text-gray-400 hover:text-premium-ruby transition-colors"><Mail size={20} /></a>
+                        <h4 className="font-serif text-lg mb-6 tracking-widest uppercase text-premium-gold/80">Síguenos</h4>
+                        <div className="flex space-x-6">
+                            <a href="https://www.instagram.com/rubi_lentes?igsh=MXRtejhuZG85dnZh" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Instagram size={20} /></a>
+                            <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Facebook size={20} /></a>
+                            <a href="mailto:contacto@rubidetails.com" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Mail size={20} /></a>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-8 border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
-                    &copy; {new Date().getFullYear()} Rubi Details. Todos los derechos reservados.
-                    <span className="mx-2">|</span>
-                    <a href="/admin" className="hover:text-premium-ruby transition-colors">Admin</a>
+                <div className="mt-12 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-gray-500 uppercase font-medium">
+                    <p>&copy; {new Date().getFullYear()} Rubi Details. Excelencia Definida.</p>
+                    <div className="flex items-center gap-6 mt-4 md:mt-0">
+                        <a href="/admin" className="hover:text-premium-gold transition-colors">Acceso Administrativo</a>
+                    </div>
                 </div>
-            </div>
+            </motion.div>
         </footer >
     );
 };

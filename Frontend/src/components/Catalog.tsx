@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import ProductModal from './ProductModal';
@@ -11,20 +11,20 @@ const categories = [
     {
         id: 'carteras',
         label: 'Carteras y Billeteras',
-        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
-        description: "Descubre nuestra colección exclusiva de bolsos y carteras."
+        image: "/assets/premium_bag_hero.png",
+        description: "Artesanía en cuero y diseños atemporales que definen tu elegancia diaria."
     },
     {
         id: 'lentesSol',
-        label: 'Lentes',
-        image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=800&auto=format&fit=crop",
-        description: "Protección y estilo para tus días más soleados."
+        label: 'Gafas de Sol',
+        image: "/assets/sunglasses_category.png",
+        description: "Una mirada de distinción a través de ópticas de precisión y marcos icónicos."
     },
     {
         id: 'ropaDeportiva',
         label: 'Ropa Deportiva',
-        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
-        description: "Rendimiento y confort para tu estilo de vida activo."
+        image: "/assets/sportswear_category.png",
+        description: "Rendimiento técnico fusionado con la estética urbana más exigente."
     },
 ];
 
@@ -49,7 +49,6 @@ const Catalog = () => {
     const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [productsData, setProductsData] = useState<ProductData | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
-    const [loading, setLoading] = useState(true);
 
     // Auth check removed here, handled in ProductCard component
 
@@ -60,8 +59,6 @@ const Catalog = () => {
                 setProductsData(data);
             } catch (error) {
                 console.error("Error fetching products:", error);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -131,7 +128,13 @@ const Catalog = () => {
 
     return (
         <section className="py-12 bg-neutral-50 min-h-screen" id="catalogo">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+            >
 
                 {/* Search Bar */}
                 {/* ... (search bar logic same as before) ... */}
@@ -140,28 +143,41 @@ const Catalog = () => {
                     Given the file size, I'll replace the relevant parts.
                 */}
 
-                <div className="mb-12 relative max-w-md mx-auto">
-                    {/* ... Search Input ... */}
-                    <div className="relative">
+                {/* Professional Collection Navigation */}
+                <div className="text-center mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1 }}
+                        className="inline-flex items-center gap-4 mb-6"
+                    >
+                        <div className="h-[1px] w-12 bg-premium-gold/30" />
+                        <span className="text-premium-ruby tracking-[0.5em] text-[11px] uppercase font-bold">Catálogo Maestro</span>
+                        <div className="h-[1px] w-12 bg-premium-gold/30" />
+                    </motion.div>
+                    <h2 className="font-serif text-5xl text-premium-dark mb-6 tracking-tight">Elige tu <span className="italic">Distinción</span></h2>
+                    <p className="text-gray-400 font-light max-w-xl mx-auto text-sm leading-relaxed mb-12">
+                        Navega por nuestras categorías exclusivas y descubre la pieza que resuena con tu esencia personal.
+                    </p>
+                    
+                    <div className="relative max-w-xl mx-auto group">
+                        <div className="absolute inset-0 bg-premium-gold/5 rounded-full blur-2xl group-hover:bg-premium-gold/10 transition-all duration-700" />
                         <input
                             type="text"
-                            placeholder="Buscar en la colección..."
+                            placeholder="Buscar en el archivo premium..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-full shadow-sm focus:ring-2 focus:ring-premium-gold/50 focus:border-premium-gold outline-none transition-all placeholder-gray-400 font-light tracking-wide text-gray-800"
+                            className="relative w-full pl-16 pr-14 py-5 bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.03)] focus:shadow-[0_25px_60px_rgba(212,175,55,0.1)] focus:border-premium-gold/30 outline-none transition-all duration-500 placeholder-gray-300 font-light tracking-wide text-gray-700 z-10"
                         />
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                            <Loader2 size={20} className={`animate-spin ${loading ? 'opacity-100' : 'opacity-0 hidden'}`} />
-                            {!loading && (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
-                            )}
+                        <div className="absolute left-6 top-1/2 -translate-y-1/2 text-premium-gold z-20 pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
                         </div>
                         {searchTerm && (
                             <button
                                 onClick={() => setSearchTerm('')}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+                                className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-premium-ruby transition-colors z-20"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                             </button>
                         )}
                     </div>
@@ -201,49 +217,62 @@ const Catalog = () => {
                             )}
                         </motion.div>
                     ) : !activeCategory ? (
-                        <motion.div
+                        <>
+                            <motion.div
                             key="category-selection"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.5 }}
-                            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10"
                         >
                             {categories.map((cat, index) => (
                                 <motion.div
                                     key={cat.id}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 40 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: index * 0.15, duration: 0.8, ease: "easeOut" }}
+                                    transition={{ delay: index * 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                     onClick={() => handleCategoryClick(cat.id)}
-                                    className="group relative h-[380px] overflow-hidden cursor-pointer shadow-xl bg-neutral-900 rounded-xl border border-white/5 hover:border-premium-gold/30 transition-all duration-500"
+                                    className="group relative h-[450px] overflow-hidden cursor-pointer shadow-2xl bg-black rounded-sm border border-white/5 transition-all duration-700"
                                 >
-                    <Link to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'ropaDeportiva' ? '/ropa-deportiva' : '#'))} className="absolute inset-0 z-20" />
+                                    <Link to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'ropaDeportiva' ? '/ropa-deportiva' : '#'))} className="absolute inset-0 z-30" />
+                                    
+                                    {/* Image with zoom effect - 100% opacity for maximum visibility */}
                                     <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 opacity-70 group-hover:opacity-100"
+                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] ease-out group-hover:scale-110 opacity-100"
                                         style={{ backgroundImage: `url(${cat.image})` }}
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500" />
 
-                                    {/* Glass border effect */}
-                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-premium-gold/10 to-transparent pointer-events-none" />
+                                    {/* Cinematic Vignette - Adjusted for better product clarity */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-70" />
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
-                                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 z-10">
-                                        <span className="text-premium-gold text-[10px] tracking-[0.4em] uppercase mb-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                                            EXPLORAR
-                                        </span>
-                                        <h3 className="font-serif text-3xl text-white mb-2 drop-shadow-2xl tracking-tight">
+                                    {/* Premium Glowing Border */}
+                                    <div className="absolute inset-0 border border-premium-gold/0 group-hover:border-premium-gold/40 transition-all duration-700 m-4 z-20 pointer-events-none" />
+
+                                    {/* Text Content */}
+                                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center z-20 px-6">
+                                        <motion.span 
+                                            className="text-premium-gold text-[10px] tracking-[0.5em] uppercase mb-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-700 font-bold"
+                                        >
+                                            Colección Exclusiva
+                                        </motion.span>
+                                        <h3 className="font-serif text-4xl text-white mb-4 tracking-tighter transition-transform duration-700 group-hover:-translate-y-2">
                                             {cat.label}
                                         </h3>
-                                        <p className="text-gray-300 text-[11px] max-w-[200px] font-light leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 px-4">
+                                        <div className="w-0 group-hover:w-16 h-[1px] bg-premium-gold transition-all duration-700 mb-6" />
+                                        <p className="text-gray-400 text-xs max-w-[240px] font-light leading-relaxed opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-700 delay-100">
                                             {cat.description}
                                         </p>
-                                        <div className="mt-6 h-[1px] w-8 bg-premium-gold/0 group-hover:bg-premium-gold transition-colors duration-500 delay-300" />
                                     </div>
+
+                                    {/* Hover Shine Effect */}
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 bg-gradient-to-tr from-premium-gold/20 via-transparent to-transparent pointer-events-none z-10" />
                                 </motion.div>
                             ))}
                         </motion.div>
+                    </>
                     ) : (
                         <motion.div
                             key="product-detail"
@@ -284,73 +313,73 @@ const Catalog = () => {
                                 const overline = overlineMap[subKey] || "RUBI COLLECTION";
 
                                 // Dynamic colors and icons based on subcategory
-                const configMap: Record<string, { color: string; bg: string; isDark: boolean; overline: string; title: string; description: string }> = {
-                    premium: { 
-                        color: '#D4AF37', 
-                        bg: 'bg-premium-dark', 
-                        isDark: true,
-                        overline: "Exclusividad Absoluta",
-                        title: "Colección Premium",
-                        description: "El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo."
-                    },
-                    plus: { 
-                        color: '#8B0000', 
-                        bg: 'bg-[#1a1a1a]', 
-                        isDark: true,
-                        overline: "Estilo & Distinción",
-                        title: "Línea Plus",
-                        description: "Nuestra selección intermedia. El equilibrio perfecto entre diseño vanguardista y accesibilidad, sin comprometer la calidad."
-                    },
-                    plusDescanso: { 
-                        color: '#4682B4', 
-                        bg: 'bg-[#121212]', 
-                        isDark: true,
-                        overline: "Salud Visual & Filtro Azul",
-                        title: "Línea Plus - Descanso",
-                        description: "Protección contra la luz azul para tus pantallas. Elegancia que cuida tu mirada en el mundo digital."
-                    },
-                    standard: { 
-                        color: '#4a4a4a', 
-                        bg: 'bg-[#111111]', 
-                        isDark: true,
-                        overline: "Esenciales Atemporales",
-                        title: "Línea Estándar",
-                        description: "Diseños clásicos y versátiles para el día a día. Calidad Rubi Details en cada detalle para complementar cualquier look."
-                    },
-                };
-                const config = configMap[subKey] || { 
-                    color: '#1A1A1A', 
-                    bg: 'bg-white', 
-                    isDark: false,
-                    overline: overline,
-                    title: subSections[subKey] || subKey,
-                    description: ""
-                };
+                                const configMap: Record<string, { color: string; bg: string; isDark: boolean; overline: string; title: string; description: string }> = {
+                                    premium: {
+                                        color: '#D4AF37',
+                                        bg: 'bg-premium-dark',
+                                        isDark: true,
+                                        overline: "Exclusividad Absoluta",
+                                        title: "Colección Premium",
+                                        description: "El pináculo de la exclusividad. Descubre nuestra selección curada de las casas de moda más prestigiosas del mundo."
+                                    },
+                                    plus: {
+                                        color: '#8B0000',
+                                        bg: 'bg-[#1a1a1a]',
+                                        isDark: true,
+                                        overline: "Estilo & Distinción",
+                                        title: "Línea Plus",
+                                        description: "Nuestra selección intermedia. El equilibrio perfecto entre diseño vanguardista y accesibilidad, sin comprometer la calidad."
+                                    },
+                                    plusDescanso: {
+                                        color: '#4682B4',
+                                        bg: 'bg-[#121212]',
+                                        isDark: true,
+                                        overline: "Salud Visual & Filtro Azul",
+                                        title: "Línea Plus - Descanso",
+                                        description: "Protección contra la luz azul para tus pantallas. Elegancia que cuida tu mirada en el mundo digital."
+                                    },
+                                    standard: {
+                                        color: '#4a4a4a',
+                                        bg: 'bg-[#111111]',
+                                        isDark: true,
+                                        overline: "Esenciales Atemporales",
+                                        title: "Línea Estándar",
+                                        description: "Diseños clásicos y versátiles para el día a día. Calidad Rubi Details en cada detalle para complementar cualquier look."
+                                    },
+                                };
+                                const config = configMap[subKey] || {
+                                    color: '#1A1A1A',
+                                    bg: 'bg-white',
+                                    isDark: false,
+                                    overline: overline,
+                                    title: subSections[subKey] || subKey,
+                                    description: ""
+                                };
 
                                 // CUSTOM LAYOUT FOR LENTES SOL PREMIUM (BRAND DIVISION)
                                 if (subKey === 'premium' && activeCategory === 'lentesSol') {
                                     const brands = [
-                                        { 
-                                            name: 'Miu Miu', 
-                                            title: 'Vanguardia Femenina', 
+                                        {
+                                            name: 'Miu Miu',
+                                            title: 'Vanguardia Femenina',
                                             color: '#E8B4B8',
                                             products: (items as Product[]).filter(p => p.brand === 'Miu Miu')
                                         },
-                                        { 
-                                            name: 'Dior', 
-                                            title: 'Atrevimiento y Sofisticación', 
+                                        {
+                                            name: 'Dior',
+                                            title: 'Atrevimiento y Sofisticación',
                                             color: '#111111',
                                             products: (items as Product[]).filter(p => p.brand === 'Dior')
                                         },
-                                        { 
-                                            name: 'Chanel', 
-                                            title: 'Elegancia Atemporal', 
+                                        {
+                                            name: 'Chanel',
+                                            title: 'Elegancia Atemporal',
                                             color: '#D4AF37',
                                             products: (items as Product[]).filter(p => p.brand === 'Chanel')
                                         },
-                                        { 
-                                            name: 'Prada', 
-                                            title: 'Lujo Geométrico', 
+                                        {
+                                            name: 'Prada',
+                                            title: 'Lujo Geométrico',
                                             color: '#000000',
                                             products: (items as Product[]).filter(p => p.brand === 'Prada')
                                         }
@@ -392,14 +421,14 @@ const Catalog = () => {
                                                             <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-8xl font-serif text-white/[0.02] pointer-events-none select-none uppercase tracking-[0.2em] whitespace-nowrap">
                                                                 {brand.name}
                                                             </span>
-                                                            
+
                                                             <div className="relative z-10">
                                                                 <span className="text-[10px] tracking-[0.5em] uppercase mb-3 block font-bold" style={{ color: brand.color }}>{brand.name}</span>
                                                                 <h4 className="font-serif text-2xl text-white mb-4 uppercase tracking-tighter">{brand.title}</h4>
                                                                 <div className="w-16 h-1 mx-auto rounded-full" style={{ backgroundColor: brand.color }} />
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div className="p-6 bg-transparent flex-grow">
                                                             <div className="grid grid-cols-2 gap-6">
                                                                 {brand.products.length > 0 ? (
@@ -467,7 +496,7 @@ const Catalog = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </motion.div>
 
             {/* Quick View Modal */}
             <ProductModal
