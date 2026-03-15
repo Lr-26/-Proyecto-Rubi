@@ -151,7 +151,6 @@ const Lentes = () => {
     const [products, setProducts] = useState<ProductData['lentesSol'] | null>(null);
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-    const [isOverHero, setIsOverHero] = useState(false);
 
     // Parallax mouse tracking
     const mouseX = useMotionValue(0);
@@ -170,8 +169,6 @@ const Lentes = () => {
     const imageX = useTransform(springX, [0, 2000], [-60, 60]);
     const imageY = useTransform(springY, [0, 1000], [-60, 60]);
 
-    const glowX = useTransform(springX, [0, 2000], [70, -70]);
-    const glowY = useTransform(springY, [0, 1000], [70, -70]);
 
     const handleMouseMove = (e: React.MouseEvent) => {
         const { clientX, clientY } = e;
@@ -179,8 +176,6 @@ const Lentes = () => {
         mouseY.set(clientY);
     };
 
-    const cursorX = useSpring(mouseX, { damping: 20, stiffness: 250 });
-    const cursorY = useSpring(mouseY, { damping: 20, stiffness: 250 });
 
     const handleProductClick = (product: Product) => {
         setSelectedProduct(product);
@@ -218,12 +213,7 @@ const Lentes = () => {
         >
             {/* 2. SubNavbar FIRST (above image, below main nav) */}
             <SubNavbar />
-            {/* 1. Ultra Premium Hero Section */}
-            <div
-                className={`relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] cursor-default`}
-                onMouseEnter={() => setIsOverHero(true)}
-                onMouseLeave={() => setIsOverHero(false)}
-            >
+            <div className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] cursor-default">
                 {/* Parallax Background Layer */}
                 <motion.div
                     style={{ x: bgX, y: bgY, scale: 1.1 }}
@@ -277,15 +267,6 @@ const Lentes = () => {
                     />
                 </div>
 
-                {/* Atmospheric Glows (Ruby & Gold) - Tracked by Mouse */}
-                <motion.div
-                    style={{ x: glowX, y: glowY }}
-                    className="absolute top-1/4 -left-20 w-96 h-96 bg-[#8b0000]/20 rounded-full blur-[120px] z-10"
-                />
-                <motion.div
-                    style={{ x: glowY, y: glowX }}
-                    className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#c5a059]/20 rounded-full blur-[120px] z-10"
-                />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 flex flex-col items-center justify-center w-full">
                     {/* The Circular Portal Container */}

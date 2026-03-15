@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Loader2, ShoppingBag, Sparkles, Diamond, ShieldCheck } from 'lucide-react';
+import { Loader2, ShoppingBag, Sparkles, Diamond } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
 import { getProducts, Product, ProductData } from '../data/products';

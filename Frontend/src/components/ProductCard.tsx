@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Product } from '../data/products';
 
 interface ProductCardProps {
@@ -17,15 +17,13 @@ interface ProductCardProps {
     onClick?: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, description, category, brand, variant = 'default', stockStatus = 'in_stock', onClick }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, description, category, brand, variant = 'default', onClick }) => {
     const isPremium = variant === 'premium';
-    const [isExpanded, setIsExpanded] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const galleryImages = images && images.length > 0 ? images : [image];
     const hasMultipleImages = galleryImages.length > 1;
 
-    const isLongDescription = description && description.length > 80;
 
     const openWhatsApp = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -43,10 +41,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
         window.open(whatsappUrl, '_blank');
     };
 
-    const toggleDescription = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setIsExpanded(!isExpanded);
-    };
 
     const nextImage = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -60,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
 
     return (
         <motion.div
-            onClick={(e) => {
+            onClick={() => {
                 const user = localStorage.getItem('rubi_user');
                 if (!user) {
                     window.dispatchEvent(new CustomEvent('openAuth'));
