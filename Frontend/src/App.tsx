@@ -7,7 +7,7 @@ import Contacto from './pages/Contacto';
 import AdminDashboard from './pages/AdminDashboard';
 import Lentes from './pages/Lentes';
 import Carteras from './pages/Carteras';
-import RopaDeportiva from './pages/RopaDeportiva';
+import Billeteras from './pages/Billeteras';
 import SeedDatabase from './components/SeedDatabase';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -51,7 +51,7 @@ function App() {
             <Route path="/colecciones" element={<Colecciones />} />
             <Route path="/lentes" element={<Lentes />} />
             <Route path="/carteras" element={<Carteras />} />
-            <Route path="/ropa-deportiva" element={<RopaDeportiva />} />
+            <Route path="/billeteras" element={<Billeteras />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/seed" element={<SeedDatabase />} />

@@ -216,56 +216,11 @@ const Lentes = () => {
             className="pt-20 min-h-screen bg-neutral-50 selection:bg-premium-gold selection:text-white"
             onMouseMove={handleMouseMove}
         >
-            {/* Custom Cursor Light */}
-            <motion.div
-                animate={{ opacity: isOverHero ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999] mix-blend-screen"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                    left: 0,
-                    top: 0,
-                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(197, 160, 89, 0.5) 40%, rgba(197, 160, 89, 0) 70%)',
-                    boxShadow: '0 0 40px 10px rgba(197, 160, 89, 0.4)'
-                }}
-            />
-            {/* Central Glow Bulb */}
-            <motion.div
-                animate={{ opacity: isOverHero ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[10000] shadow-[0_0_15px_rgba(255,255,255,1)]"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                    left: 0,
-                    top: 0,
-                }}
-            />
-            <motion.div
-                animate={{ opacity: isOverHero ? 0.2 : 0 }}
-                transition={{ duration: 0.5 }}
-                className="fixed top-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none z-[9998]"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                    translateX: '-50%',
-                    translateY: '-50%',
-                    left: 0,
-                    top: 0,
-                    background: 'radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%)'
-                }}
-            />
-
             {/* 2. SubNavbar FIRST (above image, below main nav) */}
             <SubNavbar />
             {/* 1. Ultra Premium Hero Section */}
             <div
-                className={`relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] ${isOverHero ? 'cursor-none' : 'cursor-default'}`}
+                className={`relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] cursor-default`}
                 onMouseEnter={() => setIsOverHero(true)}
                 onMouseLeave={() => setIsOverHero(false)}
             >

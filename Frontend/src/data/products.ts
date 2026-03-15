@@ -44,12 +44,12 @@ export interface ProductData {
         plus: Product[];
         standard: Product[];
     };
-    ropaDeportiva: {
+    billeteras: {
         hombre: Product[];
         mujer: Product[];
         accesorios: Product[];
     };
-    [key: string]: any; // Allow for extensibility/dynamic keys if strictly needed, but prefer strict structure
+    [key: string]: any; 
 }
 
 // Helper to structure data correctly for the app

@@ -110,42 +110,44 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                 </div>
             </div>
 
-            <div className="p-4 flex-grow flex flex-col justify-between">
+            <div className="p-5 flex-grow flex flex-col justify-between">
                 <div className="text-center">
-                    <div className="flex flex-col items-center mb-1">
+                    <div className="flex flex-col items-center mb-1.5">
                         {brand && (
-                            <span className={`text-[9px] font-bold tracking-[0.2em] uppercase mb-0.5 ${isPremium ? 'text-white/40' : 'text-gray-400'}`}>
+                            <span className={`text-[10px] font-bold tracking-[0.25em] uppercase mb-1 ${isPremium ? 'text-premium-gold/80' : 'text-gray-400'}`}>
                                 {brand}
                             </span>
                         )}
-                        <span className={`text-[8px] font-medium uppercase tracking-[0.1em] px-2 py-0.5 rounded-full border ${isPremium ? 'text-premium-gold border-premium-gold/30 bg-premium-gold/5' : 'text-gray-500 border-gray-200'
+                        <span className={`text-[9px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full border ${isPremium ? 'text-premium-gold border-premium-gold/30 bg-premium-gold/5' : 'text-premium-dark border-gray-200'
                             }`}>
                             {category}
                         </span>
                     </div>
-                    <h3 className={`font-serif text-base md:text-lg mb-1 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
+                    <h3 className={`font-serif text-lg md:text-xl mt-3 mb-2 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
                         {title}
                     </h3>
-                    <div className="mb-2">
-                        <p className={`text-[10px] sm:text-xs font-light leading-relaxed line-clamp-2 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <div className="mb-4">
+                        <p className={`text-xs font-light leading-relaxed line-clamp-2 px-2 italic opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
                             {description}
                         </p>
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center mt-auto pt-3 border-t border-gray-500/5">
-                    <div className={`text-sm md:text-base font-serif font-medium mb-3 ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
+                <div className="flex flex-col items-center mt-auto pt-4 border-t border-gray-500/10">
+                    <div className={`text-lg md:text-xl font-serif font-medium mb-4 tracking-tight ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
                         {price}
                     </div>
                     <button
                         onClick={openWhatsApp}
-                        className={`w-full py-2.5 rounded-lg text-[9px] font-bold tracking-[0.1em] uppercase transition-all duration-300 flex items-center justify-center gap-2 relative overflow-hidden ${
+                        className={`w-full py-3 rounded-xl text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
                             isPremium
-                                ? 'bg-gradient-to-r from-premium-gold to-[#b38b45] text-white hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]'
-                                : 'bg-premium-dark text-white hover:bg-premium-gold'
+                                ? 'bg-gradient-to-r from-premium-gold via-[#b38b45] to-premium-gold text-white shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-[0_8px_25px_rgba(212,175,55,0.4)] bg-[length:200%_auto] hover:bg-right'
+                                : 'bg-premium-dark text-white hover:bg-premium-gold shadow-md hover:shadow-xl'
                         }`}
                     >
                         <span className="relative z-10">CONSULTAR</span>
+                        {/* Subtle shimmer for button */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
                     </button>
                 </div>
             </div>

@@ -1,21 +1,51 @@
 export const initialProducts = {
     carteras: {
         premium: [
-            { id: 1, title: "Bolso Tote de Cuero Italiano", price: "USD 450", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=400", description: "Elegancia atemporal confeccionada a mano.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 2, title: "Clutch de Noche Gold", price: "USD 320", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&q=80&w=400", description: "El complemento perfecto para eventos exclusivos.", stockStatus: 'low_stock', stockQuantity: 3 },
-            { id: 7, title: "Maletín Ejecutivo Noir", price: "USD 550", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=400", description: "Diseñado para el profesional moderno con acabados de lujo.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 8, title: "Crossbody Matelassé", price: "USD 390", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=400", description: "Textura acolchada icónica con cadena dorada.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 9, title: "Bolsa de Viaje Heritage", price: "USD 680", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=400", description: "Capacidad y estilo para tus escapadas de fin de semana.", stockStatus: 'out_of_stock', stockQuantity: 0 },
-            { id: 10, title: "Mini Bag Estructurada", price: "USD 290", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=400", description: "Pequeña en tamaño, grande en sofisticación.", stockStatus: 'in_stock', stockQuantity: 10 },
+            { 
+                id: 1, 
+                title: "Bag Prada Re-edition 2000", 
+                price: "USD 450", 
+                image: "/assets/products/Carteras/Bolso Prada 001.jfif", 
+                images: [
+                    "/assets/products/Carteras/Bolso Prada 001.jfif",
+                    "/assets/products/Carteras/Bolso Paradaa001.jfif",
+                    "/assets/products/Carteras/Bolso pradaa 001.jfif"
+                ],
+                description: "Mini bag en tono azul marino con diseño clásico y logo plateado. Incluye caja y certificación de compra.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10 
+            },
+            { 
+                id: 2, 
+                title: "Set rosado cartera + billetera Ardilla Roja", 
+                price: "USD 320", 
+                image: "/assets/products/Carteras/Ardilla Rosa 002.jfif", 
+                images: [
+                    "/assets/products/Carteras/Ardilla Rosa 002.jfif",
+                    "/assets/products/Carteras/Ardilla rosaa 002.jfif",
+                    "/assets/products/Carteras/Ardilla Rosaaa002.jfif"
+                ],
+                description: "Combo que incluye cartera y billetera a juego. La cartera presenta un diseño moderno y un delicado pañuelo decorativo.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 5 
+            },
+            { 
+                id: 3, 
+                title: "Bolso Camel", 
+                price: "USD 280", 
+                image: "/assets/products/Carteras/Bolso Camel 003.jfif", 
+                images: [
+                    "/assets/products/Carteras/Bolso Camel 003.jfif",
+                    "/assets/products/Carteras/Bolso Camell003.jfif",
+                    "/assets/products/Carteras/Bolso Camelll 003.jfif"
+                ],
+                description: "Amplia y versátil en tono beige. Su diseño incluye correa larga desmontable para usar al hombro o cruzada, brindando mayor comodidad y practicidad.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 8 
+            }
         ],
-        plus: [
-            { id: 3, title: "Bolso Satchel Estructurado", price: "USD 380", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=400", description: "Diseño minimalista para la mujer moderna.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 4, title: "Mochila Urbana Chic", price: "USD 180", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=400", description: "Estilo y funcionalidad para el día a día.", stockStatus: 'in_stock', stockQuantity: 10 },
-        ],
-        standard: [
-            { id: 5, title: "Bolso Crossbody Texturizado", price: "USD 150", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=400", description: "Versatilidad en cada detalle.", stockStatus: 'in_stock', stockQuantity: 10 },
-            { id: 6, title: "Cartera de Hombro Soft", price: "USD 165", image: "https://images.unsplash.com/photo-1601924994987-69e2c70cb322?auto=format&fit=crop&q=80&w=400", description: "Suavidad y confort en un diseño único.", stockStatus: 'in_stock', stockQuantity: 10 }
-        ]
+        plus: [],
+        standard: []
     },
     lentesSol: {
         premium: [
@@ -293,6 +323,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 001", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar001.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar001.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr001.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -304,6 +338,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 002", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar002.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar002.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr002.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -315,6 +353,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 003", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar003.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar003.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr003.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -326,6 +368,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 004", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar004.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar004.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr004.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -337,6 +383,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 005", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar005.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar005.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr005.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -348,6 +398,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 006", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar006.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar006.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr006.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -359,6 +413,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 007", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar007.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar007.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr007.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -370,6 +428,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 008", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar008.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar008.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr008.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -381,6 +443,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 009", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar009.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar009.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr009.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -392,6 +458,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 010", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar010.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar010.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr010.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -403,6 +473,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 011", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar011.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar011.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr011.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -414,6 +488,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 012", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar012.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar012.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr012.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -425,6 +503,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 013", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar013.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar013.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr013.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -436,6 +518,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 014", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar014.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar014.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr014.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -458,6 +544,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 016", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar016.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar016.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr016.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -480,6 +570,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 018", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar018.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar018.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr018.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -491,6 +585,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 019", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar019.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar019.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr019.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -502,204 +600,10 @@ export const initialProducts = {
                 title: "Lente de Sol Estandar 020", 
                 price: "USD 120", 
                 image: "/assets/products/Lentes-Estandar/estandar020.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 221, 
-                title: "Lente de Sol Estandar 021", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr001.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 222, 
-                title: "Lente de Sol Estandar 022", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr002.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 223, 
-                title: "Lente de Sol Estandar 023", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr003.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 224, 
-                title: "Lente de Sol Estandar 024", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr004.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 225, 
-                title: "Lente de Sol Estandar 025", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr005.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 226, 
-                title: "Lente de Sol Estandar 026", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr006.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 227, 
-                title: "Lente de Sol Estandar 027", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr007.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 228, 
-                title: "Lente de Sol Estandar 028", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr008.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 229, 
-                title: "Lente de Sol Estandar 029", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr009.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 230, 
-                title: "Lente de Sol Estandar 030", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr010.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 231, 
-                title: "Lente de Sol Estandar 031", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr011.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 232, 
-                title: "Lente de Sol Estandar 032", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr012.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 233, 
-                title: "Lente de Sol Estandar 033", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr013.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 234, 
-                title: "Lente de Sol Estandar 034", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr014.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 235, 
-                title: "Lente de Sol Estandar 035", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr016.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 236, 
-                title: "Lente de Sol Estandar 036", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr018.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 237, 
-                title: "Lente de Sol Estandar 037", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr019.jfif", 
-                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
-                stockStatus: 'in_stock', 
-                stockQuantity: 10,
-                brand: 'Línea Estandar',
-                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
-            },
-            { 
-                id: 238, 
-                title: "Lente de Sol Estandar 038", 
-                price: "USD 120", 
-                image: "/assets/products/Lentes-Estandar/estandarr020.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar020.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr020.jfif"
+                ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 
                 stockQuantity: 10,
@@ -708,25 +612,36 @@ export const initialProducts = {
             }
         ]
     },
-    ropaDeportiva: {
-        hombre: [
-            { id: 501, title: "Tech Runner Jacket", price: "USD 120", image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&q=80&w=400", description: "Tejido transpirable y resistente al agua.", stockStatus: 'in_stock' },
-            { id: 502, title: "Pro Compression Tight", price: "USD 85", image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&q=80&w=400", description: "Soporte muscular avanzado.", stockStatus: 'in_stock' },
-            { id: 503, title: "Elite Training Tee", price: "USD 55", image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&q=80&w=400", description: "Tecnología de absorción de sudor.", stockStatus: 'in_stock' },
-            { id: 504, title: "Marathon Shorts", price: "USD 60", image: "https://images.unsplash.com/photo-1518617638479-725840dc188c?auto=format&fit=crop&q=80&w=400", description: "Libertad de movimiento para largas distancias.", stockStatus: 'in_stock' },
-            { id: 505, title: "Thermal Hoodie", price: "USD 110", image: "https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&q=80&w=400", description: "Calidez ligera para entrenamientos invernales.", stockStatus: 'low_stock' },
-            { id: 506, title: "Impact Vest", price: "USD 95", image: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?auto=format&fit=crop&q=80&w=400", description: "Protección corporal para deportes de alto impacto.", stockStatus: 'in_stock' },
-        ],
+    billeteras: {
+        hombre: [],
         mujer: [
-            { id: 601, title: "Yoga Flex Top", price: "USD 65", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=400", description: "Libertad de movimiento total.", stockStatus: 'in_stock' },
-            { id: 602, title: "Aero Leggings", price: "USD 90", image: "https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?auto=format&fit=crop&q=80&w=400", description: "Cintura alta y tejido de secado rápido.", stockStatus: 'in_stock' },
-            { id: 603, title: "Impact Sports Bra", price: "USD 55", image: "https://images.unsplash.com/photo-1574680096141-fac95585f672?auto=format&fit=crop&q=80&w=400", description: "Soporte máximo para entrenamientos intensos.", stockStatus: 'in_stock' },
-            { id: 604, title: "Seamless Crop Top", price: "USD 45", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=400", description: "Comodidad sin costuras para todo el día.", stockStatus: 'in_stock' },
-            { id: 605, title: "Runner Windbreaker", price: "USD 130", image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&q=80&w=400", description: "Protección contra el viento con estilo.", stockStatus: 'low_stock' },
-            { id: 606, title: "Pilates Studio Set", price: "USD 140", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=400", description: "Conjunto coordinado para cuerpo y mente.", stockStatus: 'in_stock' },
+            { 
+                id: 801, 
+                title: "Billetera Fendi Azul", 
+                price: "USD 190", 
+                image: "/assets/products/Billeteras/Fendi001.jfif", 
+                images: [
+                    "/assets/products/Billeteras/Fendi001.jfif",
+                    "/assets/products/Billeteras/Fendii001.jfif"
+                ],
+                description: "Diseño moderno inspirado en el icónico monograma de la marca. Presenta estampado estilo denim en tonos azules y detalle metálico frontal. Incluye caja y certificación de compra.", 
+                stockStatus: 'in_stock',
+                stockQuantity: 5
+            },
+            { 
+                id: 802, 
+                title: "Billetera Louis Vuitton", 
+                price: "USD 210", 
+                image: "/assets/products/Billeteras/Louis002.jfif", 
+                images: [
+                    "/assets/products/Billeteras/Louis002.jfif",
+                    "/assets/products/Billeteras/Louiss002.jfif"
+                ],
+                description: "Diseño inspirado en el clásico modelo. Detalles dorados con el logo. Incluye caja y certificación de compra.", 
+                stockStatus: 'in_stock',
+                stockQuantity: 5
+            }
         ],
-        accesorios: [
-            { id: 701, title: "Sport Cap Elite", price: "USD 35", image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&q=80&w=400", description: "Protección solar y ventilación.", stockStatus: 'in_stock' }
-        ]
+        accesorios: []
     }
 } as const;

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Loader2, ShoppingBag, Sparkles, Diamond, ShieldCheck } from 'lucide-react';
+import { Loader2, Wallet, Sparkles, Diamond, ShieldCheck } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
 import { getProducts, Product, ProductData } from '../data/products';
@@ -14,22 +14,22 @@ interface SectionProps {
 }
 
 const Section: React.FC<SectionProps> = ({ title, items, bgClass = "bg-white", onProductClick }) => (
-    <section className={`py-24 relative overflow-hidden ${bgClass}`}>
+    <section className={`py-24 ${bgClass}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="text-center mb-16"
             >
-                <div className="inline-flex items-center justify-center p-3 rounded-full mb-6 bg-premium-ruby/10 text-premium-ruby">
+                <div className="inline-flex items-center justify-center p-3 rounded-full mb-6 bg-premium-gold/10 text-premium-gold">
                     <Sparkles size={24} />
                 </div>
                 <h2 className="font-serif text-4xl md:text-5xl text-premium-dark mb-6 tracking-tight uppercase">
                     {title}
                 </h2>
-                <div className="h-1 w-24 bg-premium-ruby mx-auto rounded-full opacity-60"></div>
+                <div className="h-1 w-24 bg-premium-gold mx-auto rounded-full"></div>
             </motion.div>
 
             {items.length > 0 ? (
@@ -37,14 +37,14 @@ const Section: React.FC<SectionProps> = ({ title, items, bgClass = "bg-white", o
                     {items.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <ProductCard
                                 {...item}
-                                category="Carteras"
+                                category="Billeteras"
                                 variant="premium"
                                 onClick={() => onProductClick(item)}
                             />
@@ -60,8 +60,8 @@ const Section: React.FC<SectionProps> = ({ title, items, bgClass = "bg-white", o
     </section>
 );
 
-const Carteras = () => {
-    const [products, setProducts] = useState<ProductData['carteras'] | null>(null);
+const Billeteras = () => {
+    const [products, setProducts] = useState<ProductData['billeteras'] | null>(null);
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
     const [isOverHero, setIsOverHero] = useState(false);
@@ -90,7 +90,7 @@ const Carteras = () => {
         const fetchProducts = async () => {
             try {
                 const data = await getProducts();
-                setProducts(data?.carteras || null);
+                setProducts(data?.billeteras || null);
             } catch (error) {
                 console.error("Error fetching products:", error);
             } finally {
@@ -103,14 +103,14 @@ const Carteras = () => {
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-black">
-                <Loader2 className="animate-spin text-premium-ruby" size={48} />
+                <Loader2 className="animate-spin text-premium-gold" size={48} />
             </div>
         );
     }
 
     return (
         <div className="pt-20 min-h-screen bg-neutral-900" onMouseMove={handleMouseMove}>
-            {/* Bag Premium Hero Section */}
+            {/* Wallet Premium Hero Section */}
             <div 
                 className={`relative h-[85vh] flex items-center justify-center overflow-hidden bg-black ${isOverHero ? 'cursor-none' : 'cursor-default'}`}
                 onMouseEnter={() => setIsOverHero(true)}
@@ -119,28 +119,28 @@ const Carteras = () => {
                 {/* Background Parallax Layer */}
                 <motion.div
                     style={{ x: bgX, y: bgY, scale: 1.15 }}
-                    className="absolute inset-0 z-0 opacity-40 bg-[url('/assets/premium_bag_hero.png')] bg-cover bg-center"
+                    className="absolute inset-0 z-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center"
                 />
 
-                {/* Moving Light System (Professional Boutique Effect) */}
+                {/* Moving Light System (Professional Luxury Effect) */}
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                     <motion.div 
                         animate={{ 
-                            x: [-100, 100, -50],
-                            y: [-50, 50, 100],
+                            x: [-80, 80, -40],
+                            y: [-40, 40, 80],
                             opacity: [0.1, 0.2, 0.1]
                         }}
-                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-premium-ruby/20 rounded-full blur-[180px]" 
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-premium-gold/15 rounded-full blur-[180px]" 
                     />
                     <motion.div 
                         animate={{ 
-                            x: [100, -100, 50],
-                            y: [100, -50, -100],
-                            opacity: [0.05, 0.15, 0.05]
+                            x: [80, -80, 40],
+                            y: [80, -40, -80],
+                            opacity: [0.08, 0.18, 0.08]
                         }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-premium-ruby/10 rounded-full blur-[150px]" 
+                        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-0 right-1/3 w-[500px] h-[500px] bg-premium-gold/10 rounded-full blur-[160px]" 
                     />
                 </div>
 
@@ -151,54 +151,55 @@ const Carteras = () => {
                         transition={{ duration: 1.2 }}
                         className="flex flex-col items-center"
                     >
-                        <ShoppingBag className="text-premium-ruby mb-6 w-16 h-16 opacity-80" />
-                        <h1 className="font-serif text-7xl md:text-9xl text-white uppercase tracking-tighter mb-4 drop-shadow-[0_0_30px_rgba(155,17,30,0.5)]">
-                            Carteras
+                        <Wallet className="text-premium-gold mb-6 w-16 h-16 opacity-80" />
+                        <h1 className="font-serif text-7xl md:text-9xl text-white uppercase tracking-tighter mb-4 drop-shadow-[0_0_35px_rgba(212,175,55,0.4)]">
+                            Billeteras
                         </h1>
-                        <p className="text-premium-ruby/80 text-lg md:text-xl tracking-[0.3em] uppercase max-w-2xl font-light">
-                            Artesanía y Lujo en cada pieza
+                        <p className="text-premium-gold/80 text-lg md:text-xl tracking-[0.3em] uppercase max-w-2xl font-light">
+                            Esencia y distinción en cada detalle
                         </p>
                     </motion.div>
                 </div>
             </div>
 
-            {/* --- PROFESSIONAL HEADER FOR CARTERAS --- */}
-            <div className="py-24 bg-gradient-to-b from-premium-dark to-white border-b border-premium-ruby/20">
+            {/* --- PROFESSIONAL HEADER FOR BILLETERAS --- */}
+            <div className="py-24 bg-gradient-to-b from-premium-dark to-white border-b border-premium-gold/20">
                 <div className="max-w-4xl mx-auto px-4 text-center">
-                    <span className="text-premium-ruby tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Boutique Exclusive</span>
+                    <span className="text-premium-gold tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Boutique de Marroquinería</span>
                     <h2 className="font-serif text-4xl md:text-6xl text-white tracking-tight uppercase mb-8">
-                        La Selección
+                        La Colección
                     </h2>
                     <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-light italic leading-relaxed">
-                        Explora carteras que son verdaderas obras de arte. Desde diseños clásicos hasta tendencias contemporáneas, cada pieza ha sido elegida por su calidad excepcional y presencia impecable.
+                        Pequeños objetos de deseo diseñados para acompañarte con elegancia. Nuestra selección curada de billeteras combina funcionalidad y lujo en cada costura.
                     </p>
                     <div className="mt-12 flex justify-center gap-6">
-                        <Diamond className="text-premium-ruby opacity-50" size={24} />
-                        <Sparkles className="text-premium-ruby opacity-50" size={24} />
+                        <Diamond className="text-premium-gold opacity-50" size={24} />
+                        <ShieldCheck className="text-premium-gold opacity-50" size={24} />
                     </div>
                 </div>
             </div>
 
+
             <main className="bg-white">
-                {products?.premium && products.premium.length > 0 && (
+                {products?.hombre && products.hombre.length > 0 && (
+                    <Section
+                        title="Colección Hombre"
+                        items={products.hombre}
+                        onProductClick={handleProductClick}
+                    />
+                )}
+                {products?.mujer && products.mujer.length > 0 && (
                     <Section
                         title="Nuestra Colección"
-                        items={products.premium}
+                        items={products.mujer}
+                        bgClass="bg-neutral-50"
                         onProductClick={handleProductClick}
                     />
                 )}
-                {products?.plus && products.plus.length > 0 && (
+                {products?.accesorios && products.accesorios.length > 0 && (
                     <Section
-                        title="Línea Plus"
-                        items={products.plus}
-                        bgClass="bg-premium-cream/20"
-                        onProductClick={handleProductClick}
-                    />
-                )}
-                {products?.standard && products.standard.length > 0 && (
-                    <Section
-                        title="Estándar"
-                        items={products.standard}
+                        title="Accesorios de Cuero"
+                        items={products.accesorios}
                         onProductClick={handleProductClick}
                     />
                 )}
@@ -213,4 +214,4 @@ const Carteras = () => {
     );
 };
 
-export default Carteras;
+export default Billeteras;

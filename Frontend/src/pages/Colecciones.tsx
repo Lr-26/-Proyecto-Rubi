@@ -25,12 +25,12 @@ const Colecciones = () => {
                         transition={{ duration: 1.8, delay: 0.3 }}
                         className="flex-1 bg-[url('/assets/premium_sunglasses_hero.png')] bg-cover bg-center" 
                     />
-                    {/* Sportswear Panel */}
+                    {/* Billeteras Panel */}
                     <motion.div 
                         initial={{ scale: 1.2, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 1.8, delay: 0.5 }}
-                        className="flex-1 bg-[url('/assets/sportswear_category.png')] bg-cover bg-center" 
+                        className="flex-1 bg-[url('https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=800')] bg-cover bg-center" 
                     />
                     
                     {/* Luxury Overlay to unify the montage */}

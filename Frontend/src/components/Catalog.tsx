@@ -10,21 +10,21 @@ import { getProducts, Product, ProductData } from '../data/products';
 const categories = [
     {
         id: 'carteras',
-        label: 'Carteras y Billeteras',
+        label: 'Carteras',
         image: "/assets/premium_bag_hero.png",
         description: "Artesanía en cuero y diseños atemporales que definen tu elegancia diaria."
+    },
+    {
+        id: 'billeteras',
+        label: 'Billeteras',
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=800",
+        description: "Esencia y distinción en piezas compactas de alta marroquinería."
     },
     {
         id: 'lentesSol',
         label: 'Gafas de Sol',
         image: "/assets/sunglasses_category.png",
         description: "Una mirada de distinción a través de ópticas de precisión y marcos icónicos."
-    },
-    {
-        id: 'ropaDeportiva',
-        label: 'Ropa Deportiva',
-        image: "/assets/sportswear_category.png",
-        description: "Rendimiento técnico fusionado con la estética urbana más exigente."
     },
 ];
 
@@ -100,8 +100,8 @@ const Catalog = () => {
             navigate('/lentes');
         } else if (categoryId === 'carteras') {
             navigate('/carteras');
-        } else if (categoryId === 'ropaDeportiva') {
-            navigate('/ropa-deportiva');
+        } else if (categoryId === 'billeteras') {
+            navigate('/billeteras');
         } else {
             setActiveCategory(categoryId);
             setTimeout(() => {
@@ -236,7 +236,7 @@ const Catalog = () => {
                                     onClick={() => handleCategoryClick(cat.id)}
                                     className="group relative h-[450px] overflow-hidden cursor-pointer shadow-2xl bg-black rounded-sm border border-white/5 transition-all duration-700"
                                 >
-                                    <Link to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'ropaDeportiva' ? '/ropa-deportiva' : '#'))} className="absolute inset-0 z-30" />
+                                    <Link to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'billeteras' ? '/billeteras' : '#'))} className="absolute inset-0 z-30" />
                                     
                                     {/* Image with zoom effect - 100% opacity for maximum visibility */}
                                     <div
@@ -302,6 +302,7 @@ const Catalog = () => {
 
 
                             {activeContent && Object.entries(activeContent).map(([subKey, items]) => {
+                                if (!Array.isArray(items) || items.length === 0) return null;
                                 const overlineMap: Record<string, string> = {
                                     premium: "SIGNATURE SERIES",
                                     plus: "MODERN LUXURY",

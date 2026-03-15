@@ -118,7 +118,7 @@ const AdminDashboard = () => {
         description: '',
         stockStatus: 'in_stock',
         category: '',
-        mainCategory: 'carteras', // Default
+        mainCategory: 'carteras', 
         subCategory: 'premium',    // Default
         stockQuantity: 10,
         isUnlimitedStock: false
@@ -568,9 +568,9 @@ const AdminDashboard = () => {
                                     <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-premium-gold focus:border-premium-gold outline-none bg-white"
                                         value={newProduct.mainCategory} onChange={e => setNewProduct({ ...newProduct, mainCategory: e.target.value })}>
                                         <option value="carteras">👜 Carteras</option>
+                                        <option value="billeteras">👛 Billeteras</option>
                                         <option value="lentesSol">🕶️ Lentes</option>
                                         <option value="lentesCristal">👓 Lentes de Cristal</option>
-                                        <option value="ropaDeportiva">🏃‍♀️ Ropa Deportiva</option>
                                     </select>
                                 </div>
                                 <div>
