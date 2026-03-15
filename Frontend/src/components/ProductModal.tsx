@@ -113,6 +113,11 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                                             className="flex-1 bg-premium-dark text-white py-3 px-6 rounded-lg font-medium hover:bg-black transition-colors flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
                                             disabled={product.stockStatus === 'out_of_stock'}
                                             onClick={() => {
+                                                const user = localStorage.getItem('rubi_user');
+                                                if (!user) {
+                                                    window.dispatchEvent(new CustomEvent('openAuth'));
+                                                    return;
+                                                }
                                                 const phoneNumber = "549381449040";
                                                 const message = `Hola! Me interesa el producto "${product.title}" (${product.price}). ¿Tienen stock?`;
                                                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

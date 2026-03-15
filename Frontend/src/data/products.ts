@@ -61,16 +61,8 @@ let lastFetchTime = 0;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 export const getProducts = async (forceRefresh = false): Promise<ProductData> => {
-    // Para cargar instantáneamente sin retrasos, devolvemos la data local
-    // (A futuro si Firebase está bien configurado, esto se puede revertir)
-    console.log("Loading products instantly from local data");
-
-    // Apply local overrides to the fetched data (stock status etc)
-    const overriddenData = applyLocalOverrides(initialProducts);
-
-    // Simular un pequeño retardo de red para la animación, o sacarlo si se quiere instantáneo.
-    // Lo eliminamos para máxima velocidad.
-    return overriddenData as unknown as ProductData;
+    console.log("Loading products instantly from local data directly");
+    return initialProducts as unknown as ProductData;
 };
 
 // Helper to apply local overrides

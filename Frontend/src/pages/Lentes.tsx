@@ -28,8 +28,7 @@ const Section: React.FC<SectionProps> = ({ id, title, subtitle, items, bgClass =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="text-center mb-16"
             >
@@ -53,8 +52,7 @@ const Section: React.FC<SectionProps> = ({ id, title, subtitle, items, bgClass =
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <ProductCard

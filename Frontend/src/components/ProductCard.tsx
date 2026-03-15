@@ -55,10 +55,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
     return (
         <motion.div
             onClick={() => {
-                const user = localStorage.getItem('rubi_user');
-                if (!user) {
-                    window.dispatchEvent(new CustomEvent('openAuth'));
-                } else if (onClick) {
+                if (onClick) {
                     onClick();
                 }
             }}

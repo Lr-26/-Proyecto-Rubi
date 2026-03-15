@@ -130,8 +130,7 @@ const Catalog = () => {
         <section className="py-12 bg-neutral-50 min-h-screen" id="catalogo">
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
             >
@@ -147,7 +146,7 @@ const Catalog = () => {
                 <div className="text-center mb-20">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}
                         className="inline-flex items-center gap-4 mb-6"
                     >
@@ -230,8 +229,7 @@ const Catalog = () => {
                                 <motion.div
                                     key={cat.id}
                                     initial={{ opacity: 0, y: 40 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                                     onClick={() => handleCategoryClick(cat.id)}
                                     className="group relative h-[450px] overflow-hidden cursor-pointer shadow-2xl bg-black rounded-sm border border-white/5 transition-all duration-700"
@@ -392,8 +390,7 @@ const Catalog = () => {
                                             <div className="py-16 text-center bg-gradient-to-b from-premium-dark to-neutral-900 border-b border-premium-gold/20 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
                                                 <motion.div
                                                     initial={{ opacity: 0, y: 20 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    viewport={{ once: true }}
+                                                    animate={{ opacity: 1, y: 0 }}
                                                 >
                                                     <span className="text-premium-gold tracking-[0.4em] text-sm uppercase mb-4 block font-medium">Exclusividad Absoluta</span>
                                                     <h3 className="font-serif text-4xl md:text-5xl text-white tracking-tight uppercase mb-6">
@@ -411,8 +408,7 @@ const Catalog = () => {
                                                     <motion.div
                                                         key={brand.name}
                                                         initial={{ opacity: 0, y: 30 }}
-                                                        whileInView={{ opacity: 1, y: 0 }}
-                                                        viewport={{ once: true }}
+                                                        animate={{ opacity: 1, y: 0 }}
                                                         transition={{ delay: idx * 0.1 }}
                                                         className="bg-neutral-900/60 backdrop-blur-2xl rounded-3xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 flex flex-col h-full group/card hover:border-premium-gold/20 transition-colors duration-500"
                                                     >
@@ -462,8 +458,7 @@ const Catalog = () => {
                                         <div className="py-16 text-center mb-12 border-b border-white/5 relative z-10">
                                             <motion.div
                                                 initial={{ opacity: 0, y: 20 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                viewport={{ once: true }}
+                                                animate={{ opacity: 1, y: 0 }}
                                             >
                                                 <span className="tracking-[0.4em] text-sm uppercase mb-4 block font-medium" style={{ color: config.color }}>
                                                     {config.overline}
