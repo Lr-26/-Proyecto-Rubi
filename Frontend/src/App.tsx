@@ -15,14 +15,13 @@ import AuthModal from './components/AuthModal';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [user, setUser] = useState<any>(null);
   const [showAuth, setShowAuth] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in
     const savedUser = localStorage.getItem('rubi_user');
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      // setUser(JSON.parse(savedUser));
     } else {
       // No auto-show anymore, user wants it to be triggered by actions
       // setShowAuth(true);
@@ -35,8 +34,7 @@ function App() {
     return () => window.removeEventListener('openAuth', handleOpenAuth);
   }, []);
 
-  const handleAuthSuccess = (userData: any) => {
-    setUser(userData);
+  const handleAuthSuccess = () => {
     setShowAuth(false);
   };
 

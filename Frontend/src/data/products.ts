@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import { collection, getDocs, doc, updateDoc, addDoc, writeBatch } from 'firebase/firestore';
+import { collection, doc, updateDoc, addDoc } from 'firebase/firestore';
 
 export type ProductHeight = 'in_stock' | 'low_stock' | 'out_of_stock';
 export type ProductCategory = 'carteras' | 'lentesSol' | 'lentesCristal' | 'ropaDeportiva';
@@ -55,48 +55,12 @@ export interface ProductData {
 // Helper to structure data correctly for the app
 import { initialProducts } from './initialProducts';
 
-// Simple in-memory cache
-let cachedData: ProductData | null = null;
-let lastFetchTime = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
-
-export const getProducts = async (forceRefresh = false): Promise<ProductData> => {
+export const getProducts = async (): Promise<ProductData> => {
     console.log("Loading products instantly from local data directly");
     return initialProducts as unknown as ProductData;
 };
 
-// Helper to apply local overrides
-const applyLocalOverrides = (data: any) => {
-    try {
-        const localStock = JSON.parse(localStorage.getItem('stock_overrides') || '{}');
-        // Deep copy to avoid mutating the original import
-        const newData = JSON.parse(JSON.stringify(data));
 
-        console.log("Applying stock overrides:", localStock);
-
-        // Iterate through all categories to apply overrides
-        Object.keys(newData).forEach(mainCat => {
-            if (!newData[mainCat]) return;
-            Object.keys(newData[mainCat]).forEach(subCat => {
-                const items = newData[mainCat][subCat];
-                if (!Array.isArray(items)) return;
-
-                // Direct mutation of the deep copy
-                items.forEach((product: Product) => {
-                    const override = localStock[String(product.id)];
-                    if (override) {
-                        console.log(`Overriding product ${product.id} (${product.title}) to ${override}`);
-                        product.stockStatus = override;
-                    }
-                });
-            });
-        });
-        return newData;
-    } catch (e) {
-        console.error("Error applying local overrides:", e);
-        return data;
-    }
-};
 
 export const updateProductStock = async (id: string, newStatus: ProductHeight) => {
     // 1. Save to LocalStorage (Always works for the current user)

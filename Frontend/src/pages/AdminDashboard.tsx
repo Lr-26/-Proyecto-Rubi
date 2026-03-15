@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Package, Search, Edit2, CheckCircle, AlertTriangle, XCircle, LogOut, Loader2, Database } from 'lucide-react';
+import { Package, Search, Edit2, CheckCircle, AlertTriangle, XCircle, LogOut, Loader2 } from 'lucide-react';
 import { getProducts, updateProductStock, addProduct, updateProduct, Product } from '../data/products';
 import { Link } from 'react-router-dom';
 import ImageUpload from '../components/ImageUpload';
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const data = await getProducts(true); // Force refresh
+            const data = await getProducts(); // Loaded directly now
             // Flatten the structure for the table
             let flatList: Product[] = [];
 
