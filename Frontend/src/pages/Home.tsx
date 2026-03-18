@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import Catalog from '../components/Catalog';
 import AboutPreview from '../components/AboutPreview';
 import BrandExperience from '../components/BrandExperience';
+import PaymentMethods from '../components/PaymentMethods';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <AboutPreview />
             <Catalog />
             <BrandExperience />
+            <PaymentMethods />
         </div>
     );
 };

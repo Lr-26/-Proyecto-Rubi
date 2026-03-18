@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Footer = () => {
     return (
-        <footer className="relative bg-black text-premium-cream overflow-hidden">
+        <footer id="contacto" className="relative bg-black text-premium-cream overflow-hidden">
             {/* Luxury Background Effect */}
             <div className="absolute inset-0 z-0">
                 <img 

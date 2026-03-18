@@ -33,6 +33,12 @@
     font-weight: 500;
     letter-spacing: -0.02em;
   }
+
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+  }
 }
 
 @layer utilities {

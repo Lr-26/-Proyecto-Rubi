@@ -17,7 +17,7 @@ interface ProductCardProps {
     onClick?: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, description, category, brand, variant = 'default', onClick }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, description, category, brand, stockStatus, variant = 'default', onClick }) => {
     const isPremium = variant === 'premium';
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -71,8 +71,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                     alt={title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className={`w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-all duration-700 ease-out ${stockStatus === 'out_of_stock' ? 'grayscale-[40%] opacity-80' : ''}`}
                 />
+
+                {stockStatus === 'out_of_stock' && (
+                    <div className="absolute top-4 right-4 z-40 bg-black/80 backdrop-blur-md text-white px-4 py-2 rounded-full text-[9px] font-bold tracking-[0.3em] border border-white/20 shadow-2xl">
+                        VENDIDO
+                    </div>
+                )}
 
                 {hasMultipleImages && (
                     <>
@@ -118,9 +124,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                         {title}
                     </h3>
                     <div className="mb-4">
-                        <p className={`text-xs font-light leading-relaxed line-clamp-2 px-2 italic opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
+                        <p className={`text-xs font-light leading-relaxed line-clamp-2 px-2 opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
                             {description}
                         </p>
+                        <button 
+                            className={`text-[10px] font-bold mt-1 tracking-widest hover:underline ${isPremium ? 'text-premium-gold' : 'text-premium-ruby'}`}
+                        >
+                            VER MÁS
+                        </button>
                     </div>
                 </div>
 
@@ -129,16 +140,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                         {price}
                     </div>
                     <button
-                        onClick={openWhatsApp}
+                        onClick={stockStatus === 'out_of_stock' ? (e) => { e.stopPropagation(); if (onClick) onClick(); } : openWhatsApp}
                         className={`w-full py-3 rounded-xl text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
-                            isPremium
-                                ? 'bg-gradient-to-r from-premium-gold via-[#b38b45] to-premium-gold text-white shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-[0_8px_25px_rgba(212,175,55,0.4)] bg-[length:200%_auto] hover:bg-right'
-                                : 'bg-premium-dark text-white hover:bg-premium-gold shadow-md hover:shadow-xl'
+                            stockStatus === 'out_of_stock'
+                                ? 'bg-neutral-200 text-neutral-500 cursor-default'
+                                : isPremium
+                                    ? 'bg-gradient-to-r from-premium-gold via-[#b38b45] to-premium-gold text-white shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-[0_8px_25px_rgba(212,175,55,0.4)] bg-[length:200%_auto] hover:bg-right'
+                                    : 'bg-premium-dark text-white hover:bg-premium-gold shadow-md hover:shadow-xl'
                         }`}
                     >
-                        <span className="relative z-10">CONSULTAR</span>
-                        {/* Subtle shimmer for button */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
+                        <span className="relative z-10">
+                            {stockStatus === 'out_of_stock' ? 'PIEZA VENDIDA / SOLD' : 'CONSULTAR'}
+                        </span>
+                        {/* Shimmer effect only for in-stock */}
+                        {stockStatus !== 'out_of_stock' && (
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
+                        )}
                     </button>
                 </div>
             </div>

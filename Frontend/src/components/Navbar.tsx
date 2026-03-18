@@ -119,19 +119,18 @@ const Navbar = () => {
                                 COLECCIONES
                                 <span className="absolute bottom-1 left-0 w-full h-[1px] bg-premium-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                             </Link>
+
+                            <button 
+                                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                                className={`relative group py-2 text-sm font-medium tracking-widest transition-colors ${scrolled ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'}`}
+                            >
+                                CONTACTO
+                                <span className="absolute bottom-1 left-0 w-full h-[1px] bg-premium-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                            </button>
                             
                             {/* Auth Status */}
                             <AuthStatus scrolled={scrolled} />
 
-                            <Link to="/contacto" className={`
-                                transition-all duration-300 px-8 py-3 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transform hover:-translate-y-0.5
-                                ${scrolled
-                                    ? 'bg-gradient-to-r from-premium-gold to-yellow-600 text-black border border-premium-gold/30'
-                                    : 'bg-premium-ruby text-white hover:bg-premium-gold hover:text-premium-dark'
-                                }
-                            `}>
-                                CONTACTO
-                            </Link>
                         </div>
                     </div>
                     {/* Mobile menu button */}
@@ -190,9 +189,12 @@ const Navbar = () => {
                                 </Link>
                             </div>
 
-                            <Link to="/contacto" onClick={() => setIsOpen(false)} className="block w-full px-4 py-4 rounded-xl text-xs font-bold tracking-[0.2em] text-white bg-premium-ruby hover:bg-premium-gold transition-all mt-8 text-center shadow-lg">
+                            <button 
+                                onClick={() => { setIsOpen(false); document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' }); }} 
+                                className="block w-full px-4 py-4 rounded-xl text-xs font-bold tracking-[0.2em] text-white bg-premium-ruby hover:bg-premium-gold transition-all mt-8 text-center shadow-lg"
+                            >
                                 CONTACTO
-                            </Link>
+                            </button>
                         </div>
                     </motion.div>
                 )}
