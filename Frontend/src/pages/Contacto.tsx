@@ -79,15 +79,20 @@ const Contacto = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
-                                <div className="bg-premium-gold p-3 rounded-full text-white">
+                            <a 
+                                href="https://wa.me/5493813358831" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="flex items-start space-x-4 group hover:bg-white/50 p-2 -m-2 rounded-lg transition-all"
+                            >
+                                <div className="bg-premium-gold p-3 rounded-full text-white group-hover:scale-110 transition-transform">
                                     <Phone size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-premium-dark">Teléfono</h3>
-                                    <p className="text-gray-600">+54 9 381 335 8831 (Aylen)</p>
+                                    <h3 className="font-bold text-premium-dark">Teléfono / WhatsApp</h3>
+                                    <p className="text-gray-600 font-medium group-hover:text-premium-gold transition-colors">+54 9 381 335 8831 (Aylen)</p>
                                 </div>
-                            </div>
+                            </a>
 
                             <div className="flex items-start space-x-4">
                                 <div className="bg-premium-gold p-3 rounded-full text-white">
