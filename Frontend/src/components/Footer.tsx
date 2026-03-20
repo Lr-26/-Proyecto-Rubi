@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Mail } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -45,9 +45,8 @@ const Footer = () => {
                     <div className="flex flex-col items-center md:items-end">
                         <h4 className="font-serif text-lg mb-6 tracking-widest uppercase text-premium-gold/80">Síguenos</h4>
                         <div className="flex space-x-6">
-                            <a href="https://www.instagram.com/rubi_lentes?igsh=MXRtejhuZG85dnZh" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Instagram size={20} /></a>
-                            <a href="#" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Facebook size={20} /></a>
-                            <a href="mailto:contacto@rubidetails.com" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Mail size={20} /></a>
+                            <a href="https://www.instagram.com/rubi_lentesde_sol?igsh=MW8xdDhyNDR3NnR3bw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Instagram size={20} /></a>
+                            <a href="mailto:rubilentesdesol@gmail.com" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-premium-gold hover:text-premium-dark transition-all duration-700"><Mail size={20} /></a>
                         </div>
                     </div>
                 </div>

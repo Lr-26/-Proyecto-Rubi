@@ -35,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
             return;
         }
 
-        const phoneNumber = "549381449040";
+        const phoneNumber = "5493813358831";
         const message = `Hola! Me interesa el producto "${title}" (${price}) de la categoría ${category}. ¿Tienen stock?`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');

@@ -75,7 +75,7 @@ const Contacto = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-premium-dark">Ubicación</h3>
-                                    <p className="text-gray-600">Av. de la Moda 123, Ciudad de México, CDMX</p>
+                                    <p className="text-gray-600">San Miguel de Tucumán, Argentina</p>
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@ const Contacto = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-premium-dark">Teléfono</h3>
-                                    <p className="text-gray-600">+52 55 1234 5678</p>
+                                    <p className="text-gray-600">+54 9 381 335 8831 (Aylen)</p>
                                 </div>
                             </div>
 
@@ -95,7 +95,7 @@ const Contacto = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-premium-dark">Email</h3>
-                                    <p className="text-gray-600">contacto@rubidetails.com</p>
+                                    <p className="text-gray-600">rubilentesdesol@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ const Contacto = () => {
                                     value={formData.phone}
                                     onChange={handleChange}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:ring-premium-gold focus:border-premium-gold outline-none transition-colors"
-                                    placeholder="+52 55 1234 5678"
+                                    placeholder="+54 9 381 335 8831"
                                 />
                             </div>
 

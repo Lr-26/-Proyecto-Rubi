@@ -118,7 +118,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                                                     window.dispatchEvent(new CustomEvent('openAuth'));
                                                     return;
                                                 }
-                                                const phoneNumber = "549381449040";
+                                                const phoneNumber = "5493813358831";
                                                 const message = `Hola! Me interesa el producto "${product.title}" (${product.price}). ¿Tienen stock?`;
                                                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                                                 window.open(whatsappUrl, '_blank');

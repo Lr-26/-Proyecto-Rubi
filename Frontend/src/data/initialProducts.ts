@@ -286,6 +286,150 @@ export const initialProducts = {
                 brand: 'Línea Plus',
                 specs: { material: "Premium", shape: "Modern", style: "Sunglasses", extra: "Filtro UV 400 + Estuche" }
             },
+            { 
+                id: 122, 
+                title: "Lente de Sol Pluss 013", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss013.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss013.jfif",
+                    "/assets/products/Lentes-Plus/plus013.jfif",
+                    "/assets/products/Lentes-Plus/plusss013.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 123, 
+                title: "Lente de Sol Pluss 014", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss014.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss014.jfif",
+                    "/assets/products/Lentes-Plus/plus014.jfif",
+                    "/assets/products/Lentes-Plus/plusss014.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 124, 
+                title: "Lente de Sol Pluss 015", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss015.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss015.jfif",
+                    "/assets/products/Lentes-Plus/plus015.jfif",
+                    "/assets/products/Lentes-Plus/plusss015.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 125, 
+                title: "Lente de Sol Pluss 016", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss016.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss016.jfif",
+                    "/assets/products/Lentes-Plus/plus016.jfif",
+                    "/assets/products/Lentes-Plus/plusss016.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 126, 
+                title: "Lente de Sol Pluss 017", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss017.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss017.jfif",
+                    "/assets/products/Lentes-Plus/plus017.jfif",
+                    "/assets/products/Lentes-Plus/plusss017.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 127, 
+                title: "Lente de Sol Pluss 018", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss018.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss018.jfif",
+                    "/assets/products/Lentes-Plus/plus018.jfif",
+                    "/assets/products/Lentes-Plus/plusss018.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 128, 
+                title: "Lente de Sol Pluss 019", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss019.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss019.jfif",
+                    "/assets/products/Lentes-Plus/plus019.jfif",
+                    "/assets/products/Lentes-Plus/plusss019.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 129, 
+                title: "Lente de Sol Pluss 020", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss020.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss020.jfif",
+                    "/assets/products/Lentes-Plus/plus020.jfif",
+                    "/assets/products/Lentes-Plus/plusss020.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
+            { 
+                id: 130, 
+                title: "Lente de Sol Pluss 021", 
+                price: "$25000", 
+                image: "/assets/products/Lentes-Plus/pluss021.jfif", 
+                images: [
+                    "/assets/products/Lentes-Plus/pluss021.jfif",
+                    "/assets/products/Lentes-Plus/plus021.jfif",
+                    "/assets/products/Lentes-Plus/plusss021.jfif"
+                ],
+                description: "- Línea plus\nDescripción general:\nLente de sol\nFiltro UV 400\nIncluye estuche.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Plus',
+                specs: { material: "Premium", shape: "Modern", style: "Plus", extra: "Filtro UV 400 + Estuche" }
+            },
         ],
         plusDescanso: [
             { 
@@ -603,6 +747,261 @@ export const initialProducts = {
                 images: [
                     "/assets/products/Lentes-Estandar/estandar020.jfif",
                     "/assets/products/Lentes-Estandar/estandarr020.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 221, 
+                title: "Lente de Sol Estandar 021", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar021.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar021.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr021.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 222, 
+                title: "Lente de Sol Estandar 022", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar022.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar022.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr022.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 223, 
+                title: "Lente de Sol Estandar 023", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar023.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar023.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr023.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 224, 
+                title: "Lente de Sol Estandar 024", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar024.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar024.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr024.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 225, 
+                title: "Lente de Sol Estandar 025", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar025.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar025.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr025.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 226, 
+                title: "Lente de Sol Estandar 026", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar026.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar026.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr026.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 227, 
+                title: "Lente de Sol Estandar 027", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar027.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar027.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr027.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 228, 
+                title: "Lente de Sol Estandar 028", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar028.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar028.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr028.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 229, 
+                title: "Lente de Sol Estandar 029", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar029.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar029.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr029.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 230, 
+                title: "Lente de Sol Estandar 030", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar030.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar030.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr030.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 231, 
+                title: "Lente de Sol Estandar 031", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar031.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar031.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr031.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 232, 
+                title: "Lente de Sol Estandar 032", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar032.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar032.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr032.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 233, 
+                title: "Lente de Sol Estandar 033", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar033.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar033.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr033.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 234, 
+                title: "Lente de Sol Estandar 034", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar034.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar034.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr034.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 235, 
+                title: "Lente de Sol Estandar 035", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar035.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar035.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr035.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 236, 
+                title: "Lente de Sol Estandar 036", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar036.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar036.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr036.jfif"
+                ],
+                description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
+                stockStatus: 'in_stock', 
+                stockQuantity: 10,
+                brand: 'Línea Estandar',
+                specs: { material: "Acetato", shape: "Classic", style: "Casual", extra: "Filtro UV 400 + Funda de tela" }
+            },
+            { 
+                id: 237, 
+                title: "Lente de Sol Estandar 037", 
+                price: "$15000", 
+                image: "/assets/products/Lentes-Estandar/estandar037.jfif", 
+                images: [
+                    "/assets/products/Lentes-Estandar/estandar037.jfif",
+                    "/assets/products/Lentes-Estandar/estandarr037.jfif"
                 ],
                 description: "Lentes de sol\nFiltro UV 400\nIncluye funda de tela.", 
                 stockStatus: 'in_stock', 

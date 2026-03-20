@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
     // Replace with the actual phone number and message
-    const phoneNumber = "549381449040"; // Updated with user's new number
+    const phoneNumber = "5493813358831"; // Updated with Aylen's number
     const message = "Hola! Me gustaría recibir más información sobre sus productos exclusivos.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
