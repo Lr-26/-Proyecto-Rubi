@@ -15,9 +15,9 @@
   "scripts": {
     "dev": "npx concurrently \"npm run dev --prefix Backend\" \"npm run dev --prefix Frontend\"",
     "install-backend": "cd Backend && npm install",
-    "install-frontend": "cd Frontend && npm install",
+    "install-frontend": "cd Frontend && npm install --include=dev",
     "postinstall": "npm run install-backend && npm run install-frontend",
-    "build-frontend": "cd Frontend && npm run build -- --outDir ../dist",
+    "build-frontend": "cd Frontend && npm run build -- --outDir ../public",
     "build": "npm run build-frontend",
     "start": "cd Backend && npm start",
     "heroku-postbuild": "npm run build-frontend",

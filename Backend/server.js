@@ -124,7 +124,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Serve Frontend Static Files
-const frontendPath = path.resolve(__dirname, '../Frontend/dist');
+const frontendPath = path.resolve(__dirname, '../public');
 const assetsPath = path.resolve(frontendPath, 'assets');
 console.log(`Frontend Path: ${frontendPath}`);
 console.log(`Assets Path: ${assetsPath}`);
