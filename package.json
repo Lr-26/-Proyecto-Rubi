@@ -10,7 +10,8 @@
     "install-backend": "cd Backend && npm install",
     "install-frontend": "cd Frontend && npm install",
     "postinstall": "npm run install-backend && npm run install-frontend",
-    "build-frontend": "cd Frontend && npm run build",
+    "build-frontend": "cd Frontend && npm run build -- --outDir ../dist",
+    "build": "npm run build-frontend",
     "start": "cd Backend && npm start",
     "heroku-postbuild": "npm run build-frontend",
     "serve": "npm run build-frontend && npm start"
