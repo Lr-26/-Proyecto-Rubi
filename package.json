@@ -17,7 +17,7 @@
     "install-backend": "cd Backend && npm install",
     "install-frontend": "cd Frontend && npm install --include=dev",
     "postinstall": "npm run install-backend && npm run install-frontend",
-    "build-frontend": "cd Frontend && npm run build -- --outDir ../public",
+    "build-frontend": "cd Frontend && npm run build -- --outDir ../dist",
     "build": "npm run build-frontend",
     "start": "cd Backend && npm start",
     "heroku-postbuild": "npm run build-frontend",
