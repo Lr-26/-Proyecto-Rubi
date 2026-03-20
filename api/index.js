@@ -123,57 +123,7 @@ app.get('/api/health', (req, res) => {
     res.send('API is running with Supabase...');
 });
 
-// Serve Frontend Static Files
-const frontendPath = path.resolve(__dirname, '../Frontend/dist');
-const assetsPath = path.resolve(frontendPath, 'assets');
-console.log(`Frontend Path: ${frontendPath}`);
-console.log(`Assets Path: ${assetsPath}`);
-
-// 1. Explicitly serve assets folder with custom logging and MIME types
-app.use('/assets', (req, res, next) => {
-    const filePath = path.join(assetsPath, decodeURIComponent(req.url));
-    const ext = path.extname(filePath).toLowerCase();
-
-    // Explicitly set MIME types to avoid "text/html" issues
-    if (ext === '.js') {
-        res.type('application/javascript');
-    } else if (ext === '.css') {
-        res.type('text/css');
-    }
-
-    console.log(`[Asset Request] ${req.url} -> ${filePath} (Type: ${res.get('Content-Type')})`);
-
-    res.sendFile(filePath, (err) => {
-        if (err) {
-            console.error(`❌ [Asset Error] ${err.message} for ${req.url}`);
-            next();
-        } else {
-            console.log(`✅ [Asset Success] Served ${req.url}`);
-        }
-    });
-});
-
-// 2. Serve other static files from root
-app.use(express.static(frontendPath));
-
-// 3. Fallback to index.html for client-side routing
-app.get('*', (req, res) => {
-    if (req.url.startsWith('/api/')) {
-        return res.status(404).json({ success: false, message: 'API endpoint not found' });
-    }
-
-    const indexPath = path.resolve(frontendPath, 'index.html');
-    console.log(`[${new Date().toISOString()}] Catch-all: ${req.url} -> ${indexPath}`);
-    res.sendFile(indexPath, (err) => {
-        if (err) {
-            console.error('❌ SendFile Error:', err.message);
-            if (!res.headersSent) {
-                res.status(err.status || 500).send(`Server Error: ${err.message}`);
-            }
-        }
-    });
-});
-
+// Vercel serverless function export
 if (process.env.NODE_ENV !== 'production') {
     app.listen(PORT, () => {
         console.log(`🚀 Server running on http://localhost:${PORT}`);
