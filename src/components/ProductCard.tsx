@@ -74,8 +74,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                     decoding="async"
                     onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=800'; // Fallback to a nice premium image
-                        target.onerror = null; // Prevent infinite loop
+                        // Use a generic sunglasses image as fallback for any category to avoid "mixed" appearance
+                        target.src = 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=800'; 
+                        target.onerror = null; 
                     }}
                     className={`w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-all duration-700 ease-out ${stockStatus === 'out_of_stock' ? 'grayscale-[40%] opacity-80' : ''}`}
                 />
