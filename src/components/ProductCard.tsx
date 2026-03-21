@@ -122,16 +122,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                                 {brand}
                             </span>
                         )}
-                        <span className={`text-[9px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full border ${isPremium ? 'text-premium-gold border-premium-gold/30 bg-premium-gold/5' : 'text-premium-dark border-gray-200'
+                        <span className={`text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] px-2 md:px-3 py-0.5 md:py-1 rounded-full border ${isPremium ? 'text-premium-gold border-premium-gold/30 bg-premium-gold/5' : 'text-premium-dark border-gray-200'
                             }`}>
                             {category}
                         </span>
                     </div>
-                    <h3 className={`font-serif text-sm md:text-lg mt-3 mb-1.5 md:mb-2 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
+                    <h3 className={`font-serif text-base md:text-lg mt-3 mb-1.5 md:mb-2 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
                         {title}
                     </h3>
                     <div className="mb-4">
-                        <p className={`text-[10px] md:text-xs font-light leading-relaxed line-clamp-2 px-1 md:px-2 opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
+                        <p className={`text-xs md:text-sm font-light leading-relaxed line-clamp-2 px-1 md:px-2 opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
                             {description}
                         </p>
                         <button 
@@ -143,12 +143,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                 </div>
 
                 <div className="flex flex-col items-center mt-auto pt-3 border-t border-gray-500/10">
-                    <div className={`text-sm md:text-lg font-serif font-medium mb-3 tracking-tight ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
+                    <div className={`text-base md:text-xl font-serif font-medium mb-3 tracking-tight ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
                         {price}
                     </div>
                     <button
                         onClick={stockStatus === 'out_of_stock' ? (e) => { e.stopPropagation(); if (onClick) onClick(); } : openWhatsApp}
-                        className={`w-full py-2 md:py-3 rounded-xl text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
+                        className={`w-full py-2.5 md:py-3 rounded-xl text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
                             stockStatus === 'out_of_stock'
                                 ? 'bg-neutral-200 text-neutral-500 cursor-default'
                                 : isPremium
