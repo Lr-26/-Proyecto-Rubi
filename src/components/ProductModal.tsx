@@ -61,6 +61,11 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                                 <img
                                     src={product.image}
                                     alt={product.title}
+                                    onError={(e) => {
+                                        const target = e.target as HTMLImageElement;
+                                        target.src = 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=800';
+                                        target.onerror = null;
+                                    }}
                                     className="w-full h-full object-cover"
                                 />
                                 <button

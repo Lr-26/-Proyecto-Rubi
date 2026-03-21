@@ -178,9 +178,9 @@ const Carteras = () => {
             </div>
 
             <main className="bg-white">
-                {products?.premium && products.premium.length > 0 && (
+                {(products?.premium && products.premium.length > 0) && (
                     <Section
-                        title="Nuestra Colección"
+                        title="Carteras Premium"
                         items={products.premium}
                         onProductClick={handleProductClick}
                     />

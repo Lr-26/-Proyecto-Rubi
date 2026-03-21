@@ -36,7 +36,7 @@ const Hero = () => {
     };
 
     return (
-        <div ref={ref} className="relative h-screen w-full overflow-hidden bg-black">
+        <div ref={ref} className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black">
             {/* Parallax Background */}
             <motion.div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"

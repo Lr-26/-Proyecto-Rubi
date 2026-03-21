@@ -96,18 +96,16 @@ const Catalog = () => {
     const location = useLocation();
 
     const handleCategoryClick = (categoryId: string) => {
-        if (categoryId === 'lentesSol') {
-            navigate('/lentes');
-        } else if (categoryId === 'carteras') {
-            navigate('/carteras');
-        } else if (categoryId === 'billeteras') {
-            navigate('/billeteras');
-        } else {
-            setActiveCategory(categoryId);
-            setTimeout(() => {
-                document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+        // We let the Link component handle the navigation for SEO and browser behavior
+        // But we keep this for programmatic triggers if needed
+        setActiveCategory(categoryId);
+        if (categoryId === 'lentesSol' || categoryId === 'carteras' || categoryId === 'billeteras') {
+            // Already handled by Link's "to" prop
+            return;
         }
+        setTimeout(() => {
+            document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
     };
 
     const handleBackClick = () => {
@@ -231,10 +229,12 @@ const Catalog = () => {
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: index * 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    onClick={() => handleCategoryClick(cat.id)}
                                     className="group relative h-[450px] overflow-hidden cursor-pointer shadow-2xl bg-black rounded-sm border border-white/5 transition-all duration-700"
                                 >
-                                    <Link to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'billeteras' ? '/billeteras' : '#'))} className="absolute inset-0 z-30" />
+                                    <Link 
+                                        to={cat.id === 'lentesSol' ? '/lentes' : (cat.id === 'carteras' ? '/carteras' : (cat.id === 'billeteras' ? '/billeteras' : '#'))} 
+                                        className="absolute inset-0 z-30" 
+                                    />
                                     
                                     {/* Image with zoom effect - 100% opacity for maximum visibility */}
                                     <div

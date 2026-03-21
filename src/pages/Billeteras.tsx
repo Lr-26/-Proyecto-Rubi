@@ -186,9 +186,9 @@ const Billeteras = () => {
                         onProductClick={handleProductClick}
                     />
                 )}
-                {products?.mujer && products.mujer.length > 0 && (
+                {(products?.mujer && products.mujer.length > 0) && (
                     <Section
-                        title="Nuestra Colección"
+                        title="Colección Mujer"
                         items={products.mujer}
                         bgClass="bg-neutral-50"
                         onProductClick={handleProductClick}

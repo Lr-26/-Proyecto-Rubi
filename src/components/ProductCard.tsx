@@ -53,24 +53,30 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
     };
 
     return (
-        <motion.div
-            onClick={() => {
-                if (onClick) {
-                    onClick();
-                }
-            }}
-            whileHover={{ y: -5, scale: 1.01 }}
-            className={`group relative overflow-hidden cursor-pointer h-full flex flex-col transition-all duration-300 rounded-2xl ${isPremium
-                ? 'bg-gradient-to-br from-neutral-900 via-[#1a1a1a] to-black border border-white/10 shadow-xl'
-                : 'bg-white border border-gray-100 shadow-lg'
-                }`}
-        >
+            <motion.div
+                onClick={() => {
+                    if (onClick) {
+                        onClick();
+                    }
+                }}
+                whileHover={{ y: -5, scale: 1.01 }}
+                whileTap={{ scale: 0.98 }} // Better touch feedback
+                className={`group relative overflow-hidden cursor-pointer h-full flex flex-col transition-all duration-300 rounded-2xl touch-action-manipulation ${isPremium
+                    ? 'bg-gradient-to-br from-neutral-900 via-[#1a1a1a] to-black border border-white/10 shadow-xl'
+                    : 'bg-white border border-gray-100 shadow-lg'
+                    }`}
+            >
             <div className={`relative overflow-hidden ${isPremium ? 'aspect-[4/3]' : 'h-48 sm:h-56'} w-full bg-neutral-100 shrink-0 group/image`}>
                 <img
                     src={galleryImages[currentImageIndex]}
                     alt={title}
                     loading="lazy"
                     decoding="async"
+                    onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=800'; // Fallback to a nice premium image
+                        target.onerror = null; // Prevent infinite loop
+                    }}
                     className={`w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-all duration-700 ease-out ${stockStatus === 'out_of_stock' ? 'grayscale-[40%] opacity-80' : ''}`}
                 />
 

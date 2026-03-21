@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Forced refresh - Expert Full Stack Fix */
+.v-refresh-v2 { content: "v2"; }
 
 @theme {
   --color-premium-dark: #121212;

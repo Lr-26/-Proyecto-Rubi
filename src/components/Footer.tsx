@@ -35,9 +35,9 @@ const Footer = () => {
                     <div className="flex flex-col items-center">
                         <h4 className="font-serif text-lg mb-6 tracking-widest uppercase text-premium-gold/80">Explorar</h4>
                         <ul className="space-y-4 text-sm text-gray-400 font-light text-center">
-                            <li><Link to="/carteras" className="hover:text-white transition-colors">Carteras & Billeteras</Link></li>
+                            <li><Link to="/carteras" className="hover:text-white transition-colors">Carteras</Link></li>
+                            <li><Link to="/billeteras" className="hover:text-white transition-colors">Billeteras</Link></li>
                             <li><Link to="/lentes" className="hover:text-white transition-colors">Gafas de Sol</Link></li>
-                            <li><Link to="/contacto" className="hover:text-white transition-colors">Servicio al Cliente</Link></li>
                         </ul>
                     </div>
 
