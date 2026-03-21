@@ -151,9 +151,9 @@ const Lentes = () => {
     const [loading, setLoading] = useState(true);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-    // Parallax mouse tracking
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+    // Parallax mouse tracking - Center initialized for mobile
+    const mouseX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 500);
+    const mouseY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 500);
 
     // Smooth movement with springs
     const springConfig = { damping: 25, stiffness: 150 };
@@ -212,7 +212,7 @@ const Lentes = () => {
         >
             {/* 2. SubNavbar FIRST (above image, below main nav) */}
             <SubNavbar />
-            <div className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#020202] cursor-default">
+            <div className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-black cursor-default">
                 {/* Parallax Background Layer */}
                 <motion.div
                     style={{ x: bgX, y: bgY, scale: 1.1 }}
@@ -271,10 +271,10 @@ const Lentes = () => {
                     {/* The Circular Portal Container */}
                     <motion.div
                         style={{ x: bgX, y: bgY }}
-                        className="relative w-[320px] h-[320px] md:w-[550px] md:h-[550px] rounded-full border border-premium-gold/30 flex items-center justify-center overflow-hidden bg-black/40 backdrop-blur-md shadow-[0_0_100px_rgba(197,160,89,0.1)] z-20"
+                        className="relative w-[320px] h-[320px] md:w-[550px] md:h-[550px] rounded-full border border-premium-gold/30 flex items-center justify-center overflow-hidden bg-black shadow-[0_0_100px_rgba(197,160,89,0.1)] z-20"
                     >
                         {/* Internal Atmospheric Glows inside the circle */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#8b0000]/15 via-transparent to-[#c5a059]/10 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#8b0000]/15 via-transparent to-[#c5a059]/10 pointer-events-none mix-blend-screen" />
 
                         {/* The Sunglasses restricted to this circle with Additive Blending to remove all artifacts */}
                         <motion.img
@@ -283,14 +283,14 @@ const Lentes = () => {
                             style={{
                                 x: imageX,
                                 y: imageY,
-                                filter: 'contrast(1.1) brightness(1.05)',
-                                maskImage: 'radial-gradient(circle, black 65%, transparent 100%)',
-                                WebkitMaskImage: 'radial-gradient(circle, black 65%, transparent 100%)'
+                                filter: 'contrast(1.1) brightness(1.1)',
+                                maskImage: 'radial-gradient(circle at center, black 40%, transparent 75%)',
+                                WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 75%)'
                             }}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1.15 }}
                             transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
-                            className="w-[88%] h-[88%] object-contain z-30 pointer-events-none mix-blend-screen drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+                            className="w-[95%] h-[95%] object-contain z-30 pointer-events-none mix-blend-screen drop-shadow-[0_0_30px_rgba(0,0,0,1)]"
                         />
 
                         {/* Shimmer effect inside circle */}
