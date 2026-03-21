@@ -117,7 +117,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
             <div className="p-5 flex-grow flex flex-col justify-between">
                 <div className="text-center">
                     <div className="flex flex-col items-center mb-1.5">
-                        {brand && (
+                        {brand && category && brand.toLowerCase() !== category.toLowerCase() && !category.toLowerCase().includes(brand.toLowerCase()) && (
                             <span className={`text-[10px] font-bold tracking-[0.25em] uppercase mb-1 ${isPremium ? 'text-premium-gold/80' : 'text-gray-400'}`}>
                                 {brand}
                             </span>
