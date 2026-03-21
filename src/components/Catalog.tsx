@@ -476,7 +476,12 @@ const Catalog = () => {
                                         </div>
 
                                         <div className="max-w-7xl mx-auto grid gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
-                                            {(items as Product[]).map((item) => (
+                                            {(items as Product[]).filter(p => {
+                                                if (activeCategory === 'carteras') return p.image.includes('/Carteras');
+                                                if (activeCategory === 'billeteras') return p.image.toLowerCase().includes('billetera');
+                                                if (activeCategory === 'lentesSol') return p.image.includes('/Lentes');
+                                                return true;
+                                            }).map((item) => (
                                                 <ProductCard
                                                     key={item.id}
                                                     {...item}
