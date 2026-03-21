@@ -91,13 +91,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                     <>
                         <button
                             onClick={prevImage}
-                            className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-1 rounded-full bg-black/20 text-white opacity-0 group-hover/image:opacity-100 backdrop-blur-sm hover:bg-black/50 transition-all"
+                            className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 md:p-1 rounded-full bg-black/40 text-white opacity-80 md:opacity-0 group-hover/image:opacity-100 backdrop-blur-sm hover:bg-black/60 transition-all shadow-md"
                         >
                             <ChevronLeft size={16} />
                         </button>
                         <button
                             onClick={nextImage}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-1 rounded-full bg-black/20 text-white opacity-0 group-hover/image:opacity-100 backdrop-blur-sm hover:bg-black/50 transition-all"
+                            className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 md:p-1 rounded-full bg-black/40 text-white opacity-80 md:opacity-0 group-hover/image:opacity-100 backdrop-blur-sm hover:bg-black/60 transition-all shadow-md"
                         >
                             <ChevronRight size={16} />
                         </button>

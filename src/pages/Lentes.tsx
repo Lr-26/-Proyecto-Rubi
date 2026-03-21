@@ -351,7 +351,7 @@ const Lentes = () => {
             <Section
                 title="Miu Miu"
                 subtitle="Diseños ópticos y de sol con un estilo vanguardista y decididamente femenino."
-                items={(products?.premium || []).filter(p => p.brand === 'Miu Miu' && p.image.includes('/Lentes'))}
+                items={(products?.premium || []).filter(p => p.brand === 'Miu Miu')}
                 accentColor="#E8B4B8" // Premium dusty pink
                 icon={<Sparkles size={32} />}
                 bgClass="bg-white"
@@ -362,7 +362,7 @@ const Lentes = () => {
             <Section
                 title="Prada"
                 subtitle="Lujo geométrico, deportividad y minimalismo moderno en su máxima expresión."
-                items={(products?.premium || []).filter(p => p.brand === 'Prada' && p.image.includes('/Lentes'))}
+                items={(products?.premium || []).filter(p => p.brand === 'Prada')}
                 accentColor="#000000" // Premium Black
                 icon={<Diamond size={32} />}
                 bgClass="bg-neutral-100"
@@ -373,7 +373,7 @@ const Lentes = () => {
             <Section
                 title="Chanel"
                 subtitle="La elegancia atemporal, siluetas clásicas y detalles verdaderamente exclusivos."
-                items={(products?.premium || []).filter(p => p.brand === 'Chanel' && p.image.includes('/Lentes'))}
+                items={(products?.premium || []).filter(p => p.brand === 'Chanel')}
                 accentColor="#D4AF37" // Premium Gold
                 icon={<Crown size={32} />}
                 bgClass="bg-white"
@@ -384,7 +384,7 @@ const Lentes = () => {
             <Section
                 title="Dior"
                 subtitle="Diseño atrevido y elegante, con detalles distintivos y sofisticados."
-                items={(products?.premium || []).filter(p => p.brand === 'Dior' && p.image.includes('/Lentes'))}
+                items={(products?.premium || []).filter(p => p.brand === 'Dior')}
                 accentColor="#111111" // Dark Grey/Black for Dior
                 icon={<Sparkles size={32} />}
                 bgClass="bg-neutral-50"
