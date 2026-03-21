@@ -32,7 +32,7 @@ const Section: React.FC<SectionProps> = ({ title, items, bgClass = "bg-white", o
             </motion.div>
 
             {items.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
                     {items.map((item, index) => (
                         <motion.div
                             key={item.id}

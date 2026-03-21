@@ -66,7 +66,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                     : 'bg-white border border-gray-100 shadow-lg'
                     }`}
             >
-            <div className={`relative overflow-hidden ${isPremium ? 'aspect-[4/3]' : 'h-48 sm:h-56'} w-full bg-neutral-100 shrink-0 group/image`}>
+            <div className={`relative overflow-hidden ${isPremium ? 'aspect-[4/3] md:aspect-[5/4]' : 'h-40 sm:h-48'} w-full bg-neutral-100 shrink-0 group/image`}>
                 <img
                     src={galleryImages[currentImageIndex]}
                     alt={title}
@@ -114,7 +114,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                 </div>
             </div>
 
-            <div className="p-5 flex-grow flex flex-col justify-between">
+            <div className="p-3 md:p-5 flex-grow flex flex-col justify-between">
                 <div className="text-center">
                     <div className="flex flex-col items-center mb-1.5">
                         {brand && category && brand.toLowerCase() !== category.toLowerCase() && !category.toLowerCase().includes(brand.toLowerCase()) && (
@@ -127,11 +127,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                             {category}
                         </span>
                     </div>
-                    <h3 className={`font-serif text-lg md:text-xl mt-3 mb-2 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
+                    <h3 className={`font-serif text-sm md:text-lg mt-3 mb-1.5 md:mb-2 line-clamp-1 ${isPremium ? 'text-white' : 'text-premium-dark'}`}>
                         {title}
                     </h3>
                     <div className="mb-4">
-                        <p className={`text-xs font-light leading-relaxed line-clamp-2 px-2 opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
+                        <p className={`text-[10px] md:text-xs font-light leading-relaxed line-clamp-2 px-1 md:px-2 opacity-80 ${isPremium ? 'text-gray-400' : 'text-gray-500'}`}>
                             {description}
                         </p>
                         <button 
@@ -142,13 +142,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center mt-auto pt-4 border-t border-gray-500/10">
-                    <div className={`text-lg md:text-xl font-serif font-medium mb-4 tracking-tight ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
+                <div className="flex flex-col items-center mt-auto pt-3 border-t border-gray-500/10">
+                    <div className={`text-sm md:text-lg font-serif font-medium mb-3 tracking-tight ${isPremium ? 'text-premium-gold' : 'text-premium-dark'}`}>
                         {price}
                     </div>
                     <button
                         onClick={stockStatus === 'out_of_stock' ? (e) => { e.stopPropagation(); if (onClick) onClick(); } : openWhatsApp}
-                        className={`w-full py-3 rounded-xl text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
+                        className={`w-full py-2 md:py-3 rounded-xl text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
                             stockStatus === 'out_of_stock'
                                 ? 'bg-neutral-200 text-neutral-500 cursor-default'
                                 : isPremium
