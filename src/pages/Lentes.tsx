@@ -152,8 +152,8 @@ const Lentes = () => {
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
     // Parallax mouse tracking - Center initialized for mobile
-    const mouseX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 500);
-    const mouseY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 500);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
     // Smooth movement with springs
     const springConfig = { damping: 25, stiffness: 150 };
@@ -162,17 +162,18 @@ const Lentes = () => {
 
     // Transform values for different layers (different intensities for depth)
     // Map from client coordinates to a displacement from center
-    const bgX = useTransform(springX, [0, 2000], [-30, 30]);
-    const bgY = useTransform(springY, [0, 1000], [-30, 30]);
+    const bgX = useTransform(springX, [-1000, 1000], [-30, 30]);
+    const bgY = useTransform(springY, [-500, 500], [-30, 30]);
 
-    const imageX = useTransform(springX, [0, 2000], [-60, 60]);
-    const imageY = useTransform(springY, [0, 1000], [-60, 60]);
-
+    const imageX = useTransform(springX, [-1000, 1000], [-60, 60]);
+    const imageY = useTransform(springY, [-500, 500], [-60, 60]);
 
     const handleMouseMove = (e: React.MouseEvent) => {
         const { clientX, clientY } = e;
-        mouseX.set(clientX);
-        mouseY.set(clientY);
+        const centerX = typeof window !== 'undefined' ? window.innerWidth / 2 : 500;
+        const centerY = typeof window !== 'undefined' ? window.innerHeight / 2 : 500;
+        mouseX.set(clientX - centerX);
+        mouseY.set(clientY - centerY);
     };
 
 
@@ -302,26 +303,26 @@ const Lentes = () => {
                     </motion.div>
 
                     {/* Floating Hero Text */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none">
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-20 md:pb-16 z-40 pointer-events-none w-full">
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.5 }}
-                            className="font-serif text-7xl md:text-[13rem] text-white uppercase tracking-tighter mix-blend-difference opacity-90"
+                            className="font-serif text-[4.5rem] md:text-[13rem] text-white uppercase tracking-tighter mix-blend-difference opacity-90 w-full text-center leading-none"
                         >
                             Lentes
                         </motion.h1>
-                    </div>
 
-                    {/* Caption */}
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.8 }}
-                        className="mt-8 text-premium-gold/60 text-[10px] tracking-[0.5em] uppercase font-bold z-20"
-                    >
-                        Lux Visionary Collection
-                    </motion.p>
+                        {/* Caption */}
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.8 }}
+                            className="mt-3 md:mt-8 text-premium-gold/60 text-[9px] md:text-[10px] tracking-[0.6em] md:tracking-[0.8em] uppercase font-bold"
+                        >
+                            Lux Visionary Collection
+                        </motion.p>
+                    </div>
                 </div>
 
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20 opacity-30">
