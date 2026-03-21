@@ -61,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                 }}
                 whileHover={{ y: -5, scale: 1.01 }}
                 whileTap={{ scale: 0.98 }} // Better touch feedback
-                className={`group relative overflow-hidden cursor-pointer h-full flex flex-col transition-all duration-300 rounded-2xl touch-action-manipulation ${isPremium
+                className={`group relative overflow-hidden cursor-pointer h-full flex flex-col transition-all duration-300 rounded-2xl touch-action-manipulation w-full max-w-[320px] sm:max-w-none ${isPremium
                     ? 'bg-gradient-to-br from-neutral-900 via-[#1a1a1a] to-black border border-white/10 shadow-xl'
                     : 'bg-white border border-gray-100 shadow-lg'
                     }`}

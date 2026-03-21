@@ -47,13 +47,14 @@ const Section: React.FC<SectionProps> = ({ id, title, subtitle, items, bgClass =
             </motion.div>
 
             {items.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 justify-items-center">
                     {items.map((item, index) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="w-full max-w-[320px] sm:max-w-none"
                         >
                             <ProductCard
                                 {...item}
@@ -124,20 +125,20 @@ const SubNavbar = () => {
     };
 
     return (
-        <div className="sticky top-20 z-40 w-full bg-premium-dark border-b border-premium-gold/30 py-4 shadow-xl">
-            <div className="max-w-7xl mx-auto px-4 flex justify-center gap-4 md:gap-8">
+        <div className="sticky top-20 z-40 w-full bg-premium-dark border-b border-premium-gold/30 py-3 shadow-xl overflow-x-auto no-scrollbar">
+            <div className="max-w-7xl mx-auto px-2 flex justify-center gap-2 md:gap-8 min-w-max">
                 {navItems.map((item) => (
                     <button
                         key={item.id}
                         onClick={() => scrollTo(item.id === 'premium' ? 'premium-header' : `${item.id}-section`)}
-                        className={`flex items-center gap-2 px-6 py-2.5 rounded-full transition-all duration-300 ${(activeSection === 'premium-header' && item.id === 'premium') ||
+                        className={`flex items-center gap-1.5 md:gap-2 px-3 md:px-6 py-2 md:py-2.5 rounded-full transition-all duration-300 ${(activeSection === 'premium-header' && item.id === 'premium') ||
                                 (activeSection === `${item.id}-section`)
                                 ? 'bg-premium-gold text-premium-dark shadow-[0_0_20px_rgba(212,175,55,0.3)] scale-105 font-bold'
                                 : 'text-white/60 hover:text-white hover:bg-white/10'
                             }`}
                     >
                         {item.icon}
-                        <span className="text-sm font-serif uppercase tracking-wider">{item.label}</span>
+                        <span className="text-[10px] md:text-sm font-serif uppercase tracking-wider">{item.label}</span>
                     </button>
                 ))}
             </div>

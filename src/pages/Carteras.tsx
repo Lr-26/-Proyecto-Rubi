@@ -32,13 +32,14 @@ const Section: React.FC<SectionProps> = ({ title, items, bgClass = "bg-white", o
             </motion.div>
 
             {items.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 justify-items-center">
                     {items.map((item, index) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="w-full max-w-[320px] sm:max-w-none"
                         >
                             <ProductCard
                                 {...item}

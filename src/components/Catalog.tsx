@@ -475,7 +475,7 @@ const Catalog = () => {
                                             </motion.div>
                                         </div>
 
-                                        <div className="max-w-7xl mx-auto grid gap-4 md:gap-8 grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10">
+                                        <div className="max-w-7xl mx-auto grid gap-4 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 relative z-10 justify-items-center">
                                             {(items as Product[]).filter(p => {
                                                 if (activeCategory === 'carteras') return p.image.includes('/Carteras');
                                                 if (activeCategory === 'billeteras') return p.image.toLowerCase().includes('billetera');
