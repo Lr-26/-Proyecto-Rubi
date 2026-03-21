@@ -182,14 +182,14 @@ const Billeteras = () => {
                 {products?.hombre && products.hombre.length > 0 && (
                     <Section
                         title="Colección Hombre"
-                        items={products.hombre}
+                        items={products.hombre.filter(p => p.image.toLowerCase().includes('billetera'))}
                         onProductClick={handleProductClick}
                     />
                 )}
                 {(products?.mujer && products.mujer.length > 0) && (
                     <Section
                         title="Colección Mujer"
-                        items={products.mujer}
+                        items={products.mujer.filter(p => p.image.toLowerCase().includes('billetera'))}
                         bgClass="bg-neutral-50"
                         onProductClick={handleProductClick}
                     />
@@ -197,7 +197,7 @@ const Billeteras = () => {
                 {products?.accesorios && products.accesorios.length > 0 && (
                     <Section
                         title="Accesorios de Cuero"
-                        items={products.accesorios}
+                        items={products.accesorios.filter(p => p.image.toLowerCase().includes('billetera'))}
                         onProductClick={handleProductClick}
                     />
                 )}

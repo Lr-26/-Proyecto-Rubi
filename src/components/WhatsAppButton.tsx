@@ -1,16 +1,25 @@
 import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
-    // Replace with the actual phone number and message
-    const phoneNumber = "5493813358831"; // Updated with Aylen's number
-    const message = "Hola! Me gustaría recibir más información sobre sus productos exclusivos.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const handleWhatsAppClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        
+        const user = localStorage.getItem('rubi_user');
+        if (!user) {
+            // Dispatch custom event to open auth modal
+            window.dispatchEvent(new CustomEvent('openAuth'));
+            return;
+        }
+
+        const phoneNumber = "5493813358831";
+        const message = "Hola! Me gustaría recibir más información sobre sus productos exclusivos.";
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    };
 
     return (
-        <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+        <button
+            onClick={handleWhatsAppClick}
             className="fixed bottom-8 right-8 z-50 group"
             aria-label="Contactar por WhatsApp"
         >
@@ -36,7 +45,7 @@ const WhatsAppButton = () => {
                     <span className="absolute top-1/2 right-[-6px] transform -translate-y-1/2 w-3 h-3 bg-white rotate-45 border-r border-b border-gray-100"></span>
                 </span>
             </div>
-        </a>
+        </button>
     );
 };
 

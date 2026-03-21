@@ -181,14 +181,14 @@ const Carteras = () => {
                 {(products?.premium && products.premium.length > 0) && (
                     <Section
                         title="Carteras Premium"
-                        items={products.premium}
+                        items={products.premium.filter(p => p.image.includes('/Carteras'))}
                         onProductClick={handleProductClick}
                     />
                 )}
                 {products?.plus && products.plus.length > 0 && (
                     <Section
                         title="Línea Plus"
-                        items={products.plus}
+                        items={products.plus.filter(p => p.image.includes('/Carteras'))}
                         bgClass="bg-premium-cream/20"
                         onProductClick={handleProductClick}
                     />
@@ -196,7 +196,7 @@ const Carteras = () => {
                 {products?.standard && products.standard.length > 0 && (
                     <Section
                         title="Estándar"
-                        items={products.standard}
+                        items={products.standard.filter(p => p.image.includes('/Carteras'))}
                         onProductClick={handleProductClick}
                     />
                 )}
