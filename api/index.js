@@ -16,31 +16,14 @@ const supabaseKey = process.env.SUPABASE_ANON_KEY;
 let supabase;
 
 if (!supabaseUrl || !supabaseKey || supabaseUrl.includes('PON_TU_URL')) {
-    console.warn('⚠️ Supabase credentials missing or invalid. API functionality will be limited.');
-    // Mock supabase to prevent crashes
-    supabase = {
-        from: (table) => ({
-            select: () => ({ 
-                eq: () => ({ 
-                    single: () => Promise.resolve({ data: null, error: null }) 
-                }) 
-            }),
-            insert: () => ({ 
-                select: () => ({ 
-                    single: () => Promise.resolve({ data: { id: 'mock-id', name: 'Usuario Invitado' }, error: null }) 
-                }) 
-            })
-        })
-    };
-} else {
-    try {
-        supabase = createClient(supabaseUrl, supabaseKey);
-    } catch (error) {
-        console.error('❌ Failed to initialize Supabase client:', error.message);
-        supabase = {
-            from: () => ({ select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: null, error: { message: 'Supabase error' } }) }) }), insert: () => ({ select: () => ({ single: () => Promise.resolve({ data: null, error: { message: 'Supabase error' } }) }) }) })
-        };
-    }
+    console.error('⚠️ CRUCIAL: Te faltan las credenciales de Supabase (SUPABASE_URL y SUPABASE_ANON_KEY). La base de datos no funcionará.');
+    // Quitamos la simulación (mock) para que puedas ver el error real si algo falla.
+}
+
+try {
+    supabase = createClient(supabaseUrl || "http://localhost", supabaseKey || "dummykey");
+} catch (error) {
+    console.error('❌ Failed to initialize Supabase client:', error.message);
 }
 
 // Middleware
@@ -86,18 +69,19 @@ app.post('/api/register', async (req, res) => {
 
         // En Vercel Serverless es OBLIGATORIO usar await. 
         // Si no esperamos a que el correo se envíe, Vercel "congela" la función ni bien hacemos res.status() y el correo nunca sale.
-        try {
-            console.log("Enviando correo de bienvenida...");
-            await sendWelcomeEmail(email, name);
-            console.log("Correo enviado con éxito.");
-        } catch (err) {
-            console.error("Fallo al enviar el correo:", err);
-        }
+        console.log("Enviando correo de bienvenida...");
+        sendWelcomeEmail(email, name)
+            .then(() => console.log("Correo enviado con éxito."))
+            .catch(err => console.error("Fallo al enviar el correo:", err));
 
         res.status(201).json({ success: true, message: 'Registration successful', user: newUser });
     } catch (error) {
-        console.error('Error registering user:', error);
-        res.status(500).json({ success: false, message: 'Server error during registration.' });
+        console.error('Error detallado registrando usuario:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: error.message || 'Server error during registration.',
+            details: error.details || 'Revisa los logs de Vercel'
+        });
     }
 });
 
@@ -106,7 +90,6 @@ app.post('/api/contact', async (req, res) => {
     try {
         const { name, email, phone, message } = req.body;
 
-        // Basic validation
         if (!name || !email || !message) {
             return res.status(400).json({ success: false, message: 'Please provide name, email, and message.' });
         }
@@ -119,8 +102,12 @@ app.post('/api/contact', async (req, res) => {
 
         res.status(201).json({ success: true, message: 'Message sent successfully!' });
     } catch (error) {
-        console.error('Error saving contact:', error);
-        res.status(500).json({ success: false, message: 'Server error, please try again later.' });
+        console.error('Error enviando contacto:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: error.message || 'Server error, please try again.',
+            details: error.details || ''
+        });
     }
 });
 
