@@ -63,7 +63,7 @@ const WelcomeModal = ({ user, isOpen, onClose }: WelcomeModalProps) => {
                             <div className="w-12 h-[1px] bg-premium-gold/40 mb-8" />
 
                             <p className="text-xl sm:text-2xl text-white/90 font-serif leading-relaxed mb-4">
-                                ¡Bienvenido, {user?.name || 'Cliente Premium'}!
+                                ¡Bienvenido!
                             </p>
                             
                             <p className="text-sm sm:text-base text-gray-400 font-sans tracking-widest leading-loose mb-12 max-w-sm">
