@@ -47,6 +47,16 @@ app.post('/api/register', async (req, res) => {
             return res.status(400).json({ success: false, message: 'Please provide all fields.' });
         }
 
+        // Check if Supabase client is initialized
+        if (!supabase || typeof supabase.from !== 'function') {
+            console.error('❌ Supabase client NOT initialized. Error in SUPABASE_URL or SUPABASE_ANON_KEY.');
+            return res.status(500).json({ 
+                success: false, 
+                message: 'Error de configuración del servidor (Base de datos no disponible).',
+                details: 'Asegúrate de configurar SUPABASE_URL y SUPABASE_ANON_KEY en Vercel.'
+            });
+        }
+
         // Check if user already exists
         const { data: existingUser, error: fetchError } = await supabase
             .from('users')
@@ -68,11 +78,14 @@ app.post('/api/register', async (req, res) => {
         if (insertError) throw insertError;
 
         // En Vercel Serverless es OBLIGATORIO usar await. 
-        // Si no esperamos a que el correo se envíe, Vercel "congela" la función ni bien hacemos res.status() y el correo nunca sale.
         console.log("Enviando correo de bienvenida...");
-        sendWelcomeEmail(email, name)
-            .then(() => console.log("Correo enviado con éxito."))
-            .catch(err => console.error("Fallo al enviar el correo:", err));
+        try {
+            await sendWelcomeEmail(email, name);
+            console.log("Correo enviado con éxito.");
+        } catch (err) {
+            console.error("Fallo al enviar el correo:", err);
+            // We don't fail the registration if the email fails, but we log it.
+        }
 
         res.status(201).json({ success: true, message: 'Registration successful', user: newUser });
     } catch (error) {
@@ -92,6 +105,11 @@ app.post('/api/contact', async (req, res) => {
 
         if (!name || !email || !message) {
             return res.status(400).json({ success: false, message: 'Please provide name, email, and message.' });
+        }
+
+        // Check if Supabase client is initialized
+        if (!supabase || typeof supabase.from !== 'function') {
+            return res.status(500).json({ success: false, message: 'Server configuration error, database not ready.' });
         }
 
         const { error: insertError } = await supabase

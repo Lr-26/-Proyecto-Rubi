@@ -78,7 +78,7 @@ const sendWelcomeEmail = async (to, name) => {
                                     Rubi Lentes &bull; Excelencia Definida
                                 </p>
                                 <p style="font-size: 10px; color: #444444; margin: 0;">
-                                    Este mensaje ha sido enviado exclusivamente a ${email}.<br/>
+                                    Este mensaje ha sido enviado exclusivamente a ${to}.<br/>
                                     &copy; ${new Date().getFullYear()} Todos los derechos reservados.
                                 </p>
                             </div>
