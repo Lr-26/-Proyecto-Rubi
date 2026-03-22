@@ -36,7 +36,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
         }
 
         const phoneNumber = "5493813358831";
-        const message = `Hola! Me interesa el producto "${title}" (${price}) de la categoría ${category}. ¿Tienen stock?`;
+        const message = stockStatus === 'out_of_stock'
+            ? `Hola! Vi que el producto "${title}" (${price}) está AGOTADO. ¿Cuándo volverán a tener stock o habría posibilidad de encargarlo?`
+            : `Hola! Me interesa el producto "${title}" (${price}) de la categoría ${category}. ¿Tienen stock?`;
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
@@ -147,22 +149,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, images, 
                         {price}
                     </div>
                     <button
-                        onClick={stockStatus === 'out_of_stock' ? (e) => { e.stopPropagation(); if (onClick) onClick(); } : openWhatsApp}
+                        onClick={openWhatsApp}
                         className={`w-full py-2.5 md:py-3 rounded-xl text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-500 flex items-center justify-center gap-2 relative overflow-hidden group/btn ${
                             stockStatus === 'out_of_stock'
-                                ? 'bg-neutral-200 text-neutral-500 cursor-default'
+                                ? 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700 shadow-md'
                                 : isPremium
                                     ? 'bg-gradient-to-r from-premium-gold via-[#b38b45] to-premium-gold text-white shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-[0_8px_25px_rgba(212,175,55,0.4)] bg-[length:200%_auto] hover:bg-right'
                                     : 'bg-premium-dark text-white hover:bg-premium-gold shadow-md hover:shadow-xl'
                         }`}
                     >
-                        <span className="relative z-10">
-                            {stockStatus === 'out_of_stock' ? 'PIEZA VENDIDA / SOLD' : 'CONSULTAR'}
+                        <span className="relative z-10 flex items-center gap-2">
+                            {stockStatus === 'out_of_stock' ? 'PIEZA VENDIDA - PREGUNTAR' : 'CONSULTAR'}
                         </span>
-                        {/* Shimmer effect only for in-stock */}
-                        {stockStatus !== 'out_of_stock' && (
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
-                        )}
+                        {/* Shimmer effect always active for hover */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
                     </button>
                 </div>
             </div>
