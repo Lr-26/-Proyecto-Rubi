@@ -52,11 +52,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-12 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-gray-500 uppercase font-medium">
+                <div className="mt-12 flex flex-col md:flex-row justify-center items-center text-[10px] tracking-[0.2em] text-gray-500 uppercase font-medium">
                     <p>&copy; {new Date().getFullYear()} Rubi Lentes. Excelencia Definida.</p>
-                    <div className="flex items-center gap-6 mt-4 md:mt-0">
-                        <a href="/admin" className="hover:text-premium-gold transition-colors">Acceso Administrativo</a>
-                    </div>
                 </div>
             </motion.div>
         </footer >
