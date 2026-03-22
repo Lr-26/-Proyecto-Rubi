@@ -57,7 +57,7 @@ const WelcomeModal = ({ user, isOpen, onClose }: WelcomeModalProps) => {
                             </motion.div>
 
                             <h2 className="text-3xl sm:text-4xl font-serif tracking-[0.1em] text-white mb-6 uppercase">
-                                <span className="text-premium-ruby">RUBI</span> DETAILS
+                                <span className="text-premium-ruby">RUBI</span> LENTES
                             </h2>
 
                             <div className="w-12 h-[1px] bg-premium-gold/40 mb-8" />

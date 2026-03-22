@@ -46,7 +46,7 @@ const AboutPreview = () => {
                         <div className="w-20 h-1 bg-premium-gold mb-8"></div>
 
                         <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                            En Rubi Details, creemos que los accesorios no son solo complementos, sino extensiones de tu personalidad. Cada cartera y cada par de lentes es seleccionado meticulosamente para ofrecerte no solo un producto, sino una experiencia de distinción.
+                            En Rubi Lentes, creemos que los accesorios no son solo complementos, sino extensiones de tu personalidad. Cada cartera y cada par de lentes es seleccionado meticulosamente para ofrecerte no solo un producto, sino una experiencia de distinción.
                         </p>
                         <p className="text-gray-600 text-lg mb-10 leading-relaxed">
                             Desde el cuero más suave hasta los cristales ópticos más precisos, nuestra obsesión por la calidad es innegociable. Descubre por qué nuestros clientes nos eligen para elevar su estilo diario a un nuevo nivel de sofisticación.

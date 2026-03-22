@@ -25,7 +25,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-16">
                     {/* Brand */}
                     <div className="flex flex-col items-center md:items-start">
-                        <h3 className="font-serif text-2xl tracking-[0.2em] text-premium-ruby mb-6">RUBI DETAILS</h3>
+                        <h3 className="font-serif text-2xl tracking-[0.2em] text-premium-ruby mb-6">RUBI LENTES</h3>
                         <p className="text-sm text-gray-400 text-center md:text-left leading-relaxed max-w-xs font-light">
                             Elevando la sofisticación personal a través de accesorios minuciosamente seleccionados. Tu distinción es nuestro compromiso.
                         </p>
@@ -53,7 +53,7 @@ const Footer = () => {
                 </div>
 
                 <div className="mt-12 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-gray-500 uppercase font-medium">
-                    <p>&copy; {new Date().getFullYear()} Rubi Details. Excelencia Definida.</p>
+                    <p>&copy; {new Date().getFullYear()} Rubi Lentes. Excelencia Definida.</p>
                     <div className="flex items-center gap-6 mt-4 md:mt-0">
                         <a href="/admin" className="hover:text-premium-gold transition-colors">Acceso Administrativo</a>
                     </div>

@@ -108,7 +108,7 @@ const Navbar = () => {
                         <Link to="/" className="flex-shrink-0 font-serif text-2xl tracking-[0.2em] text-white hover:text-premium-gold transition-all duration-500 group flex items-center gap-3">
                             <span className="text-premium-ruby group-hover:text-premium-gold transition-colors">RUBI</span>
                             <span className={`text-gray-400 text-[10px] tracking-[0.4em] font-sans font-light group-hover:text-white transition-all duration-500 ${scrolled ? 'hidden sm:block opacity-0 lg:opacity-100' : 'block'
-                                }`}>DETAILS</span>
+                                }`}>LENTES</span>
                         </Link>
 
                         {/* Desktop Menu */}

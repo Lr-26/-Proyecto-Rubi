@@ -40,7 +40,7 @@ export const processMessageWithAI = async (message: string, history: { role: str
     }));
 
     const systemPrompt = `
-    Eres "Rubi Assistant", el asistente virtual de "Rubi Details", una tienda boutique de accesorios de lujo.
+    Eres "Rubi Assistant", el asistente virtual de "Rubi Lentes", una tienda boutique de accesorios de lujo.
     
     Tu objetivo es ayudar a los clientes con:
     1. Información sobre nuestras categorías: Lentes, Carteras y Billeteras, y Ropa Deportiva.
@@ -72,7 +72,7 @@ export const processMessageWithAI = async (message: string, history: { role: str
             },
             {
                 role: "model",
-                parts: [{ text: "Entendido. Soy Rubi Assistant y estoy lista para ayudar a los clientes de Rubi Details con elegancia y eficiencia." }]
+                parts: [{ text: "Entendido. Soy Rubi Assistant y estoy lista para ayudar a los clientes de Rubi Lentes con elegancia y eficiencia." }]
             },
             ...recentHistory
         ]

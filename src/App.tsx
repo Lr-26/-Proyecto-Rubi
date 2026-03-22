@@ -23,7 +23,7 @@ const PageLoader = () => (
   <div className="fixed inset-0 bg-premium-dark flex items-center justify-center z-[100]">
     <div className="flex flex-col items-center gap-6">
       <div className="w-12 h-12 border-2 border-premium-gold/20 border-t-premium-gold rounded-full animate-spin" />
-      <p className="text-premium-gold text-[10px] tracking-[0.5em] font-black uppercase font-sans animate-pulse">RUBI DETAILS</p>
+      <p className="text-premium-gold text-[10px] tracking-[0.5em] font-black uppercase font-sans animate-pulse">RUBI LENTES</p>
     </div>
   </div>
 );

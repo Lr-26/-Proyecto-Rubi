@@ -307,7 +307,7 @@ const Catalog = () => {
                                     standard: "TIMELESS ESSENTIALS",
                                     hombre: "RUBI MEN",
                                     mujer: "RUBI WOMEN",
-                                    accesorios: "EXCLUSIVE DETAILS"
+                                    accesorios: "EXCLUSIVE LENTES"
                                 };
                                 const overline = overlineMap[subKey] || "RUBI COLLECTION";
 
@@ -343,7 +343,7 @@ const Catalog = () => {
                                         isDark: true,
                                         overline: "Esenciales Atemporales",
                                         title: "Línea Estándar",
-                                        description: "Diseños clásicos y versátiles para el día a día. Calidad Rubi Details en cada detalle para complementar cualquier look."
+                                        description: "Diseños clásicos y versátiles para el día a día. Calidad Rubi Lentes en cada detalle para complementar cualquier look."
                                     },
                                 };
                                 const config = configMap[subKey] || {

@@ -65,13 +65,13 @@ const Hero = () => {
                     Estilo Atemporal & Lujo Moderno
                 </motion.span>
 
-                <h1 className="font-serif text-5xl md:text-8xl lg:text-[10rem] text-white mb-8 tracking-tighter leading-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <motion.span className="block" variants={titleVariants}>RUBI</motion.span>
+                <h1 className="font-serif text-5xl md:text-8xl lg:text-[10rem] mb-8 tracking-tighter leading-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <motion.span className="block text-premium-ruby" variants={titleVariants}>RUBI</motion.span>
                     <motion.span
                         className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-white/80 to-white/40 italic font-light text-glow"
                         variants={titleVariants}
                     >
-                        DETAILS
+                        LENTES
                     </motion.span>
                 </h1>
 

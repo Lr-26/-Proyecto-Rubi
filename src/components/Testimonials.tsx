@@ -22,7 +22,7 @@ const testimonials = [
         id: 3,
         name: "Valentina López",
         role: "Diseñadora de Modas",
-        comment: "Rubi Details entiende lo que significa la elegancia sutil. Sus diseños son modernos pero con un toque clásico que me encanta.",
+        comment: "Rubi Lentes entiende lo que significa la elegancia sutil. Sus diseños son modernos pero con un toque clásico que me encanta.",
         rating: 5,
         image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
     }
