@@ -84,8 +84,15 @@ app.post('/api/register', async (req, res) => {
 
         if (insertError) throw insertError;
 
-        // Send Welcome Email (Async, don't wait for it)
-        sendWelcomeEmail(email, name).catch(err => console.error("Email failed:", err));
+        // En Vercel Serverless es OBLIGATORIO usar await. 
+        // Si no esperamos a que el correo se envíe, Vercel "congela" la función ni bien hacemos res.status() y el correo nunca sale.
+        try {
+            console.log("Enviando correo de bienvenida...");
+            await sendWelcomeEmail(email, name);
+            console.log("Correo enviado con éxito.");
+        } catch (err) {
+            console.error("Fallo al enviar el correo:", err);
+        }
 
         res.status(201).json({ success: true, message: 'Registration successful', user: newUser });
     } catch (error) {
