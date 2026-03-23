@@ -43,45 +43,38 @@ const sendWelcomeEmail = async (to, name) => {
                             </div>
 
                             <!-- Greeting -->
-                            <div style="margin-bottom: 35px;">
-                                <h2 style="font-size: 26px; color: #ffffff; font-weight: 300; margin-bottom: 20px; letter-spacing: 1px;">
+                            <div style="margin-bottom: 45px;">
+                                <h2 style="font-size: 26px; color: #ffffff; font-weight: 300; margin-bottom: 25px; letter-spacing: 1px; text-transform: none;">
                                     Estimado/a <span style="color: #D4AF37;">${name}</span>,
                                 </h2>
                                 <p style="font-size: 16px; line-height: 1.8; color: #e0e0e0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 200;">
-                                    Nos complace confirmar su ingreso a la comunidad más selecta de óptica de lujo. En <strong>Rubi Lentes</strong>, no solo fabricamos lentes; diseñamos una extensión de su identidad.
+                                    Nos complace darle la bienvenida a la comunidad de **Rubi Lentes**. 
+                                </p>
+                                <p style="font-size: 16px; line-height: 1.8; color: #e0e0e0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 200; margin-top: 15px;">
+                                    Nuestra misión es ofrecerle una curaduría de las mejores marcas y modelos de lentes, piezas seleccionadas bajo los más altos estándares de sofisticación, vanguardia y elegancia personal.
                                 </p>
                             </div>
 
-                            <!-- Feature Card -->
-                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #0a0a0a; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 4px; margin-bottom: 40px;">
-                                <tr>
-                                    <td style="padding: 30px; text-align: center;">
-                                        <p style="margin: 0 0 15px 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; color: #D4AF37; letter-spacing: 2px; text-transform: uppercase;">Su Beneficio de Bienvenida</p>
-                                        <p style="margin: 0; font-size: 20px; color: #ffffff; font-weight: 300;">Acceso prioritario a Lanzamientos y Consultoría de Estilo Personalizada.</p>
-                                    </td>
-                                </tr>
-                            </table>
-
                             <!-- CALL TO ACTION BUTTON -->
-                            <div style="text-align: center; margin: 50px 0;">
-                                <a href="https://proyecto-rubi.vercel.app/lentes" style="background-color: #D4AF37; color: #000000; padding: 18px 45px; text-decoration: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; display: inline-block; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);">
-                                    Explorar la Colección
+                            <div style="text-align: center; margin: 60px 0;">
+                                <a href="https://proyecto-rubi.vercel.app/lentes" style="background-color: #D4AF37; color: #000000; padding: 20px 50px; text-decoration: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; display: inline-block;">
+                                    Explorar Catálogo
                                 </a>
                             </div>
 
                             <!-- Message -->
-                            <div style="margin-bottom: 45px;">
-                                <p style="font-size: 15px; line-height: 1.8; color: #aaaaaa; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; text-align: center;">
-                                    Si desea agendar una cita o requiere asistencia directa, nuestro equipo de concierge está a su disposición a través de nuestros canales oficiales.
+                            <div style="margin-bottom: 50px;">
+                                <p style="font-size: 15px; line-height: 1.8; color: #888888; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; text-align: center; font-style: italic;">
+                                    "La elegancia es la única belleza que nunca desaparece."
                                 </p>
                             </div>
 
                             <!-- Footer / Signature -->
                             <div style="border-top: 1px solid #1a1a1a; padding-top: 40px; text-align: center;">
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 22px; color: #D4AF37; margin: 0 0 10px 0; font-style: italic;">
+                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 20px; color: #D4AF37; margin: 0 0 5px 0; font-style: italic;">
                                     Rubi Lentes
                                 </p>
-                                <p style="font-size: 11px; color: #666666; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 30px 0;">
+                                <p style="font-size: 10px; color: #555555; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; letter-spacing: 4px; text-transform: uppercase; margin: 0 0 30px 0;">
                                     The Art of Vision
                                 </p>
                                 <p style="font-size: 10px; color: #444444; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6;">
