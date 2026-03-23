@@ -59,7 +59,7 @@ app.post('/api/register', async (req, res) => {
 
         // Check if user already exists
         const { data: existingUser, error: fetchError } = await supabase
-            .from('users')
+            .from('Proyecto-Rubi')
             .select('*')
             .eq('email', email)
             .single();
@@ -70,7 +70,7 @@ app.post('/api/register', async (req, res) => {
 
         // Create new user
         const { data: newUser, error: insertError } = await supabase
-            .from('users')
+            .from('Proyecto-Rubi')
             .insert([{ name, email, phone }])
             .select()
             .single();
