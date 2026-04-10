@@ -18,7 +18,7 @@ const sendWelcomeEmail = async (to, name) => {
         }
 
         const { data, error } = await resend.emails.send({
-            from: 'Rubi Lentes <onboarding@resend.dev>', // Cámbialo por hola@proyecto-rubi.vercel cuando esté verificado
+            from: process.env.RESEND_FROM_EMAIL || 'Rubi Lentes <onboarding@resend.dev>',
             to: [to],
             subject: '💎 Bienvenido al Universo Rubi - Acceso Exclusivo',
             html: `

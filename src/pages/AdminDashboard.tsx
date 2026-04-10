@@ -24,7 +24,8 @@ const AdminDashboard = () => {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        if (password === 'admin123') { // Simple hardcoded password for demo
+        const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'rubi2024';
+        if (password === adminPassword) {
             try {
                 // Sign in anonymously to Firebase to get write access
                 await signInAnonymously(auth);
