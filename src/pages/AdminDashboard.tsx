@@ -24,7 +24,12 @@ const AdminDashboard = () => {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'rubi2024';
+        const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+        if (!adminPassword) {
+            setError('Panel de administración no configurado. Contacte al administrador.');
+            setLoading(false);
+            return;
+        }
         if (password === adminPassword) {
             try {
                 // Sign in anonymously to Firebase to get write access

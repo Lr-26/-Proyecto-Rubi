@@ -25,13 +25,87 @@ export const calculatorTool: Tool = {
     },
     function: async ({ expression }) => {
         try {
-            if (/[^0-9+\-*/().\s]/.test(expression)) {
+            const sanitized = expression.replace(/\s/g, '');
+            if (!/^[0-9+\-*/().]+$/.test(sanitized)) {
                 return "Error: Solo se permiten números y operadores básicos (+ - * / .)";
             }
-            const result = new Function(`return ${expression}`)();
-            return String(result);
-        } catch (error) {
-            return "Error al calcular.";
+            if (/[+\-*/]{2,}/.test(sanitized.replace(/\(/g, '').replace(/\)/g, ''))) {
+                return "Error: Expresión inválida.";
+            }
+            const tokens: (number | string)[] = [];
+            let currentNum = '';
+            for (let i = 0; i < sanitized.length; i++) {
+                const ch = sanitized[i];
+                if (ch === '-' && (i === 0 || /[+\-*/(]/.test(sanitized[i - 1]))) {
+                    currentNum += ch;
+                } else if (/[0-9.]/.test(ch)) {
+                    currentNum += ch;
+                } else if ('+-*/()'.includes(ch)) {
+                    if (currentNum !== '') {
+                        const num = Number(currentNum);
+                        if (isNaN(num)) return "Error: Número inválido.";
+                        tokens.push(num);
+                        currentNum = '';
+                    }
+                    tokens.push(ch);
+                } else {
+                    return "Error: Carácter no permitido.";
+                }
+            }
+            if (currentNum !== '') {
+                const num = Number(currentNum);
+                if (isNaN(num)) return "Error: Número inválido.";
+                tokens.push(num);
+            }
+            const applyOp = (op: string, b: number, a: number): number => {
+                if (op === '+') return a + b;
+                if (op === '-') return a - b;
+                if (op === '*') return a * b;
+                if (op === '/') {
+                    if (b === 0) throw new Error('División por cero');
+                    return a / b;
+                }
+                throw new Error('Operador desconocido');
+            };
+            const precedence: Record<string, number> = { '+': 1, '-': 1, '*': 2, '/': 2 };
+            const values: number[] = [];
+            const ops: string[] = [];
+            for (const token of tokens) {
+                if (typeof token === 'number') {
+                    values.push(token);
+                } else if (token === '(') {
+                    ops.push(token);
+                } else if (token === ')') {
+                    while (ops.length && ops[ops.length - 1] !== '(') {
+                        const op = ops.pop()!;
+                        const b = values.pop()!;
+                        const a = values.pop()!;
+                        values.push(applyOp(op, b, a));
+                    }
+                    ops.pop();
+                } else {
+                    while (ops.length && ops[ops.length - 1] !== '(' && precedence[ops[ops.length - 1]] >= precedence[token]) {
+                        const op = ops.pop()!;
+                        const b = values.pop()!;
+                        const a = values.pop()!;
+                        values.push(applyOp(op, b, a));
+                    }
+                    ops.push(token);
+                }
+            }
+            while (ops.length) {
+                const op = ops.pop()!;
+                const b = values.pop()!;
+                const a = values.pop()!;
+                values.push(applyOp(op, b, a));
+            }
+            const result = values[0];
+            if (result === undefined || !isFinite(result)) {
+                return "Error: Resultado inválido.";
+            }
+            return String(Math.round(result * 1e10) / 1e10);
+        } catch (error: any) {
+            return error.message === 'División por cero' ? "Error: División por cero." : "Error al calcular.";
         }
     }
 };

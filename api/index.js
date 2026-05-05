@@ -27,7 +27,22 @@ try {
 }
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+    'https://proyecto-rubi.vercel.app',
+    process.env.NODE_ENV !== 'production' ? 'http://localhost:5173' : '',
+    process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : '',
+].filter(Boolean);
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 app.use(express.json());
 
 // Request logger

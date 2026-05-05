@@ -1,16 +1,90 @@
-# React + Vite
+# Rubi Lentes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Luxury e-commerce catalog for an Argentine boutique selling sunglasses, bags, and wallets.
 
-Currently, two official plugins are available:
+**Live site:** [proyecto-rubi.vercel.app](https://proyecto-rubi.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **AI Chatbot** — Google Gemini-powered assistant to help customers find products
+- **WhatsApp Commerce** — Direct integration with WhatsApp for sales conversations
+- **Product Management** — Admin dashboard for inventory, stock status, and product CRUD
+- **Multi-categoría** — Organized in Lentes, Carteras, and Billeteras with subcategories
+- **Lead Capture** — Backend API with Supabase for customer registration and contact forms
+- **Responsive Design** — Mobile-first luxury aesthetic with Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, Vite 7, TypeScript |
+| Styling | Tailwind CSS v4 |
+| Backend | Express.js (Vercel Serverless) |
+| Database | Supabase (PostgreSQL) |
+| Auth & Storage | Firebase |
+| AI | Google Gemini |
+| Email | Resend |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and fill in the values:
+
+```env
+VITE_ADMIN_PASSWORD=your_secure_password
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_GEMINI_API_KEY=
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+RESEND_API_KEY=
+```
+
+### Install & Run
+
+```bash
+npm install
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+### Build
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── data/           # Product catalog and initial data
+├── pages/          # Route-level page components
+├── utils/          # Helpers and AI tool definitions
+├── firebase/       # Firebase configuration
+└── App.tsx         # Root component with routing
+api/
+└── index.js        # Express serverless backend
+public/
+└── assets/         # Static images and product photos
+```
+
+## Deployment
+
+Deploys to [Vercel](https://vercel.com) via Git push. The `api/` directory is auto-detected as a serverless function.
+
+## License
+
+Private — All rights reserved.
